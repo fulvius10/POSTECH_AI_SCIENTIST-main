@@ -1,0 +1,21 @@
+{
+  "idade": 35,
+  "renda_mensal": 5200.0,
+  "tempo_emprego_anos": 6.0,
+  "autonomo": 0,
+  "score_credito": 680.0,
+  "valor_solicitado": 8000.0,
+  "prazo_meses": 24,
+  "juros_mensal_pct": 2.1,
+  "qtde_cartoes": 2,
+  "qtde_contratos_abertos": 1,
+  "utilizacao_credito": 0.35,
+  "inadimplencias_anteriores": 0,
+  "dias_atraso_max_12m": 5,
+  "reclamacoes_6m": 0,
+  "possui_avalista": 0,
+  "canal_aquisicao": "app",
+  "regiao": "Sudeste",
+  "tipo_produto": "emprestimo_pessoal"
+}
+

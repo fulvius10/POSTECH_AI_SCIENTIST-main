@@ -1,0 +1,20 @@
+{
+  "rows": 5000,
+  "columns": 23,
+  "duplicate_rows": 0,
+  "duplicate_ids": 0,
+  "default_count": 609,
+  "default_rate": 0.1218,
+  "missing_by_column": {
+    "renda_mensal": 192,
+    "tempo_emprego_anos": 526
+  },
+  "leakage_columns": [
+    "parcelas_pagas_ate_3m",
+    "atraso_primeira_parcela_dias",
+    "status_apos_90d"
+  ],
+  "governance_excluded_columns": [
+    "idade"
+  ]
+}

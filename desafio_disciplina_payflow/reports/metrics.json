@@ -1,0 +1,51 @@
+{
+  "selected_model": "Random Forest + calibracao sigmoid",
+  "selected_base_model": "Random Forest",
+  "selection_rule": "Maior Average Precision media na validacao cruzada estratificada; calibracao sigmoid aplicada sem usar o holdout.",
+  "holdout_records": 1250,
+  "holdout_default_rate": 0.1216,
+  "chosen_threshold": 0.06,
+  "metrics_at_0_50": {
+    "roc_auc": 0.7279563320870481,
+    "average_precision": 0.3498184891259286,
+    "brier_score": 0.0947470989277472,
+    "accuracy": 0.8848,
+    "precision": 0.6052631578947368,
+    "recall": 0.1513157894736842,
+    "f1": 0.24210526315789474,
+    "tn": 1083,
+    "fp": 15,
+    "fn": 129,
+    "tp": 23
+  },
+  "metrics_at_chosen_threshold": {
+    "roc_auc": 0.7279563320870481,
+    "average_precision": 0.3498184891259286,
+    "brier_score": 0.0947470989277472,
+    "accuracy": 0.4456,
+    "precision": 0.1606022584692597,
+    "recall": 0.8421052631578947,
+    "f1": 0.2697576396206533,
+    "tn": 429,
+    "fp": 669,
+    "fn": 24,
+    "tp": 128
+  },
+  "leakage_demo_metrics": {
+    "roc_auc": 1.0,
+    "average_precision": 1.0,
+    "brier_score": 2.6439263710126305e-05,
+    "accuracy": 1.0,
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1": 1.0,
+    "tn": 1098,
+    "fp": 0,
+    "fn": 0,
+    "tp": 152
+  },
+  "cost_assumptions_brl": {
+    "false_negative": 10000.0,
+    "false_positive": 500.0
+  }
+}
