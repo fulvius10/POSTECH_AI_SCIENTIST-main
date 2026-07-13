@@ -4,7 +4,7 @@ Este projeto identifica quais fatores operacionais mais afetam a satisfação em
 e-commerce e demonstra como antecipar clientes com risco de se tornarem
 detratores antes da pesquisa de NPS.
 
-## Resumo executivo
+## Resumo 
 
 A base possui 2.500 pedidos e 19 variáveis originais, sem valores ausentes ou
 registros duplicados. O quadro de satisfação exige ação: 74,0% dos pedidos são
@@ -21,9 +21,9 @@ Os principais pontos encontrados foram:
   resoluções de até dois dias para 81,5% quando a resolução leva nove dias ou mais.
 
 Associação não prova causalidade. Os resultados indicam onde investigar e testar
-intervenções, mas não autorizam concluir, sozinhos, que uma variável causa o NPS.
+intervenções, mas não autorizam concluir sozinhos que uma variável causa o NPS.
 
-## Objetivo de negócio
+## Objetivo
 
 A pergunta orientadora é: **quais sinais da operação explicam a insatisfação e
 permitem agir antes da pesquisa de NPS?** A resposta pode apoiar logística,
