@@ -1,0 +1,11 @@
+.venv/
+__pycache__/
+*.py[cod]
+.ipynb_checkpoints/
+
+# Os arquivos abaixo sao recriados por `python src/run_analysis.py`.
+data/processed/*
+!data/processed/.gitkeep
+models/*
+!models/.gitkeep
+

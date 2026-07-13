@@ -1,0 +1,20 @@
+﻿arquivo,coluna,descricao,tipo_sugerido
+vendas.csv,id_venda,Identificador único da venda,INT
+vendas.csv,id_cliente,Chave para clientes.csv,INT
+vendas.csv,id_produto,Chave para produtos.csv,INT
+vendas.csv,data_venda,Data da venda,DATE
+vendas.csv,quantidade,Quantidade comercializada,INT
+vendas.csv,valor_total,Valor final da transação após desconto,DOUBLE
+vendas.csv,id_loja,Chave para lojas.csv,INT
+vendas.csv,id_vendedor,Chave para vendedores.csv,INT
+vendas.csv,preco_unitario,Preço unitário usado na venda,DOUBLE
+vendas.csv,desconto_percentual,Percentual de desconto aplicado,INT
+vendas.csv,forma_pagamento,Meio de pagamento,STRING
+vendas.csv,canal_venda,Canal comercial,STRING
+vendas.csv,status_venda,Situação da venda,STRING
+clientes.csv,id_cliente,Identificador único do cliente,INT
+clientes.csv,nome_cliente,Nome completo do cliente,STRING
+produtos.csv,id_produto,Identificador único do produto,INT
+produtos.csv,nome_produto,Nome comercial do produto,STRING
+lojas.csv,id_loja,Identificador único da loja,INT
+vendedores.csv,id_vendedor,Identificador único do vendedor,INT

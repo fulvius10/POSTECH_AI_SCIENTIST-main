@@ -1,0 +1,40 @@
+# requirements.txt
+# Curso: Modelos de Aprendizagem por Reforço — FIAP Pós-Graduação
+# Cobre Aula 01 (paradigmas ML com MovieLens) e Aula 02 (Value-Based RL)
+#
+# Instalação:
+#   python -m venv .venv
+#   source .venv/bin/activate
+#   pip install -r requirements.txt
+#
+# Para o Notebook 04 da Aula 02 (LunarLander-v3), instalar também:
+#   pip install gymnasium[box2d]
+#   Linux: sudo apt-get install swig
+#   macOS: brew install swig
+#   Windows (WSL): sudo apt-get install swig
+
+# ── Núcleo científico ──────────────────────────────────────────────────────────
+numpy==2.4.2
+pandas==3.0.1
+matplotlib==3.10.8
+scikit-learn==1.8.0
+
+# ── Ambientes RL (Aula 02) ─────────────────────────────────────────────────────
+# gymnasium[box2d] não está listado aqui por exigir swig como dependência de
+# sistema. Instalar separadamente conforme instrução acima.
+gymnasium[box2d]==1.0.0
+
+# ── Deep Learning (Aula 02 — Notebook 04) ─────────────────────────────────────
+# Instalar separadamente (não disponível no PyPI padrão para Python 3.13):
+# pip install torch --index-url https://download.pytorch.org/whl/cpu
+# ou para gpu com cuda antigo --index-url https://download.pytorch.org/whl/cu126
+torch==2.11.0
+
+# ── Jupyter ───────────────────────────────────────────────────────────────────
+jupyterlab==4.5.5
+ipykernel==7.2.0
+
+# ── Utilitários ───────────────────────────────────────────────────────────────
+requests==2.32.5
+
+pettingzoo==1.26.1

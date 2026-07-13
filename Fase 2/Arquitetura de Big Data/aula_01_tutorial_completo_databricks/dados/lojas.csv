@@ -1,0 +1,21 @@
+﻿id_loja,nome_loja,cidade,estado,tipo_loja
+1,Loja São Paulo 01,São Paulo,SP,Física
+2,Loja Campinas 02,Campinas,SP,Física
+3,Loja Santos 03,Santos,SP,Física
+4,Loja Ribeirão Preto 04,Ribeirão Preto,SP,Física
+5,Loja Rio de Janeiro 05,Rio de Janeiro,RJ,Física
+6,Loja Niterói 06,Niterói,RJ,Física
+7,Loja Belo Horizonte 07,Belo Horizonte,MG,Física
+8,Loja Uberlândia 08,Uberlândia,MG,Física
+9,Loja Curitiba 09,Curitiba,PR,Física
+10,Loja Londrina 10,Londrina,PR,Física
+11,Loja Porto Alegre 11,Porto Alegre,RS,Física
+12,Loja Caxias do Sul 12,Caxias do Sul,RS,Física
+13,Loja Florianópolis 13,Florianópolis,SC,Física
+14,Loja Joinville 14,Joinville,SC,Física
+15,Loja Salvador 15,Salvador,BA,Física
+16,Loja Recife 16,Recife,PE,Centro Digital
+17,Loja Fortaleza 17,Fortaleza,CE,Centro Digital
+18,Loja Brasília 18,Brasília,DF,Centro Digital
+19,Loja Goiânia 19,Goiânia,GO,Centro Digital
+20,Loja Vitória 20,Vitória,ES,Centro Digital

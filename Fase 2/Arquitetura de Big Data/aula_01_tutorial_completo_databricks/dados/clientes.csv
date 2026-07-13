@@ -1,0 +1,301 @@
+﻿id_cliente,nome_cliente,email,cidade,estado,segmento,data_cadastro
+1,Henrique Costa Barbosa,henrique.costa1@email.com,Ribeirão Preto,SP,Pessoa Jurídica,2022-01-18
+2,Olivia Araújo Souza,olivia.araújo2@email.com,Belo Horizonte,MG,Premium,2022-02-04
+3,Caio Ribeiro Gomes,caio.ribeiro3@email.com,Londrina,PR,Digital,2022-02-21
+4,Monica Moreira Correia,monica.moreira4@email.com,Florianópolis,SC,Pessoa Física,2022-03-10
+5,Daniel Souza Araújo,daniel.souza5@email.com,Recife,PE,Pessoa Jurídica,2022-03-27
+6,Karen Rodrigues Cardoso,karen.rodrigues6@email.com,Goiânia,GO,Premium,2022-04-13
+7,Samuel Ferreira Nascimento,samuel.ferreira7@email.com,Campinas,SP,Digital,2022-04-30
+8,Helena Carvalho Mendes,helena.carvalho8@email.com,Rio de Janeiro,RJ,Pessoa Física,2022-05-17
+9,Thiago Cardoso Rodrigues,thiago.cardoso9@email.com,Uberlândia,MG,Pessoa Jurídica,2022-06-03
+10,Gabriela Oliveira Rocha,gabriela.oliveira10@email.com,Porto Alegre,RS,Premium,2022-06-20
+11,Nicolas Almeida Pereira,nicolas.almeida11@email.com,Joinville,SC,Digital,2022-07-07
+12,Amanda Gomes Ribeiro,amanda.gomes12@email.com,Fortaleza,CE,Pessoa Física,2022-07-24
+13,Leandro Rocha Oliveira,leandro.rocha13@email.com,Vitória,ES,Pessoa Jurídica,2022-08-10
+14,Carla Teixeira Martins,carla.teixeira14@email.com,Santos,SP,Premium,2022-08-27
+15,Joao Santos Silva,joao.santos15@email.com,Niterói,RJ,Digital,2022-09-13
+16,Rafaela Nascimento Ferreira,rafaela.nascimento16@email.com,Curitiba,PR,Pessoa Física,2022-09-30
+17,Gustavo Martins Teixeira,gustavo.martins17@email.com,Caxias do Sul,RS,Pessoa Jurídica,2022-10-17
+18,Renata Dias Lima,renata.dias18@email.com,Salvador,BA,Premium,2022-11-03
+19,Felipe Correia Moreira,felipe.correia19@email.com,Brasília,DF,Digital,2022-11-20
+20,Mariana Pereira Almeida,mariana.pereira20@email.com,São Paulo,SP,Pessoa Física,2022-12-07
+21,Vinicius Lima Dias,vinicius.lima21@email.com,Ribeirão Preto,SP,Pessoa Jurídica,2022-12-24
+22,Juliana Barbosa Costa,juliana.barbosa22@email.com,Belo Horizonte,MG,Premium,2023-01-10
+23,Bruno Mendes Carvalho,bruno.mendes23@email.com,Londrina,PR,Digital,2023-01-27
+24,Isabela Silva Santos,isabela.silva24@email.com,Florianópolis,SC,Pessoa Física,2023-02-13
+25,Paulo Costa Barbosa,paulo.costa25@email.com,Recife,PE,Pessoa Jurídica,2023-03-02
+26,Fernanda Araújo Souza,fernanda.araújo26@email.com,Goiânia,GO,Premium,2023-03-19
+27,Pedro Ribeiro Gomes,pedro.ribeiro27@email.com,Campinas,SP,Digital,2023-04-05
+28,Eduarda Moreira Correia,eduarda.moreira28@email.com,Rio de Janeiro,RJ,Pessoa Física,2023-04-22
+29,Lucas Souza Araújo,lucas.souza29@email.com,Uberlândia,MG,Pessoa Jurídica,2023-05-09
+30,Tatiana Rodrigues Cardoso,tatiana.rodrigues30@email.com,Porto Alegre,RS,Premium,2023-05-26
+31,Igor Ferreira Nascimento,igor.ferreira31@email.com,Joinville,SC,Digital,2023-06-12
+32,Ana Carvalho Mendes,ana.carvalho32@email.com,Fortaleza,CE,Pessoa Física,2023-06-29
+33,Henrique Cardoso Rodrigues,henrique.cardoso33@email.com,Vitória,ES,Pessoa Jurídica,2023-07-16
+34,Olivia Oliveira Rocha,olivia.oliveira34@email.com,Santos,SP,Premium,2023-08-02
+35,Caio Almeida Pereira,caio.almeida35@email.com,Niterói,RJ,Digital,2023-08-19
+36,Monica Gomes Ribeiro,monica.gomes36@email.com,Curitiba,PR,Pessoa Física,2023-09-05
+37,Daniel Rocha Oliveira,daniel.rocha37@email.com,Caxias do Sul,RS,Pessoa Jurídica,2023-09-22
+38,Karen Teixeira Martins,karen.teixeira38@email.com,Salvador,BA,Premium,2023-10-09
+39,Samuel Santos Silva,samuel.santos39@email.com,Brasília,DF,Digital,2023-10-26
+40,Helena Nascimento Ferreira,helena.nascimento40@email.com,São Paulo,SP,Pessoa Física,2023-11-12
+41,Thiago Martins Teixeira,thiago.martins41@email.com,Ribeirão Preto,SP,Pessoa Jurídica,2023-11-29
+42,Gabriela Dias Lima,gabriela.dias42@email.com,Belo Horizonte,MG,Premium,2023-12-16
+43,Nicolas Correia Moreira,nicolas.correia43@email.com,Londrina,PR,Digital,2024-01-02
+44,Amanda Pereira Almeida,amanda.pereira44@email.com,Florianópolis,SC,Pessoa Física,2024-01-19
+45,Leandro Lima Dias,leandro.lima45@email.com,Recife,PE,Pessoa Jurídica,2024-02-05
+46,Carla Barbosa Costa,carla.barbosa46@email.com,Goiânia,GO,Premium,2024-02-22
+47,Joao Mendes Carvalho,joao.mendes47@email.com,Campinas,SP,Digital,2024-03-10
+48,Rafaela Silva Santos,rafaela.silva48@email.com,Rio de Janeiro,RJ,Pessoa Física,2024-03-27
+49,Gustavo Costa Barbosa,gustavo.costa49@email.com,Uberlândia,MG,Pessoa Jurídica,2024-04-13
+50,Renata Araújo Souza,renata.araújo50@email.com,Porto Alegre,RS,Premium,2024-04-30
+51,Felipe Ribeiro Gomes,felipe.ribeiro51@email.com,Joinville,SC,Digital,2024-05-17
+52,Mariana Moreira Correia,mariana.moreira52@email.com,Fortaleza,CE,Pessoa Física,2024-06-03
+53,Vinicius Souza Araújo,vinicius.souza53@email.com,Vitória,ES,Pessoa Jurídica,2024-06-20
+54,Juliana Rodrigues Cardoso,juliana.rodrigues54@email.com,Santos,SP,Premium,2024-07-07
+55,Bruno Ferreira Nascimento,bruno.ferreira55@email.com,Niterói,RJ,Digital,2024-07-24
+56,Isabela Carvalho Mendes,isabela.carvalho56@email.com,Curitiba,PR,Pessoa Física,2024-08-10
+57,Paulo Cardoso Rodrigues,paulo.cardoso57@email.com,Caxias do Sul,RS,Pessoa Jurídica,2024-08-27
+58,Fernanda Oliveira Rocha,fernanda.oliveira58@email.com,Salvador,BA,Premium,2024-09-13
+59,Pedro Almeida Pereira,pedro.almeida59@email.com,Brasília,DF,Digital,2024-09-30
+60,Eduarda Gomes Ribeiro,eduarda.gomes60@email.com,São Paulo,SP,Pessoa Física,2024-10-17
+61,Lucas Rocha Oliveira,lucas.rocha61@email.com,Ribeirão Preto,SP,Pessoa Jurídica,2024-11-03
+62,Tatiana Teixeira Martins,tatiana.teixeira62@email.com,Belo Horizonte,MG,Premium,2024-11-20
+63,Igor Santos Silva,igor.santos63@email.com,Londrina,PR,Digital,2024-12-07
+64,Ana Nascimento Ferreira,ana.nascimento64@email.com,Florianópolis,SC,Pessoa Física,2024-12-24
+65,Henrique Martins Teixeira,henrique.martins65@email.com,Recife,PE,Pessoa Jurídica,2022-01-11
+66,Olivia Dias Lima,olivia.dias66@email.com,Goiânia,GO,Premium,2022-01-28
+67,Caio Correia Moreira,caio.correia67@email.com,Campinas,SP,Digital,2022-02-14
+68,Monica Pereira Almeida,monica.pereira68@email.com,Rio de Janeiro,RJ,Pessoa Física,2022-03-03
+69,Daniel Lima Dias,daniel.lima69@email.com,Uberlândia,MG,Pessoa Jurídica,2022-03-20
+70,Karen Barbosa Costa,karen.barbosa70@email.com,Porto Alegre,RS,Premium,2022-04-06
+71,Samuel Mendes Carvalho,samuel.mendes71@email.com,Joinville,SC,Digital,2022-04-23
+72,Helena Silva Santos,helena.silva72@email.com,Fortaleza,CE,Pessoa Física,2022-05-10
+73,Thiago Costa Barbosa,thiago.costa73@email.com,Vitória,ES,Pessoa Jurídica,2022-05-27
+74,Gabriela Araújo Souza,gabriela.araújo74@email.com,Santos,SP,Premium,2022-06-13
+75,Nicolas Ribeiro Gomes,nicolas.ribeiro75@email.com,Niterói,RJ,Digital,2022-06-30
+76,Amanda Moreira Correia,amanda.moreira76@email.com,Curitiba,PR,Pessoa Física,2022-07-17
+77,Leandro Souza Araújo,leandro.souza77@email.com,Caxias do Sul,RS,Pessoa Jurídica,2022-08-03
+78,Carla Rodrigues Cardoso,carla.rodrigues78@email.com,Salvador,BA,Premium,2022-08-20
+79,Joao Ferreira Nascimento,joao.ferreira79@email.com,Brasília,DF,Digital,2022-09-06
+80,Rafaela Carvalho Mendes,rafaela.carvalho80@email.com,São Paulo,SP,Pessoa Física,2022-09-23
+81,Gustavo Cardoso Rodrigues,gustavo.cardoso81@email.com,Ribeirão Preto,SP,Pessoa Jurídica,2022-10-10
+82,Renata Oliveira Rocha,renata.oliveira82@email.com,Belo Horizonte,MG,Premium,2022-10-27
+83,Felipe Almeida Pereira,felipe.almeida83@email.com,Londrina,PR,Digital,2022-11-13
+84,Mariana Gomes Ribeiro,mariana.gomes84@email.com,Florianópolis,SC,Pessoa Física,2022-11-30
+85,Vinicius Rocha Oliveira,vinicius.rocha85@email.com,Recife,PE,Pessoa Jurídica,2022-12-17
+86,Juliana Teixeira Martins,juliana.teixeira86@email.com,Goiânia,GO,Premium,2023-01-03
+87,Bruno Santos Silva,bruno.santos87@email.com,Campinas,SP,Digital,2023-01-20
+88,Isabela Nascimento Ferreira,isabela.nascimento88@email.com,Rio de Janeiro,RJ,Pessoa Física,2023-02-06
+89,Paulo Martins Teixeira,paulo.martins89@email.com,Uberlândia,MG,Pessoa Jurídica,2023-02-23
+90,Fernanda Dias Lima,fernanda.dias90@email.com,Porto Alegre,RS,Premium,2023-03-12
+91,Pedro Correia Moreira,pedro.correia91@email.com,Joinville,SC,Digital,2023-03-29
+92,Eduarda Pereira Almeida,eduarda.pereira92@email.com,Fortaleza,CE,Pessoa Física,2023-04-15
+93,Lucas Lima Dias,lucas.lima93@email.com,Vitória,ES,Pessoa Jurídica,2023-05-02
+94,Tatiana Barbosa Costa,tatiana.barbosa94@email.com,Santos,SP,Premium,2023-05-19
+95,Igor Mendes Carvalho,igor.mendes95@email.com,Niterói,RJ,Digital,2023-06-05
+96,Ana Silva Santos,ana.silva96@email.com,Curitiba,PR,Pessoa Física,2023-06-22
+97,Henrique Costa Barbosa,henrique.costa97@email.com,Caxias do Sul,RS,Pessoa Jurídica,2023-07-09
+98,Olivia Araújo Souza,olivia.araújo98@email.com,Salvador,BA,Premium,2023-07-26
+99,Caio Ribeiro Gomes,caio.ribeiro99@email.com,Brasília,DF,Digital,2023-08-12
+100,Monica Moreira Correia,monica.moreira100@email.com,São Paulo,SP,Pessoa Física,2023-08-29
+101,Daniel Souza Araújo,daniel.souza101@email.com,Ribeirão Preto,SP,Pessoa Jurídica,2023-09-15
+102,Karen Rodrigues Cardoso,karen.rodrigues102@email.com,Belo Horizonte,MG,Premium,2023-10-02
+103,Samuel Ferreira Nascimento,samuel.ferreira103@email.com,Londrina,PR,Digital,2023-10-19
+104,Helena Carvalho Mendes,helena.carvalho104@email.com,Florianópolis,SC,Pessoa Física,2023-11-05
+105,Thiago Cardoso Rodrigues,thiago.cardoso105@email.com,Recife,PE,Pessoa Jurídica,2023-11-22
+106,Gabriela Oliveira Rocha,gabriela.oliveira106@email.com,Goiânia,GO,Premium,2023-12-09
+107,Nicolas Almeida Pereira,nicolas.almeida107@email.com,Campinas,SP,Digital,2023-12-26
+108,Amanda Gomes Ribeiro,amanda.gomes108@email.com,Rio de Janeiro,RJ,Pessoa Física,2024-01-12
+109,Leandro Rocha Oliveira,leandro.rocha109@email.com,Uberlândia,MG,Pessoa Jurídica,2024-01-29
+110,Carla Teixeira Martins,carla.teixeira110@email.com,Porto Alegre,RS,Premium,2024-02-15
+111,Joao Santos Silva,joao.santos111@email.com,Joinville,SC,Digital,2024-03-03
+112,Rafaela Nascimento Ferreira,rafaela.nascimento112@email.com,Fortaleza,CE,Pessoa Física,2024-03-20
+113,Gustavo Martins Teixeira,gustavo.martins113@email.com,Vitória,ES,Pessoa Jurídica,2024-04-06
+114,Renata Dias Lima,renata.dias114@email.com,Santos,SP,Premium,2024-04-23
+115,Felipe Correia Moreira,felipe.correia115@email.com,Niterói,RJ,Digital,2024-05-10
+116,Mariana Pereira Almeida,mariana.pereira116@email.com,Curitiba,PR,Pessoa Física,2024-05-27
+117,Vinicius Lima Dias,vinicius.lima117@email.com,Caxias do Sul,RS,Pessoa Jurídica,2024-06-13
+118,Juliana Barbosa Costa,juliana.barbosa118@email.com,Salvador,BA,Premium,2024-06-30
+119,Bruno Mendes Carvalho,bruno.mendes119@email.com,Brasília,DF,Digital,2024-07-17
+120,Isabela Silva Santos,isabela.silva120@email.com,São Paulo,SP,Pessoa Física,2024-08-03
+121,Paulo Costa Barbosa,paulo.costa121@email.com,Ribeirão Preto,SP,Pessoa Jurídica,2024-08-20
+122,Fernanda Araújo Souza,fernanda.araújo122@email.com,Belo Horizonte,MG,Premium,2024-09-06
+123,Pedro Ribeiro Gomes,pedro.ribeiro123@email.com,Londrina,PR,Digital,2024-09-23
+124,Eduarda Moreira Correia,eduarda.moreira124@email.com,Florianópolis,SC,Pessoa Física,2024-10-10
+125,Lucas Souza Araújo,lucas.souza125@email.com,Recife,PE,Pessoa Jurídica,2024-10-27
+126,Tatiana Rodrigues Cardoso,tatiana.rodrigues126@email.com,Goiânia,GO,Premium,2024-11-13
+127,Igor Ferreira Nascimento,igor.ferreira127@email.com,Campinas,SP,Digital,2024-11-30
+128,Ana Carvalho Mendes,ana.carvalho128@email.com,Rio de Janeiro,RJ,Pessoa Física,2024-12-17
+129,Henrique Cardoso Rodrigues,henrique.cardoso129@email.com,Uberlândia,MG,Pessoa Jurídica,2022-01-04
+130,Olivia Oliveira Rocha,olivia.oliveira130@email.com,Porto Alegre,RS,Premium,2022-01-21
+131,Caio Almeida Pereira,caio.almeida131@email.com,Joinville,SC,Digital,2022-02-07
+132,Monica Gomes Ribeiro,monica.gomes132@email.com,Fortaleza,CE,Pessoa Física,2022-02-24
+133,Daniel Rocha Oliveira,daniel.rocha133@email.com,Vitória,ES,Pessoa Jurídica,2022-03-13
+134,Karen Teixeira Martins,karen.teixeira134@email.com,Santos,SP,Premium,2022-03-30
+135,Samuel Santos Silva,samuel.santos135@email.com,Niterói,RJ,Digital,2022-04-16
+136,Helena Nascimento Ferreira,helena.nascimento136@email.com,Curitiba,PR,Pessoa Física,2022-05-03
+137,Thiago Martins Teixeira,thiago.martins137@email.com,Caxias do Sul,RS,Pessoa Jurídica,2022-05-20
+138,Gabriela Dias Lima,gabriela.dias138@email.com,Salvador,BA,Premium,2022-06-06
+139,Nicolas Correia Moreira,nicolas.correia139@email.com,Brasília,DF,Digital,2022-06-23
+140,Amanda Pereira Almeida,amanda.pereira140@email.com,São Paulo,SP,Pessoa Física,2022-07-10
+141,Leandro Lima Dias,leandro.lima141@email.com,Ribeirão Preto,SP,Pessoa Jurídica,2022-07-27
+142,Carla Barbosa Costa,carla.barbosa142@email.com,Belo Horizonte,MG,Premium,2022-08-13
+143,Joao Mendes Carvalho,joao.mendes143@email.com,Londrina,PR,Digital,2022-08-30
+144,Rafaela Silva Santos,rafaela.silva144@email.com,Florianópolis,SC,Pessoa Física,2022-09-16
+145,Gustavo Costa Barbosa,gustavo.costa145@email.com,Recife,PE,Pessoa Jurídica,2022-10-03
+146,Renata Araújo Souza,renata.araújo146@email.com,Goiânia,GO,Premium,2022-10-20
+147,Felipe Ribeiro Gomes,felipe.ribeiro147@email.com,Campinas,SP,Digital,2022-11-06
+148,Mariana Moreira Correia,mariana.moreira148@email.com,Rio de Janeiro,RJ,Pessoa Física,2022-11-23
+149,Vinicius Souza Araújo,vinicius.souza149@email.com,Uberlândia,MG,Pessoa Jurídica,2022-12-10
+150,Juliana Rodrigues Cardoso,juliana.rodrigues150@email.com,Porto Alegre,RS,Premium,2022-12-27
+151,Bruno Ferreira Nascimento,bruno.ferreira151@email.com,Joinville,SC,Digital,2023-01-13
+152,Isabela Carvalho Mendes,isabela.carvalho152@email.com,Fortaleza,CE,Pessoa Física,2023-01-30
+153,Paulo Cardoso Rodrigues,paulo.cardoso153@email.com,Vitória,ES,Pessoa Jurídica,2023-02-16
+154,Fernanda Oliveira Rocha,fernanda.oliveira154@email.com,Santos,SP,Premium,2023-03-05
+155,Pedro Almeida Pereira,pedro.almeida155@email.com,Niterói,RJ,Digital,2023-03-22
+156,Eduarda Gomes Ribeiro,eduarda.gomes156@email.com,Curitiba,PR,Pessoa Física,2023-04-08
+157,Lucas Rocha Oliveira,lucas.rocha157@email.com,Caxias do Sul,RS,Pessoa Jurídica,2023-04-25
+158,Tatiana Teixeira Martins,tatiana.teixeira158@email.com,Salvador,BA,Premium,2023-05-12
+159,Igor Santos Silva,igor.santos159@email.com,Brasília,DF,Digital,2023-05-29
+160,Ana Nascimento Ferreira,ana.nascimento160@email.com,São Paulo,SP,Pessoa Física,2023-06-15
+161,Henrique Martins Teixeira,henrique.martins161@email.com,Ribeirão Preto,SP,Pessoa Jurídica,2023-07-02
+162,Olivia Dias Lima,olivia.dias162@email.com,Belo Horizonte,MG,Premium,2023-07-19
+163,Caio Correia Moreira,caio.correia163@email.com,Londrina,PR,Digital,2023-08-05
+164,Monica Pereira Almeida,monica.pereira164@email.com,Florianópolis,SC,Pessoa Física,2023-08-22
+165,Daniel Lima Dias,daniel.lima165@email.com,Recife,PE,Pessoa Jurídica,2023-09-08
+166,Karen Barbosa Costa,karen.barbosa166@email.com,Goiânia,GO,Premium,2023-09-25
+167,Samuel Mendes Carvalho,samuel.mendes167@email.com,Campinas,SP,Digital,2023-10-12
+168,Helena Silva Santos,helena.silva168@email.com,Rio de Janeiro,RJ,Pessoa Física,2023-10-29
+169,Thiago Costa Barbosa,thiago.costa169@email.com,Uberlândia,MG,Pessoa Jurídica,2023-11-15
+170,Gabriela Araújo Souza,gabriela.araújo170@email.com,Porto Alegre,RS,Premium,2023-12-02
+171,Nicolas Ribeiro Gomes,nicolas.ribeiro171@email.com,Joinville,SC,Digital,2023-12-19
+172,Amanda Moreira Correia,amanda.moreira172@email.com,Fortaleza,CE,Pessoa Física,2024-01-05
+173,Leandro Souza Araújo,leandro.souza173@email.com,Vitória,ES,Pessoa Jurídica,2024-01-22
+174,Carla Rodrigues Cardoso,carla.rodrigues174@email.com,Santos,SP,Premium,2024-02-08
+175,Joao Ferreira Nascimento,joao.ferreira175@email.com,Niterói,RJ,Digital,2024-02-25
+176,Rafaela Carvalho Mendes,rafaela.carvalho176@email.com,Curitiba,PR,Pessoa Física,2024-03-13
+177,Gustavo Cardoso Rodrigues,gustavo.cardoso177@email.com,Caxias do Sul,RS,Pessoa Jurídica,2024-03-30
+178,Renata Oliveira Rocha,renata.oliveira178@email.com,Salvador,BA,Premium,2024-04-16
+179,Felipe Almeida Pereira,felipe.almeida179@email.com,Brasília,DF,Digital,2024-05-03
+180,Mariana Gomes Ribeiro,mariana.gomes180@email.com,São Paulo,SP,Pessoa Física,2024-05-20
+181,Vinicius Rocha Oliveira,vinicius.rocha181@email.com,Ribeirão Preto,SP,Pessoa Jurídica,2024-06-06
+182,Juliana Teixeira Martins,juliana.teixeira182@email.com,Belo Horizonte,MG,Premium,2024-06-23
+183,Bruno Santos Silva,bruno.santos183@email.com,Londrina,PR,Digital,2024-07-10
+184,Isabela Nascimento Ferreira,isabela.nascimento184@email.com,Florianópolis,SC,Pessoa Física,2024-07-27
+185,Paulo Martins Teixeira,paulo.martins185@email.com,Recife,PE,Pessoa Jurídica,2024-08-13
+186,Fernanda Dias Lima,fernanda.dias186@email.com,Goiânia,GO,Premium,2024-08-30
+187,Pedro Correia Moreira,pedro.correia187@email.com,Campinas,SP,Digital,2024-09-16
+188,Eduarda Pereira Almeida,eduarda.pereira188@email.com,Rio de Janeiro,RJ,Pessoa Física,2024-10-03
+189,Lucas Lima Dias,lucas.lima189@email.com,Uberlândia,MG,Pessoa Jurídica,2024-10-20
+190,Tatiana Barbosa Costa,tatiana.barbosa190@email.com,Porto Alegre,RS,Premium,2024-11-06
+191,Igor Mendes Carvalho,igor.mendes191@email.com,Joinville,SC,Digital,2024-11-23
+192,Ana Silva Santos,ana.silva192@email.com,Fortaleza,CE,Pessoa Física,2024-12-10
+193,Henrique Costa Barbosa,henrique.costa193@email.com,Vitória,ES,Pessoa Jurídica,2024-12-27
+194,Olivia Araújo Souza,olivia.araújo194@email.com,Santos,SP,Premium,2022-01-14
+195,Caio Ribeiro Gomes,caio.ribeiro195@email.com,Niterói,RJ,Digital,2022-01-31
+196,Monica Moreira Correia,monica.moreira196@email.com,Curitiba,PR,Pessoa Física,2022-02-17
+197,Daniel Souza Araújo,daniel.souza197@email.com,Caxias do Sul,RS,Pessoa Jurídica,2022-03-06
+198,Karen Rodrigues Cardoso,karen.rodrigues198@email.com,Salvador,BA,Premium,2022-03-23
+199,Samuel Ferreira Nascimento,samuel.ferreira199@email.com,Brasília,DF,Digital,2022-04-09
+200,Helena Carvalho Mendes,helena.carvalho200@email.com,São Paulo,SP,Pessoa Física,2022-04-26
+201,Thiago Cardoso Rodrigues,thiago.cardoso201@email.com,Ribeirão Preto,SP,Pessoa Jurídica,2022-05-13
+202,Gabriela Oliveira Rocha,gabriela.oliveira202@email.com,Belo Horizonte,MG,Premium,2022-05-30
+203,Nicolas Almeida Pereira,nicolas.almeida203@email.com,Londrina,PR,Digital,2022-06-16
+204,Amanda Gomes Ribeiro,amanda.gomes204@email.com,Florianópolis,SC,Pessoa Física,2022-07-03
+205,Leandro Rocha Oliveira,leandro.rocha205@email.com,Recife,PE,Pessoa Jurídica,2022-07-20
+206,Carla Teixeira Martins,carla.teixeira206@email.com,Goiânia,GO,Premium,2022-08-06
+207,Joao Santos Silva,joao.santos207@email.com,Campinas,SP,Digital,2022-08-23
+208,Rafaela Nascimento Ferreira,rafaela.nascimento208@email.com,Rio de Janeiro,RJ,Pessoa Física,2022-09-09
+209,Gustavo Martins Teixeira,gustavo.martins209@email.com,Uberlândia,MG,Pessoa Jurídica,2022-09-26
+210,Renata Dias Lima,renata.dias210@email.com,Porto Alegre,RS,Premium,2022-10-13
+211,Felipe Correia Moreira,felipe.correia211@email.com,Joinville,SC,Digital,2022-10-30
+212,Mariana Pereira Almeida,mariana.pereira212@email.com,Fortaleza,CE,Pessoa Física,2022-11-16
+213,Vinicius Lima Dias,vinicius.lima213@email.com,Vitória,ES,Pessoa Jurídica,2022-12-03
+214,Juliana Barbosa Costa,juliana.barbosa214@email.com,Santos,SP,Premium,2022-12-20
+215,Bruno Mendes Carvalho,bruno.mendes215@email.com,Niterói,RJ,Digital,2023-01-06
+216,Isabela Silva Santos,isabela.silva216@email.com,Curitiba,PR,Pessoa Física,2023-01-23
+217,Paulo Costa Barbosa,paulo.costa217@email.com,Caxias do Sul,RS,Pessoa Jurídica,2023-02-09
+218,Fernanda Araújo Souza,fernanda.araújo218@email.com,Salvador,BA,Premium,2023-02-26
+219,Pedro Ribeiro Gomes,pedro.ribeiro219@email.com,Brasília,DF,Digital,2023-03-15
+220,Eduarda Moreira Correia,eduarda.moreira220@email.com,São Paulo,SP,Pessoa Física,2023-04-01
+221,Lucas Souza Araújo,lucas.souza221@email.com,Ribeirão Preto,SP,Pessoa Jurídica,2023-04-18
+222,Tatiana Rodrigues Cardoso,tatiana.rodrigues222@email.com,Belo Horizonte,MG,Premium,2023-05-05
+223,Igor Ferreira Nascimento,igor.ferreira223@email.com,Londrina,PR,Digital,2023-05-22
+224,Ana Carvalho Mendes,ana.carvalho224@email.com,Florianópolis,SC,Pessoa Física,2023-06-08
+225,Henrique Cardoso Rodrigues,henrique.cardoso225@email.com,Recife,PE,Pessoa Jurídica,2023-06-25
+226,Olivia Oliveira Rocha,olivia.oliveira226@email.com,Goiânia,GO,Premium,2023-07-12
+227,Caio Almeida Pereira,caio.almeida227@email.com,Campinas,SP,Digital,2023-07-29
+228,Monica Gomes Ribeiro,monica.gomes228@email.com,Rio de Janeiro,RJ,Pessoa Física,2023-08-15
+229,Daniel Rocha Oliveira,daniel.rocha229@email.com,Uberlândia,MG,Pessoa Jurídica,2023-09-01
+230,Karen Teixeira Martins,karen.teixeira230@email.com,Porto Alegre,RS,Premium,2023-09-18
+231,Samuel Santos Silva,samuel.santos231@email.com,Joinville,SC,Digital,2023-10-05
+232,Helena Nascimento Ferreira,helena.nascimento232@email.com,Fortaleza,CE,Pessoa Física,2023-10-22
+233,Thiago Martins Teixeira,thiago.martins233@email.com,Vitória,ES,Pessoa Jurídica,2023-11-08
+234,Gabriela Dias Lima,gabriela.dias234@email.com,Santos,SP,Premium,2023-11-25
+235,Nicolas Correia Moreira,nicolas.correia235@email.com,Niterói,RJ,Digital,2023-12-12
+236,Amanda Pereira Almeida,amanda.pereira236@email.com,Curitiba,PR,Pessoa Física,2023-12-29
+237,Leandro Lima Dias,leandro.lima237@email.com,Caxias do Sul,RS,Pessoa Jurídica,2024-01-15
+238,Carla Barbosa Costa,carla.barbosa238@email.com,Salvador,BA,Premium,2024-02-01
+239,Joao Mendes Carvalho,joao.mendes239@email.com,Brasília,DF,Digital,2024-02-18
+240,Rafaela Silva Santos,rafaela.silva240@email.com,São Paulo,SP,Pessoa Física,2024-03-06
+241,Gustavo Costa Barbosa,gustavo.costa241@email.com,Ribeirão Preto,SP,Pessoa Jurídica,2024-03-23
+242,Renata Araújo Souza,renata.araújo242@email.com,Belo Horizonte,MG,Premium,2024-04-09
+243,Felipe Ribeiro Gomes,felipe.ribeiro243@email.com,Londrina,PR,Digital,2024-04-26
+244,Mariana Moreira Correia,mariana.moreira244@email.com,Florianópolis,SC,Pessoa Física,2024-05-13
+245,Vinicius Souza Araújo,vinicius.souza245@email.com,Recife,PE,Pessoa Jurídica,2024-05-30
+246,Juliana Rodrigues Cardoso,juliana.rodrigues246@email.com,Goiânia,GO,Premium,2024-06-16
+247,Bruno Ferreira Nascimento,bruno.ferreira247@email.com,Campinas,SP,Digital,2024-07-03
+248,Isabela Carvalho Mendes,isabela.carvalho248@email.com,Rio de Janeiro,RJ,Pessoa Física,2024-07-20
+249,Paulo Cardoso Rodrigues,paulo.cardoso249@email.com,Uberlândia,MG,Pessoa Jurídica,2024-08-06
+250,Fernanda Oliveira Rocha,fernanda.oliveira250@email.com,Porto Alegre,RS,Premium,2024-08-23
+251,Pedro Almeida Pereira,pedro.almeida251@email.com,Joinville,SC,Digital,2024-09-09
+252,Eduarda Gomes Ribeiro,eduarda.gomes252@email.com,Fortaleza,CE,Pessoa Física,2024-09-26
+253,Lucas Rocha Oliveira,lucas.rocha253@email.com,Vitória,ES,Pessoa Jurídica,2024-10-13
+254,Tatiana Teixeira Martins,tatiana.teixeira254@email.com,Santos,SP,Premium,2024-10-30
+255,Igor Santos Silva,igor.santos255@email.com,Niterói,RJ,Digital,2024-11-16
+256,Ana Nascimento Ferreira,ana.nascimento256@email.com,Curitiba,PR,Pessoa Física,2024-12-03
+257,Henrique Martins Teixeira,henrique.martins257@email.com,Caxias do Sul,RS,Pessoa Jurídica,2024-12-20
+258,Olivia Dias Lima,olivia.dias258@email.com,Salvador,BA,Premium,2022-01-07
+259,Caio Correia Moreira,caio.correia259@email.com,Brasília,DF,Digital,2022-01-24
+260,Monica Pereira Almeida,monica.pereira260@email.com,São Paulo,SP,Pessoa Física,2022-02-10
+261,Daniel Lima Dias,daniel.lima261@email.com,Ribeirão Preto,SP,Pessoa Jurídica,2022-02-27
+262,Karen Barbosa Costa,karen.barbosa262@email.com,Belo Horizonte,MG,Premium,2022-03-16
+263,Samuel Mendes Carvalho,samuel.mendes263@email.com,Londrina,PR,Digital,2022-04-02
+264,Helena Silva Santos,helena.silva264@email.com,Florianópolis,SC,Pessoa Física,2022-04-19
+265,Thiago Costa Barbosa,thiago.costa265@email.com,Recife,PE,Pessoa Jurídica,2022-05-06
+266,Gabriela Araújo Souza,gabriela.araújo266@email.com,Goiânia,GO,Premium,2022-05-23
+267,Nicolas Ribeiro Gomes,nicolas.ribeiro267@email.com,Campinas,SP,Digital,2022-06-09
+268,Amanda Moreira Correia,amanda.moreira268@email.com,Rio de Janeiro,RJ,Pessoa Física,2022-06-26
+269,Leandro Souza Araújo,leandro.souza269@email.com,Uberlândia,MG,Pessoa Jurídica,2022-07-13
+270,Carla Rodrigues Cardoso,carla.rodrigues270@email.com,Porto Alegre,RS,Premium,2022-07-30
+271,Joao Ferreira Nascimento,joao.ferreira271@email.com,Joinville,SC,Digital,2022-08-16
+272,Rafaela Carvalho Mendes,rafaela.carvalho272@email.com,Fortaleza,CE,Pessoa Física,2022-09-02
+273,Gustavo Cardoso Rodrigues,gustavo.cardoso273@email.com,Vitória,ES,Pessoa Jurídica,2022-09-19
+274,Renata Oliveira Rocha,renata.oliveira274@email.com,Santos,SP,Premium,2022-10-06
+275,Felipe Almeida Pereira,felipe.almeida275@email.com,Niterói,RJ,Digital,2022-10-23
+276,Mariana Gomes Ribeiro,mariana.gomes276@email.com,Curitiba,PR,Pessoa Física,2022-11-09
+277,Vinicius Rocha Oliveira,vinicius.rocha277@email.com,Caxias do Sul,RS,Pessoa Jurídica,2022-11-26
+278,Juliana Teixeira Martins,juliana.teixeira278@email.com,Salvador,BA,Premium,2022-12-13
+279,Bruno Santos Silva,bruno.santos279@email.com,Brasília,DF,Digital,2022-12-30
+280,Isabela Nascimento Ferreira,isabela.nascimento280@email.com,São Paulo,SP,Pessoa Física,2023-01-16
+281,Paulo Martins Teixeira,paulo.martins281@email.com,Ribeirão Preto,SP,Pessoa Jurídica,2023-02-02
+282,Fernanda Dias Lima,fernanda.dias282@email.com,Belo Horizonte,MG,Premium,2023-02-19
+283,Pedro Correia Moreira,pedro.correia283@email.com,Londrina,PR,Digital,2023-03-08
+284,Eduarda Pereira Almeida,eduarda.pereira284@email.com,Florianópolis,SC,Pessoa Física,2023-03-25
+285,Lucas Lima Dias,lucas.lima285@email.com,Recife,PE,Pessoa Jurídica,2023-04-11
+286,Tatiana Barbosa Costa,tatiana.barbosa286@email.com,Goiânia,GO,Premium,2023-04-28
+287,Igor Mendes Carvalho,igor.mendes287@email.com,Campinas,SP,Digital,2023-05-15
+288,Ana Silva Santos,ana.silva288@email.com,Rio de Janeiro,RJ,Pessoa Física,2023-06-01
+289,Henrique Costa Barbosa,henrique.costa289@email.com,Uberlândia,MG,Pessoa Jurídica,2023-06-18
+290,Olivia Araújo Souza,olivia.araújo290@email.com,Porto Alegre,RS,Premium,2023-07-05
+291,Caio Ribeiro Gomes,caio.ribeiro291@email.com,Joinville,SC,Digital,2023-07-22
+292,Monica Moreira Correia,monica.moreira292@email.com,Fortaleza,CE,Pessoa Física,2023-08-08
+293,Daniel Souza Araújo,daniel.souza293@email.com,Vitória,ES,Pessoa Jurídica,2023-08-25
+294,Karen Rodrigues Cardoso,karen.rodrigues294@email.com,Santos,SP,Premium,2023-09-11
+295,Samuel Ferreira Nascimento,samuel.ferreira295@email.com,Niterói,RJ,Digital,2023-09-28
+296,Helena Carvalho Mendes,helena.carvalho296@email.com,Curitiba,PR,Pessoa Física,2023-10-15
+297,Thiago Cardoso Rodrigues,thiago.cardoso297@email.com,Caxias do Sul,RS,Pessoa Jurídica,2023-11-01
+298,Gabriela Oliveira Rocha,gabriela.oliveira298@email.com,Salvador,BA,Premium,2023-11-18
+299,Nicolas Almeida Pereira,nicolas.almeida299@email.com,Brasília,DF,Digital,2023-12-05
+300,Amanda Gomes Ribeiro,amanda.gomes300@email.com,São Paulo,SP,Pessoa Física,2023-12-22

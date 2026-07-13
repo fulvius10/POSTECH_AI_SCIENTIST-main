@@ -1,0 +1,15 @@
+{
+  "rows": 2500,
+  "columns_original": 19,
+  "missing_values": 0,
+  "duplicate_rows": 0,
+  "mean_nps_score": 4.379,
+  "traditional_nps": -69.6,
+  "detractor_rate_pct": 74.0,
+  "passive_rate_pct": 21.6,
+  "promoter_rate_pct": 4.4,
+  "no_delay_mean_nps": 6.86,
+  "five_plus_delay_mean_nps": 1.28,
+  "zero_one_complaints_mean_nps": 7.89,
+  "six_plus_complaints_mean_nps": 2.82
+}

@@ -1,0 +1,101 @@
+﻿id_produto,nome_produto,categoria,marca,preco_unitario,ativo
+1,Smartphone Smart,Eletrônicos,Smart,1499.90,Sim
+2,Notebook Urban,Eletrônicos,Urban,3431.90,Sim
+3,Tablet Nexus,Eletrônicos,Nexus,1187.90,Sim
+4,Fone Bluetooth Essencial,Eletrônicos,Essencial,205.90,Sim
+5,Smartwatch Max,Eletrônicos,Max,538.90,Sim
+6,Monitor Prime,Eletrônicos,Prime,917.90,Sim
+7,Teclado Mecânico Connect,Eletrônicos,Connect,281.20,Sim
+8,Mouse Sem Fio Nova,Eletrônicos,Nova,131.20,Sim
+9,Webcam Viva,Eletrônicos,Viva,249.50,Sim
+10,Caixa de Som Aurora,Eletrônicos,Aurora,349.90,Sim
+11,Liquidificador Smart,Casa e Cozinha,Smart,187.10,Sim
+12,Cafeteira Urban,Casa e Cozinha,Urban,247.40,Sim
+13,Air Fryer Nexus,Casa e Cozinha,Nexus,514.90,Sim
+14,Jogo de Panelas Essencial,Casa e Cozinha,Essencial,391.90,Sim
+15,Aspirador de Pó Max,Casa e Cozinha,Max,591.50,Sim
+16,Ferro de Passar Prime,Casa e Cozinha,Prime,135.70,Sim
+17,Sanduicheira Connect,Casa e Cozinha,Connect,161.50,Não
+18,Batedeira Nova,Casa e Cozinha,Nova,307.10,Sim
+19,Micro-ondas Viva,Casa e Cozinha,Viva,699.90,Sim
+20,Purificador de Água Aurora,Casa e Cozinha,Aurora,779.90,Sim
+21,Bicicleta Smart,Esporte e Lazer,Smart,1187.90,Sim
+22,Tênis de Corrida Urban,Esporte e Lazer,Urban,308.90,Sim
+23,Mochila Esportiva Nexus,Esporte e Lazer,Nexus,156.70,Sim
+24,Bola de Futebol Essencial,Esporte e Lazer,Essencial,101.90,Sim
+25,Kit Academia Max,Esporte e Lazer,Max,242.40,Sim
+26,Garrafa Térmica Prime,Esporte e Lazer,Prime,90.80,Sim
+27,Relógio Esportivo Connect,Esporte e Lazer,Connect,383.90,Sim
+28,Colchonete Nova,Esporte e Lazer,Nova,79.90,Sim
+29,Raquete Viva,Esporte e Lazer,Viva,197.50,Sim
+30,Patins Aurora,Esporte e Lazer,Aurora,346.40,Sim
+31,Camiseta Smart,Moda,Smart,61.70,Sim
+32,Calça Jeans Urban,Moda,Urban,146.90,Sim
+33,Jaqueta Nexus,Moda,Nexus,254.90,Sim
+34,Tênis Casual Essencial,Moda,Essencial,223.00,Não
+35,Bolsa Max,Moda,Max,181.70,Sim
+36,Boné Prime,Moda,Prime,47.90,Sim
+37,Vestido Connect,Moda,Connect,199.90,Sim
+38,Camisa Social Nova,Moda,Nova,145.50,Sim
+39,Bermuda Viva,Moda,Viva,89.00,Sim
+40,Carteira Aurora,Moda,Aurora,72.00,Sim
+41,Livro Técnico Smart,Livros e Papelaria,Smart,117.50,Sim
+42,Caderno Urban,Livros e Papelaria,Urban,25.40,Sim
+43,Caneta Nexus,Livros e Papelaria,Nexus,7.66,Sim
+44,Agenda Essencial,Livros e Papelaria,Essencial,40.30,Sim
+45,Mochila Escolar Max,Livros e Papelaria,Max,182.30,Sim
+46,Estojo Prime,Livros e Papelaria,Prime,29.90,Sim
+47,Calculadora Connect,Livros e Papelaria,Connect,62.30,Sim
+48,Marcador de Texto Nova,Livros e Papelaria,Nova,9.80,Sim
+49,Papel A4 Viva,Livros e Papelaria,Viva,33.89,Sim
+50,Organizador Aurora,Livros e Papelaria,Aurora,48.90,Sim
+51,Shampoo Smart,Beleza e Cuidados,Smart,30.50,Não
+52,Condicionador Urban,Beleza e Cuidados,Urban,30.94,Sim
+53,Perfume Nexus,Beleza e Cuidados,Nexus,201.90,Sim
+54,Hidratante Essencial,Beleza e Cuidados,Essencial,43.10,Sim
+55,Protetor Solar Max,Beleza e Cuidados,Max,64.90,Sim
+56,Secador de Cabelo Prime,Beleza e Cuidados,Prime,187.10,Sim
+57,Barbeador Connect,Beleza e Cuidados,Connect,138.50,Sim
+58,Kit Maquiagem Nova,Beleza e Cuidados,Nova,133.80,Sim
+59,Escova Elétrica Viva,Beleza e Cuidados,Viva,117.50,Sim
+60,Creme Facial Aurora,Beleza e Cuidados,Aurora,76.40,Sim
+61,Cadeira de Escritório Smart,Móveis e Decoração,Smart,581.90,Sim
+62,Mesa Urban,Móveis e Decoração,Urban,757.40,Sim
+63,Luminária Nexus,Móveis e Decoração,Nexus,105.50,Sim
+64,Estante Essencial,Móveis e Decoração,Essencial,499.90,Sim
+65,Sofá Max,Móveis e Decoração,Max,1975.90,Sim
+66,Tapete Prime,Móveis e Decoração,Prime,257.30,Sim
+67,Quadro Decorativo Connect,Móveis e Decoração,Connect,133.80,Sim
+68,Travesseiro Nova,Móveis e Decoração,Nova,78.30,Não
+69,Cortina Viva,Móveis e Decoração,Viva,152.90,Sim
+70,Espelho Aurora,Móveis e Decoração,Aurora,213.30,Sim
+71,Furadeira Smart,Ferramentas,Smart,353.40,Sim
+72,Parafusadeira Urban,Ferramentas,Urban,287.90,Sim
+73,Jogo de Chaves Nexus,Ferramentas,Nexus,119.90,Sim
+74,Martelo Essencial,Ferramentas,Essencial,51.90,Sim
+75,Trena Max,Ferramentas,Max,29.60,Sim
+76,Serra Tico-Tico Prime,Ferramentas,Prime,411.90,Sim
+77,Caixa de Ferramentas Connect,Ferramentas,Connect,176.30,Sim
+78,Alicate Nova,Ferramentas,Nova,40.70,Sim
+79,Nível Viva,Ferramentas,Viva,33.85,Sim
+80,Extensão Elétrica Aurora,Ferramentas,Aurora,60.50,Sim
+81,Ração Smart,Pet Shop,Smart,124.70,Sim
+82,Cama Pet Urban,Pet Shop,Urban,159.90,Sim
+83,Coleira Nexus,Pet Shop,Nexus,51.90,Sim
+84,Brinquedo Pet Essencial,Pet Shop,Essencial,24.65,Sim
+85,Comedouro Max,Pet Shop,Max,41.10,Não
+86,Tapete Higiênico Prime,Pet Shop,Prime,68.50,Sim
+87,Shampoo Pet Connect,Pet Shop,Connect,35.60,Sim
+88,Caixa de Transporte Nova,Pet Shop,Nova,193.90,Sim
+89,Arranhador Viva,Pet Shop,Viva,151.40,Sim
+90,Petisco Aurora,Pet Shop,Aurora,19.10,Sim
+91,Café Smart,Alimentos,Smart,24.90,Sim
+92,Chocolate Urban,Alimentos,Urban,13.42,Sim
+93,Azeite Nexus,Alimentos,Nexus,39.50,Sim
+94,Cereal Essencial,Alimentos,Essencial,17.41,Sim
+95,Biscoito Max,Alimentos,Max,7.74,Sim
+96,Suco Prime,Alimentos,Prime,10.10,Sim
+97,Macarrão Connect,Alimentos,Connect,6.69,Sim
+98,Molho de Tomate Nova,Alimentos,Nova,4.95,Sim
+99,Arroz Viva,Alimentos,Viva,26.78,Sim
+100,Feijão Aurora,Alimentos,Aurora,8.90,Sim
