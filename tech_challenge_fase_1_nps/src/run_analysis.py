@@ -436,11 +436,37 @@ def train_and_evaluate(data: pd.DataFrame) -> tuple[Pipeline, pd.DataFrame]:
     )
     importance_table.to_csv(REPORTS_DIR / "model_feature_importance.csv", index=False)
 
-    top = importance_table.head(10).sort_values("importance_mean")
-    fig, ax = plt.subplots(figsize=(11, 7))
-    ax.barh(top["feature"], top["importance_mean"], xerr=top["importance_std"], color="#2878B5")
-    ax.set(title=f"Variáveis mais úteis no modelo: {best_name}", xlabel="Queda média de AUC ao embaralhar a variável", ylabel="")
-    fig.tight_layout()
+    top = importance_table.head(10).sort_values("importance_mean").reset_index(drop=True)
+    fig, ax = plt.subplots(figsize=(11, 7.5))
+    ax.barh(
+        top["feature"],
+        top["importance_mean"],
+        xerr=top["importance_std"],
+        color="#2878B5",
+    )
+    ax.axvline(0, color="#666666", linewidth=1)
+    ax.set(
+        title=f"Variáveis mais úteis no modelo: {best_name}",
+        xlabel="Queda média de AUC ao embaralhar a variável",
+        ylabel="",
+    )
+
+    # Uma importância por permutação próxima de zero pode parecer uma barra
+    # ausente. O rótulo deixa claro que a variável entrou no modelo, mas quase
+    # não alterou sua capacidade preditiva nesta amostra.
+    for position, value in enumerate(top["importance_mean"]):
+        label = "≈ 0" if abs(value) < 0.001 else f"{value:.3f}"
+        ax.text(max(value, 0) + 0.003, position, label, va="center", fontsize=10)
+
+    fig.text(
+        0.01,
+        0.01,
+        "Valores próximos de zero indicam pouca contribuição preditiva; valores "
+        "levemente negativos podem ocorrer por variação amostral.",
+        fontsize=9,
+        color="#555555",
+    )
+    fig.tight_layout(rect=(0, 0.05, 1, 1))
     fig.savefig(FIGURES_DIR / "06_model_feature_importance.png", dpi=180)
     plt.close(fig)
 
