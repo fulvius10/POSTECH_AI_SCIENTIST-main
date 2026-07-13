@@ -85,7 +85,7 @@ tech_challenge_fase_1_nps/
 |-- src/
 |   |-- run_analysis.py
 |   `-- score_new_orders.py
-|-- presentation/                  # slides e roteiro executivo
+|-- presentation/                  # apresentacao executiva
 |-- requirements.txt
 `-- README.md
 ```
@@ -119,8 +119,7 @@ iniciais e devem ser calibrados conforme capacidade e custo do time.
 - [Análise conceitual e de negócio](reports/analise_negocio.md)
 - [Gráficos da análise](reports/figures/)
 - [Metricas dos modelos](reports/model_metrics.csv)
-- [Apresentacao executiva](presentation/tech_challenge_nps_executivo.pptx)
-- [Roteiro do video de até 5 minutos](presentation/roteiro_video_5_min.md)
+- [Apresentacao executiva](presentation/tech_challenge_nps_executivo_fase_1.pptx)
 
 ## Limitações
 

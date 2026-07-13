@@ -30,6 +30,7 @@ desafio_disciplina_payflow/
 |-- docs/                # documento final autoexplicativo
 |-- examples/            # exemplo de requisicao
 |-- models/              # pipeline serializado
+|-- presentation/        # apresentacao executiva
 |-- reports/             # metricas, tabelas e figuras
 |-- src/                 # treinamento CRISP-DM
 |-- tests/               # testes da API
@@ -77,3 +78,9 @@ Esses valores sao premissas didaticas. Em producao, devem ser substituidos por L
 - A base e sintetica e nao possui data de concessao; por isso usamos holdout e validacao cruzada estratificados, nao split temporal.
 - A performance real so pode ser medida quando o target maturar, 90 dias depois.
 - Antes de uso real sao necessarios validacao juridica, politica de credito, avaliacao de vies, seguranca, LGPD e aprovacao humana.
+
+## Entregaveis
+
+- [Documento final autoexplicativo](docs/relatorio_payflow_crisp_dm.docx)
+- [Apresentacao executiva](presentation/payflow_credit_risk_executivo.pptx)
+- [Analise CRISP-DM](reports/analise_crisp_dm.md)

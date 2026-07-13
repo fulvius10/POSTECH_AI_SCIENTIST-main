@@ -1,4 +1,10 @@
 # POSTECH_AI_SCIENTIST
+
+## Projetos desenvolvidos
+
+- [Tech Challenge Fase 1 - NPS preditivo](tech_challenge_fase_1_nps/README.md)
+- [Desafio da disciplina - PayFlow Credit Risk](desafio_disciplina_payflow/README.md)
+
 Olá 😊 seja muito bem vindo e bem vinda ao repositório do curso AI Scientist! Aqui você encontra todos os códigos utilizados em aulas nas disciplinas da pós 😉
 
 Espero que você aproveite muito essa jornada, bons estudos! 🚀
