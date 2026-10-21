@@ -1,0 +1,107 @@
+{
+  "data_consolidacao": "2026-10-21",
+  "recorte_publico": "serie=2, redes=2/3; presença e preenchimento 1; classificação 0/1; proficiência finita; peso positivo finito",
+  "formula": "100 * SUM(peso_aluno * indicador_alfabetizado) / SUM(peso_aluno), no mesmo conjunto elegível",
+  "perfil_publico": [
+    {
+      "ano": "2023",
+      "registros": 1747439,
+      "ausentes": 244381,
+      "presentes_sem_preenchimento": 249,
+      "elegiveis": 1502809
+    },
+    {
+      "ano": "2024",
+      "registros": 2120535,
+      "ausentes": 267771,
+      "presentes_sem_preenchimento": 936,
+      "elegiveis": 1851828
+    }
+  ],
+  "reconciliacao_municipal": [
+    {
+      "ano": "2023",
+      "linhas_conferencia": 5449,
+      "pares": 4821,
+      "diferenca_ate_001_pp": 4028,
+      "diferenca_maior_001_pp": 793,
+      "agregados_sem_microdados": 627,
+      "recalculos_sem_agregado": 1
+    },
+    {
+      "ano": "2024",
+      "linhas_conferencia": 5450,
+      "pares": 5448,
+      "diferenca_ate_001_pp": 3879,
+      "diferenca_maior_001_pp": 1569,
+      "agregados_sem_microdados": 0,
+      "recalculos_sem_agregado": 2
+    }
+  ],
+  "exemplos_municipais_2024": [
+    {
+      "ano": "2024",
+      "avaliados_elegiveis": "128",
+      "diferenca_agregado_pp": "9.270506329113928",
+      "diferenca_publicacao_pp": "9.270506329113928",
+      "id_municipio": "2506806",
+      "soma_pesos_alfabetizados": "74.64",
+      "soma_pesos_avaliados": "158.0",
+      "taxa_agregado": "37.97",
+      "taxa_ponderada": "47.24050632911393",
+      "taxa_publicacao_metas": "37.97",
+      "taxa_sem_peso": "46.87500000000001"
+    },
+    {
+      "ano": "2024",
+      "avaliados_elegiveis": "29",
+      "diferenca_agregado_pp": "-0.033541944074571006",
+      "diferenca_publicacao_pp": "-0.033541944074571006",
+      "id_municipio": "3106101",
+      "soma_pesos_alfabetizados": "17.32",
+      "soma_pesos_avaliados": "30.04",
+      "taxa_agregado": "57.69",
+      "taxa_ponderada": "57.65645805592543",
+      "taxa_publicacao_metas": "57.69",
+      "taxa_sem_peso": "58.620689655172406"
+    },
+    {
+      "ano": "2024",
+      "avaliados_elegiveis": "11276",
+      "diferenca_agregado_pp": "-0.0022388201523568796",
+      "diferenca_publicacao_pp": "-0.0022388201523568796",
+      "id_municipio": "3106200",
+      "soma_pesos_alfabetizados": "9310.110000000008",
+      "soma_pesos_avaliados": "13575.990000000014",
+      "taxa_agregado": "68.58",
+      "taxa_ponderada": "68.57776117984764",
+      "taxa_publicacao_metas": "68.58",
+      "taxa_sem_peso": "68.9251507626818"
+    }
+  ],
+  "limites": [
+    "Recálculo não reproduz todos os indicadores.",
+    "Faixa de 0,01 p.p. é descritiva, não tolerância aprovada.",
+    "Cobertura de alunos de 2023 exclui SP conforme Leia-Me."
+  ],
+  "conferencia_original_alunos_2024_amostra": {
+    "2506806": {
+      "avaliados": 128,
+      "peso_avaliados": 157.9999999999998,
+      "peso_alfabetizados": 74.64,
+      "taxa_ponderada_original": 47.240506329113984
+    },
+    "3106101": {
+      "avaliados": 29,
+      "peso_avaliados": 30.039999999999992,
+      "peso_alfabetizados": 17.32,
+      "taxa_ponderada_original": 57.65645805592545
+    },
+    "3106200": {
+      "avaliados": 11276,
+      "peso_avaliados": 13575.990000000198,
+      "peso_alfabetizados": 9310.11000000015,
+      "taxa_ponderada_original": 68.57776117984777
+    }
+  }
+}

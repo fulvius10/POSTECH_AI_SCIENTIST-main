@@ -20,6 +20,8 @@ os mesmos valores.
 4. [Enunciado original](referencias/enunciado_fase_2.pdf).
 5. [Manifesto das fontes](referencias/manifesto.json): URLs, arquivos, tamanhos e SHA-256.
 6. [Desenho proposto da base analítica](docs/04_desenho_base_analitica.md): tabelas, junções e decisões abertas.
+7. [Decisões de rede, território e fonte](docs/05_decisoes_redes_territorio_fontes.md): regras fechadas e evidências.
+8. [Alunos, pesos e recálculo](docs/06_elegibilidade_pesos_recalculo.md): regra de elegibilidade, fórmula e limites de reprodução.
 
 ## O que já foi verificado
 
@@ -49,6 +51,11 @@ Abra os arquivos abaixo no editor SQL do BigQuery, com o projeto
 | [06_dicionario.sql](sql/06_dicionario.sql) | Interpretar códigos oficiais |
 | [07_unicidade_das_chaves.sql](sql/07_unicidade_das_chaves.sql) | Detectar chaves repetidas antes de juntar |
 | [08_contexto_metas_uf_brasil.sql](sql/08_contexto_metas_uf_brasil.sql) | Conferir anos, rede Pública e mudanças de metas históricas entre linhas |
+| [09_codigos_territoriais_por_ano.sql](sql/09_codigos_territoriais_por_ano.sql) | Códigos distintos para conferir contra a DTB do respectivo ano |
+| [10_perfil_alunos.sql](sql/10_perfil_alunos.sql) | Presença, preenchimento, pesos e corte de proficiência |
+| [11_recalculo_municipal.sql](sql/11_recalculo_municipal.sql) | Taxa ponderada municipal e comparação entre fontes |
+| [12_recalculo_publico_uf_brasil.sql](sql/12_recalculo_publico_uf_brasil.sql) | Agregação dos alunos públicos elegíveis por UF e no conjunto disponível |
+| [13_chaves_e_excluidos_alunos.sql](sql/13_chaves_e_excluidos_alunos.sql) | Chave candidata e classificação nos registros excluídos |
 
 O usuário informou ter salvo `03_resultados_municipais_metas_2024` no BigQuery
 Studio. Este diretório guarda uma versão SQL com a mesma lógica; a consulta salva
@@ -65,6 +72,9 @@ projeto, contendo SQL; ela não é uma cópia dos resultados nem uma camada Bron
 - [Resumo da conferência](evidencias/resumo_conferencia.json).
 - [Métricas retornadas pela consulta da junção](evidencias/metricas_juncao_2024.json).
 - [Contexto consultado das metas de UF e Brasil](evidencias/contexto_metas_uf_brasil.json).
+- [Conferência de rede, território e fontes originais](evidencias/decisoes_rede_territorio_fontes.json).
+- [Resumo do recálculo ponderado](evidencias/resumo_recalculo_alunos.json).
+- [Conferência municipal dos alunos](evidencias/recalculo_municipal_alunos.csv).
 
 Os originais foram copiados sem alterações. Esses arquivos e consultas são material
 de pesquisa, não representam ingestão, tratamento ou execução da futura pipeline.
@@ -81,6 +91,7 @@ Essas verificações validam o material de investigação; não são testes da f
 
 ## Próximo passo
 
-Revisar e aprovar o [contrato proposto](docs/04_desenho_base_analitica.md), com atenção
-ao universo Público, ao cadastro territorial e à política para contextos de metas.
-O desenho foi documentado; as tabelas propostas não foram criadas.
+Definir o catálogo de qualidade e priorizar divergências materiais do recálculo.
+Elegibilidade e fórmula foram documentadas no documento 06, com conferência
+parcial: há diferenças entre produtos originais ainda sem causa determinada.
+As tabelas propostas não foram criadas.

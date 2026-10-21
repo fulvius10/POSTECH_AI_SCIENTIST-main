@@ -22,6 +22,88 @@
       "descricao": "Publicação de resultados e metas de 2024.",
       "bytes": 629758,
       "sha256": "64cf09f3dc0d3f9c6b1298f11ef4a8f3803e91d038f98fe99379558f858363e7"
+    },
+    {
+      "arquivo": "IBGE_DTB_2023.zip",
+      "url": "https://geoftp.ibge.gov.br/organizacao_do_territorio/estrutura_territorial/divisao_territorial/2023/DTB_2023.zip",
+      "descricao": "Cadastro territorial IBGE DTB 2023, ZIP original sem alterações.",
+      "bytes": 1536464,
+      "sha256": "9737cb335711eac12fb76a99baee17f7ed169ad7e4006451e41edb2dc023c4c8"
+    },
+    {
+      "arquivo": "IBGE_DTB_2024.zip",
+      "url": "https://geoftp.ibge.gov.br/organizacao_do_territorio/estrutura_territorial/divisao_territorial/2024/DTB_2024.zip",
+      "descricao": "Cadastro territorial IBGE DTB 2024, ZIP original sem alterações.",
+      "bytes": 1867011,
+      "sha256": "218d2017cc29ff21cb6e8a0b015c40ea8f456900f95aa18f534be4ea94b473f0"
+    },
+    {
+      "arquivo": "IBGE_estados.json",
+      "url": "https://servicodados.ibge.gov.br/api/v1/localidades/estados?orderBy=id",
+      "descricao": "Resposta original da API de UFs, coletada em 21/10/2026. Não representa publicação histórica.",
+      "bytes": 2446,
+      "sha256": "7ca1368dea3af83cba1af84ae8a7e88f1173c97586831d086cc8b3c1ba9c6596"
+    },
+    {
+      "arquivo": "inep_microdados_2023/Dicionario_Microdados_AEEB_2023.xlsx",
+      "url": "https://download.inep.gov.br/dados_abertos/microdados_avaliacao_da_alfabetizacao_2023.zip",
+      "descricao": "Membro extraído sem alterações do ZIP do Inep.",
+      "bytes": 17345,
+      "sha256": "d29fb310644a382a25f603e5b88f17a8bd4f48933a48aa5cecbd2dd0dc7a0ccb",
+      "membro_zip": "DICIONÁRIO/Dicionario_Microdados_AEEB_2023.xlsx",
+      "sha256_zip": "3b5a9a2e5f20deba2878cd754149c49854d88b76f2048d69f87e6aa182eda803"
+    },
+    {
+      "arquivo": "inep_microdados_2023/TS_MUNICIPIO_2023.csv",
+      "url": "https://download.inep.gov.br/dados_abertos/microdados_avaliacao_da_alfabetizacao_2023.zip",
+      "descricao": "Membro extraído sem alterações do ZIP do Inep.",
+      "bytes": 580221,
+      "sha256": "b3ca2c8f1a1d436bd002ada40969622f1cc8113c2b5d8cb908b36a23fd87ff20",
+      "membro_zip": "DADOS/TS_MUNICIPIO.csv",
+      "sha256_zip": "3b5a9a2e5f20deba2878cd754149c49854d88b76f2048d69f87e6aa182eda803"
+    },
+    {
+      "arquivo": "inep_resultados_e_metas_ufs_2024.xlsx",
+      "url": "https://download.inep.gov.br/alfabetiza_brasil/resultados_e_metas_ufs_2024_2.xlsx",
+      "descricao": "Publicação original UF/Brasil 2024, sem alterações.",
+      "bytes": 15230,
+      "sha256": "99bfaa63ddc0109570e27933d23af2def5c03073918f5fca042b274a51ab958c"
+    },
+    {
+      "arquivo": "inep_microdados_2023/LeiaMe_Microdados_AEEB_2023.pdf",
+      "url": "https://download.inep.gov.br/dados_abertos/microdados_avaliacao_da_alfabetizacao_2023.zip",
+      "descricao": "Membro original extraído sem alterações; arquivo de alunos não copiado para o repositório.",
+      "membro_zip": "LEIA-ME E DOCUMENTOS TÉCNICOS/LeiaMe_Microdados_AEEB_2023.pdf",
+      "bytes": 563223,
+      "sha256": "1759d5ef7d5f7cf91f741a87763863798016363a543aa31cc171f50bc9511b61",
+      "sha256_zip": "3b5a9a2e5f20deba2878cd754149c49854d88b76f2048d69f87e6aa182eda803"
+    },
+    {
+      "arquivo": "inep_microdados_2024/LeiaMe_Microdados_AEEB_2024.pdf",
+      "url": "https://download.inep.gov.br/dados_abertos/microdados_avaliacao_da_alfabetizacao_2024.zip",
+      "descricao": "Membro original extraído sem alterações; arquivo de alunos não copiado para o repositório.",
+      "membro_zip": "LEIA-ME E DOCUMENTOS TÉCNICOS/LeiaMe_Microdados_AEEB_2024.pdf",
+      "bytes": 747097,
+      "sha256": "d45e88c88c04ad2a7b7a6a6ab7c1c15d96cf63ab43d229cece401864351c3ace",
+      "sha256_zip": "1d698162ff6b478dfd4a923dd858fc7b0f1704679a438d8334e0ed1046ccba7e"
+    },
+    {
+      "arquivo": "inep_microdados_2024/TS_MUNICIPIO_2024.csv",
+      "url": "https://download.inep.gov.br/dados_abertos/microdados_avaliacao_da_alfabetizacao_2024.zip",
+      "descricao": "Membro original extraído sem alterações; arquivo de alunos não copiado para o repositório.",
+      "membro_zip": "DADOS/TS_MUNICIPIO.csv",
+      "bytes": 1587727,
+      "sha256": "bc568fbe00532d59550f06c63dc674d14eeaa46e8b6e82576d211dc58eeec76e",
+      "sha256_zip": "1d698162ff6b478dfd4a923dd858fc7b0f1704679a438d8334e0ed1046ccba7e"
+    },
+    {
+      "arquivo": "inep_microdados_2024/Dicionario_Microdados_AEEB_2024.xlsx",
+      "url": "https://download.inep.gov.br/dados_abertos/microdados_avaliacao_da_alfabetizacao_2024.zip",
+      "descricao": "Membro original extraído sem alterações; arquivo de alunos não copiado para o repositório.",
+      "membro_zip": "DICIONÁRIO/Dicionario_Microdados_AEEB_2024.xlsx",
+      "bytes": 18313,
+      "sha256": "e92226117c818b54340943d42a75b9f05f08756fc8755732b68fa2de1b3d0e89",
+      "sha256_zip": "1d698162ff6b478dfd4a923dd858fc7b0f1704679a438d8334e0ed1046ccba7e"
     }
   ]
 }

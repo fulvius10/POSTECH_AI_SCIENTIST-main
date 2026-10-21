@@ -113,8 +113,12 @@ agregado não equivale a resultado divulgado na publicação usada para metas.
 
 **Limite da conclusão:** a nota apresenta não participação ou participação abaixo
 de 70% como causas. Ela não identifica a causa de cada município; não afirmar que
-todos os 70 tiveram participação abaixo de 70%. O ZIP original de microdados não
-foi baixado para uma conferência direta de `TS_MUNICIPIO.csv` nesta etapa.
+todos os 70 tiveram participação abaixo de 70%.
+
+Na etapa posterior de [decisão das fontes](05_decisoes_redes_territorio_fontes.md),
+o ZIP original foi baixado e `TS_MUNICIPIO.csv` conferido diretamente: os 70 valores
+coincidem com o BigQuery. Essa verificação supera a pendência de comparação com o
+CSV original, mas não identifica o motivo individual da não divulgação.
 
 ### Exemplos municipais de MG
 

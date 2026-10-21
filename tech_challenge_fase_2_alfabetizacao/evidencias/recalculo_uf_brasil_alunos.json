@@ -1,0 +1,410 @@
+[
+  {
+    "ano": "2023",
+    "codigo_uf": null,
+    "elegiveis": "1502809",
+    "pesos_alfabetizados": "1001920.6958326099",
+    "soma_pesos": "1743618.138104471",
+    "taxa_ponderada": "57.4621629551194"
+  },
+  {
+    "ano": "2023",
+    "codigo_uf": "11",
+    "elegiveis": "20116",
+    "pesos_alfabetizados": "14751.670998999956",
+    "soma_pesos": "22833.999995199945",
+    "taxa_ponderada": "64.60397215599974"
+  },
+  {
+    "ano": "2023",
+    "codigo_uf": "13",
+    "elegiveis": "48010",
+    "pesos_alfabetizados": "32916.7424457",
+    "soma_pesos": "63055.00003640019",
+    "taxa_ponderada": "52.20322326016641"
+  },
+  {
+    "ano": "2023",
+    "codigo_uf": "15",
+    "elegiveis": "84557",
+    "pesos_alfabetizados": "50786.02889980002",
+    "soma_pesos": "104971.99996249963",
+    "taxa_ponderada": "48.38054806800185"
+  },
+  {
+    "ano": "2023",
+    "codigo_uf": "16",
+    "elegiveis": "11075",
+    "pesos_alfabetizados": "5132.468314899999",
+    "soma_pesos": "12349.000002",
+    "taxa_ponderada": "41.56181321620182"
+  },
+  {
+    "ano": "2023",
+    "codigo_uf": "17",
+    "elegiveis": "16831",
+    "pesos_alfabetizados": "8768.796020500004",
+    "soma_pesos": "20059.000027600032",
+    "taxa_ponderada": "43.71502073101672"
+  },
+  {
+    "ano": "2023",
+    "codigo_uf": "21",
+    "elegiveis": "66793",
+    "pesos_alfabetizados": "42298.14239429989",
+    "soma_pesos": "74957.99996789974",
+    "taxa_ponderada": "56.42912352572612"
+  },
+  {
+    "ano": "2023",
+    "codigo_uf": "22",
+    "elegiveis": "33067",
+    "pesos_alfabetizados": "18586.96750459994",
+    "soma_pesos": "35414.99991149984",
+    "taxa_ponderada": "52.48331935916352"
+  },
+  {
+    "ano": "2023",
+    "codigo_uf": "23",
+    "elegiveis": "95549",
+    "pesos_alfabetizados": "84757.79161430021",
+    "soma_pesos": "100348.9999974998",
+    "taxa_ponderada": "84.4630156916481"
+  },
+  {
+    "ano": "2023",
+    "codigo_uf": "24",
+    "elegiveis": "24937",
+    "pesos_alfabetizados": "11822.468798999993",
+    "soma_pesos": "31748.000131899913",
+    "taxa_ponderada": "37.238467777127646"
+  },
+  {
+    "ano": "2023",
+    "codigo_uf": "25",
+    "elegiveis": "33714",
+    "pesos_alfabetizados": "19536.29934970001",
+    "soma_pesos": "38215.000024299996",
+    "taxa_ponderada": "51.12207075043137"
+  },
+  {
+    "ano": "2023",
+    "codigo_uf": "26",
+    "elegiveis": "81148",
+    "pesos_alfabetizados": "52038.87360449965",
+    "soma_pesos": "88271.00006279975",
+    "taxa_ponderada": "58.953533513245546"
+  },
+  {
+    "ano": "2023",
+    "codigo_uf": "27",
+    "elegiveis": "32789",
+    "pesos_alfabetizados": "15580.149433200004",
+    "soma_pesos": "35502.99998019995",
+    "taxa_ponderada": "43.884036396611734"
+  },
+  {
+    "ano": "2023",
+    "codigo_uf": "28",
+    "elegiveis": "18634",
+    "pesos_alfabetizados": "6176.930000000002",
+    "soma_pesos": "19901.109999999884",
+    "taxa_ponderada": "31.038117974324237"
+  },
+  {
+    "ano": "2023",
+    "codigo_uf": "29",
+    "elegiveis": "116412",
+    "pesos_alfabetizados": "50651.18598019983",
+    "soma_pesos": "137724.00021970007",
+    "taxa_ponderada": "36.7773125231623"
+  },
+  {
+    "ano": "2023",
+    "codigo_uf": "31",
+    "elegiveis": "188236",
+    "pesos_alfabetizados": "125663.14226290045",
+    "soma_pesos": "210106.99877559955",
+    "taxa_ponderada": "59.80911773296632"
+  },
+  {
+    "ano": "2023",
+    "codigo_uf": "32",
+    "elegiveis": "44628",
+    "pesos_alfabetizados": "34294.0085905001",
+    "soma_pesos": "50481.99998900011",
+    "taxa_ponderada": "67.93314170986228"
+  },
+  {
+    "ano": "2023",
+    "codigo_uf": "33",
+    "elegiveis": "129935",
+    "pesos_alfabetizados": "83401.3291294999",
+    "soma_pesos": "159996.9996442999",
+    "taxa_ponderada": "52.126808199475626"
+  },
+  {
+    "ano": "2023",
+    "codigo_uf": "41",
+    "elegiveis": "119385",
+    "pesos_alfabetizados": "101295.27901240002",
+    "soma_pesos": "138532.0001236",
+    "taxa_ponderada": "73.12049123814215"
+  },
+  {
+    "ano": "2023",
+    "codigo_uf": "42",
+    "elegiveis": "80656",
+    "pesos_alfabetizados": "62992.180502900104",
+    "soma_pesos": "102620.99992400019",
+    "taxa_ponderada": "61.38332363702489"
+  },
+  {
+    "ano": "2023",
+    "codigo_uf": "43",
+    "elegiveis": "98660",
+    "pesos_alfabetizados": "76844.7392072004",
+    "soma_pesos": "121147.99985719925",
+    "taxa_ponderada": "63.43046463646084"
+  },
+  {
+    "ano": "2023",
+    "codigo_uf": "50",
+    "elegiveis": "37113",
+    "pesos_alfabetizados": "17727.0",
+    "soma_pesos": "37113.0",
+    "taxa_ponderada": "47.764934120119634"
+  },
+  {
+    "ano": "2023",
+    "codigo_uf": "51",
+    "elegiveis": "47696",
+    "pesos_alfabetizados": "30026.225921599973",
+    "soma_pesos": "54526.08592159992",
+    "taxa_ponderada": "55.06763490189456"
+  },
+  {
+    "ano": "2023",
+    "codigo_uf": "52",
+    "elegiveis": "72868",
+    "pesos_alfabetizados": "55872.27584590006",
+    "soma_pesos": "83738.94354960004",
+    "taxa_ponderada": "66.72197364516062"
+  },
+  {
+    "ano": "2024",
+    "codigo_uf": null,
+    "elegiveis": "1851828",
+    "pesos_alfabetizados": "1248608.7805131525",
+    "soma_pesos": "2109149.9052244653",
+    "taxa_ponderada": "59.19962243652235"
+  },
+  {
+    "ano": "2024",
+    "codigo_uf": "11",
+    "elegiveis": "20027",
+    "pesos_alfabetizados": "14204.949999999968",
+    "soma_pesos": "22680.0699999999",
+    "taxa_ponderada": "62.631861365507376"
+  },
+  {
+    "ano": "2024",
+    "codigo_uf": "12",
+    "elegiveis": "10234",
+    "pesos_alfabetizados": "6504.159999999996",
+    "soma_pesos": "12658.030000000006",
+    "taxa_ponderada": "51.383667126717135"
+  },
+  {
+    "ano": "2024",
+    "codigo_uf": "13",
+    "elegiveis": "46628",
+    "pesos_alfabetizados": "28840.980000000018",
+    "soma_pesos": "58651.23000000017",
+    "taxa_ponderada": "49.17370019349966"
+  },
+  {
+    "ano": "2024",
+    "codigo_uf": "15",
+    "elegiveis": "83193",
+    "pesos_alfabetizados": "48206.25000000015",
+    "soma_pesos": "100007.25000000045",
+    "taxa_ponderada": "48.20275530024067"
+  },
+  {
+    "ano": "2024",
+    "codigo_uf": "16",
+    "elegiveis": "11214",
+    "pesos_alfabetizados": "5866.340000000006",
+    "soma_pesos": "12583.749999999976",
+    "taxa_ponderada": "46.61837687493805"
+  },
+  {
+    "ano": "2024",
+    "codigo_uf": "17",
+    "elegiveis": "16799",
+    "pesos_alfabetizados": "9879.380000000005",
+    "soma_pesos": "19737.549999999963",
+    "taxa_ponderada": "50.05373007288151"
+  },
+  {
+    "ano": "2024",
+    "codigo_uf": "21",
+    "elegiveis": "62974",
+    "pesos_alfabetizados": "41335.09000000007",
+    "soma_pesos": "69300.2300000003",
+    "taxa_ponderada": "59.646396555970874"
+  },
+  {
+    "ano": "2024",
+    "codigo_uf": "22",
+    "elegiveis": "31105",
+    "pesos_alfabetizados": "19621.01999999989",
+    "soma_pesos": "32796.61000000001",
+    "taxa_ponderada": "59.826366200652714"
+  },
+  {
+    "ano": "2024",
+    "codigo_uf": "23",
+    "elegiveis": "88158",
+    "pesos_alfabetizados": "76650.87000000034",
+    "soma_pesos": "89848.22000000045",
+    "taxa_ponderada": "85.31150644943212"
+  },
+  {
+    "ano": "2024",
+    "codigo_uf": "24",
+    "elegiveis": "22848",
+    "pesos_alfabetizados": "11553.269999999997",
+    "soma_pesos": "29404.290000000034",
+    "taxa_ponderada": "39.29110344102845"
+  },
+  {
+    "ano": "2024",
+    "codigo_uf": "25",
+    "elegiveis": "31004",
+    "pesos_alfabetizados": "19658.62999999991",
+    "soma_pesos": "35127.83000000001",
+    "taxa_ponderada": "55.96312097843762"
+  },
+  {
+    "ano": "2024",
+    "codigo_uf": "26",
+    "elegiveis": "75953",
+    "pesos_alfabetizados": "48856.960000000254",
+    "soma_pesos": "80374.66000000061",
+    "taxa_ponderada": "60.7865215230769"
+  },
+  {
+    "ano": "2024",
+    "codigo_uf": "27",
+    "elegiveis": "31575",
+    "pesos_alfabetizados": "16378.449999999908",
+    "soma_pesos": "33675.94000000004",
+    "taxa_ponderada": "48.635464964006616"
+  },
+  {
+    "ano": "2024",
+    "codigo_uf": "28",
+    "elegiveis": "17802",
+    "pesos_alfabetizados": "7459.899999999998",
+    "soma_pesos": "19430.899999999852",
+    "taxa_ponderada": "38.39194273039362"
+  },
+  {
+    "ano": "2024",
+    "codigo_uf": "29",
+    "elegiveis": "104069",
+    "pesos_alfabetizados": "37424.0",
+    "soma_pesos": "104069.0",
+    "taxa_ponderada": "35.960756805580914"
+  },
+  {
+    "ano": "2024",
+    "codigo_uf": "31",
+    "elegiveis": "180771",
+    "pesos_alfabetizados": "146688.8600000012",
+    "soma_pesos": "203521.200000002",
+    "taxa_ponderada": "72.07546928772028"
+  },
+  {
+    "ano": "2024",
+    "codigo_uf": "32",
+    "elegiveis": "42751",
+    "pesos_alfabetizados": "34096.96999999988",
+    "soma_pesos": "47552.51000000011",
+    "taxa_ponderada": "71.70382804188422"
+  },
+  {
+    "ano": "2024",
+    "codigo_uf": "33",
+    "elegiveis": "125671",
+    "pesos_alfabetizados": "83568.53999999967",
+    "soma_pesos": "151233.55999999988",
+    "taxa_ponderada": "55.25793349042352"
+  },
+  {
+    "ano": "2024",
+    "codigo_uf": "35",
+    "elegiveis": "395444",
+    "pesos_alfabetizados": "257966.17166399764",
+    "soma_pesos": "443732.99943811935",
+    "taxa_ponderada": "58.135449017911554"
+  },
+  {
+    "ano": "2024",
+    "codigo_uf": "41",
+    "elegiveis": "119806",
+    "pesos_alfabetizados": "97857.39000000052",
+    "soma_pesos": "138958.92000000027",
+    "taxa_ponderada": "70.4218124320485"
+  },
+  {
+    "ano": "2024",
+    "codigo_uf": "42",
+    "elegiveis": "69035",
+    "pesos_alfabetizados": "61117.85999999994",
+    "soma_pesos": "98545.70999999998",
+    "taxa_ponderada": "62.01980786378215"
+  },
+  {
+    "ano": "2024",
+    "codigo_uf": "43",
+    "elegiveis": "89562",
+    "pesos_alfabetizados": "48364.5988490998",
+    "soma_pesos": "108062.43578609951",
+    "taxa_ponderada": "44.75616202547336"
+  },
+  {
+    "ano": "2024",
+    "codigo_uf": "50",
+    "elegiveis": "37212",
+    "pesos_alfabetizados": "23095.259999999875",
+    "soma_pesos": "41336.41000000018",
+    "taxa_ponderada": "55.871470212337684"
+  },
+  {
+    "ano": "2024",
+    "codigo_uf": "51",
+    "elegiveis": "45083",
+    "pesos_alfabetizados": "30894.429999999862",
+    "soma_pesos": "50992.309999999925",
+    "taxa_ponderada": "60.586449211655456"
+  },
+  {
+    "ano": "2024",
+    "codigo_uf": "52",
+    "elegiveis": "70799",
+    "pesos_alfabetizados": "56148.16000000015",
+    "soma_pesos": "77185.06000000011",
+    "taxa_ponderada": "72.74485502764404"
+  },
+  {
+    "ano": "2024",
+    "codigo_uf": "53",
+    "elegiveis": "22111",
+    "pesos_alfabetizados": "16370.289999999983",
+    "soma_pesos": "27683.229999999923",
+    "taxa_ponderada": "59.134320669950824"
+  }
+]

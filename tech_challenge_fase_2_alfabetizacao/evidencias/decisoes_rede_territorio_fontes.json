@@ -1,0 +1,85 @@
+{
+  "data_consolidacao": "2026-10-21",
+  "cadastro": "IBGE DTB por ano",
+  "cadastros": {
+    "2023": {
+      "linhas": 5570,
+      "membro": "DTB_2023/RELATORIO_DTB_BRASIL_MUNICIPIO.ods"
+    },
+    "2024": {
+      "linhas": 5571,
+      "membro": "RELATORIO_DTB_BRASIL_2024_MUNICIPIOS.ods"
+    }
+  },
+  "correspondencia": [
+    {
+      "fonte": "alunos",
+      "ano": "2023",
+      "codigos": 4873,
+      "correspondencias": 4873,
+      "sem_correspondencia": []
+    },
+    {
+      "fonte": "alunos",
+      "ano": "2024",
+      "codigos": 5519,
+      "correspondencias": 5519,
+      "sem_correspondencia": []
+    },
+    {
+      "fonte": "metas_municipais",
+      "ano": "2023",
+      "codigos": 5352,
+      "correspondencias": 5352,
+      "sem_correspondencia": []
+    },
+    {
+      "fonte": "metas_municipais",
+      "ano": "2024",
+      "codigos": 5352,
+      "correspondencias": 5352,
+      "sem_correspondencia": []
+    },
+    {
+      "fonte": "municipio",
+      "ano": "2023",
+      "codigos": 5514,
+      "correspondencias": 5514,
+      "sem_correspondencia": []
+    },
+    {
+      "fonte": "municipio",
+      "ano": "2024",
+      "codigos": 5516,
+      "correspondencias": 5516,
+      "sem_correspondencia": []
+    }
+  ],
+  "uf_api_linhas": 27,
+  "rede": {
+    "dicionario_original": "referencias/inep_microdados_2023/Dicionario_Microdados_AEEB_2023.xlsx",
+    "celulas": {
+      "TS_ESTADO": "C7",
+      "TS_MUNICIPIO": "C9"
+    },
+    "codigo_5": "Pública (Estadual e Municipal)",
+    "codigo_6": "Pública (Federal, Estadual e Municipal)",
+    "decisao_operacional": "Pública das metas no recorte investigado vinculada ao código 5, preservando texto original; não generalizar para novas fontes sem conferência."
+  },
+  "conferencia_70_original_csv": {
+    "conferidos": 70,
+    "iguais_bigquery": 70,
+    "arquivo": "referencias/inep_microdados_2023/TS_MUNICIPIO_2023.csv"
+  },
+  "fonte_uf_brasil_2024": {
+    "arquivo": "referencias/inep_resultados_e_metas_ufs_2024.xlsx",
+    "meta_nacional_2024_celula": "H3",
+    "meta_nacional_2024_valor": 59.9,
+    "resultado_nacional_celula": "G3",
+    "resultado_nacional_original": 59.19727062879876,
+    "meta_2030_celula": "N3",
+    "meta_2030_original": "> 80",
+    "meta_2030_bd": 80,
+    "observacao": "Texto original e operador são preservados; normalização BD não é equivalência entre >80 e >=80."
+  }
+}

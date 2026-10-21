@@ -3,6 +3,12 @@
 Proposta de 21/10/2026. **Somente modelagem e investigação; nenhuma das tabelas
 propostas abaixo foi criada.** Os nomes são sugestões para discussão.
 
+Atualização: as decisões de rede, território e precedência de fontes estão
+especificadas em [05_decisoes_redes_territorio_fontes.md](05_decisoes_redes_territorio_fontes.md).
+Esse registro prevalece sobre as pendências abaixo. Em particular, a Gold de
+cumprimento usará resultado da publicação de metas, preservando o resultado
+agregado ao lado; o cadastro será a DTB do IBGE por ano de referência.
+
 ## Objetivo
 
 Responder, para cada território e recorte compatível: qual o resultado observado,
@@ -151,11 +157,10 @@ separadamente a meta municipal de 2030 do mesmo contexto.
 ### Comparação UF
 
 `gold_comparacao_uf`: resultado de UF de série 2 no universo Público compatível,
-com meta pública da própria UF. O mapeamento de `Pública` para o recorte rede 5
-(estadual e municipal) é candidato, apoiado nos 25 resultados coincidentes de 2024.
-**Coincidência numérica não prova sozinha o universo**: conferir o documento/dicionário
-da publicação antes de aprovar esse mapeamento como regra definitiva. Não mapear
-automaticamente para rede 6, que também inclui federal.
+com meta pública da própria UF. A regra operacional de `Pública` para o recorte
+rede 5 (estadual e municipal) foi definida no documento 05, com dicionário original
+conferido e a ponte de rótulo explicitada. Não generalizar esse mapeamento para
+fontes futuras, nem para rede 6, que também inclui federal.
 
 Usar o cadastro de UFs como base para tornar ausências visíveis. Em 2024, DF e RR
 ficariam identificados como sem resultado na tabela `uf` para o recorte; o resultado
@@ -205,7 +210,7 @@ Exemplo de navegação em 2024, preservando cada universo:
 | Nível | Rede | Resultado | Meta do ano | Saldo |
 | --- | --- | ---: | ---: | ---: |
 | Belo Horizonte | Municipal | 68,58% | 61,33% | +7,25 p.p. |
-| MG | Pública (mapeamento a validar documentalmente) | 72,07% | 63,20% | +8,87 p.p. |
+| MG | Pública (estadual e municipal, conforme regra do documento 05) | 72,07% | 63,20% | +8,87 p.p. |
 | Brasil | Pública | 59,20% | 59,90% | -0,70 p.p. |
 
 Esses saldos comparam cada território à própria meta; não demonstram efeito causal
@@ -229,12 +234,12 @@ do município sobre o estado ou sobre o país.
     mesmo ano. Features e dados disponíveis no momento da previsão serão definidos
     separadamente para fase 3.
 
-## Decisões ainda abertas
+## Decisões da primeira proposta e situação atual
 
-- Aprovar o mapeamento exato da rede Pública da publicação.
-- Selecionar e conferir o cadastro territorial oficial.
-- Definir a política de fonte principal e alternativa, divulgação e contexto de metas.
-- Investigar regras de elegibilidade e pesos dos alunos.
+- Rede Pública: regra operacional registrada no documento 05, com código 5 separado de 6.
+- Cadastro territorial: DTB IBGE 2023/2024, conferida com 100% de correspondência.
+- Fonte principal, divulgação e contexto de metas: política registrada no documento 05.
+- Elegibilidade e pesos: definidos e investigados no [documento 06](06_elegibilidade_pesos_recalculo.md); há divergências de recálculo sem causa individual determinada.
 - Aprovar limites bloqueantes e informativos a partir das lacunas registradas.
 
 Depois dessas decisões, desenhar o fluxo de ingestão e a arquitetura de execução.
