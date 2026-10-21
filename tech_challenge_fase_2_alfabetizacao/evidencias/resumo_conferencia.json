@@ -1,0 +1,42 @@
+{
+  "data_consolidacao": "2026-10-21",
+  "projeto_consultas": "postech-fase2-fulvius",
+  "dataset": "basedosdados.br_inep_avaliacao_alfabetizacao",
+  "recorte": {
+    "ano": 2024,
+    "serie": "2",
+    "rede_resultados": "3",
+    "rede_metas": "Municipal"
+  },
+  "metricas_da_investigacao_anterior": {
+    "linhas_resultado": 5448,
+    "linhas_meta": 5352,
+    "linhas_apos_join": 5448,
+    "sem_correspondencia": 96,
+    "meta_2024_nula_com_correspondencia": 120,
+    "comparaveis": 5232,
+    "atingiu": 2788,
+    "nao_atingiu": 2444
+  },
+  "conferencia_dos_originais": {
+    "municipios_comparados": 70,
+    "resultado_2023_original_2023_com_traco": 70,
+    "meta_2024_original_2023_com_traco": 70,
+    "resultado_2023_original_2024_vazio": 70,
+    "meta_2024_original_2024_vazia": 70,
+    "meta_2025_igual_bigquery": 70,
+    "meta_2030_igual_bigquery": 70,
+    "total_meta_2024_nula_na_planilha_2024": 120
+  },
+  "nota_inep": {
+    "arquivo": "inep_resultados_e_metas_municipios_2023.xlsx",
+    "aba": "Divulgação Alfabet Municipio",
+    "celula": "A5472",
+    "texto": "Observação 1: municípios sem resultados são os que não participaram da avaliação ou que tiveram percentual de participação abaixo de 70%"
+  },
+  "limites": [
+    "A nota não informa a causa individual de cada município.",
+    "O ZIP original de microdados não foi conferido diretamente.",
+    "Não há pipeline implementada nem evidências de execução de uma pipeline."
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "data_consolidacao": "2026-10-21",
+  "observacao": "Cópias sem alteração. As URLs podem passar a servir outras revisões. SHA-256 identifica a versão preservada.",
+  "fontes": [
+    {
+      "arquivo": "enunciado_fase_2.pdf",
+      "url": null,
+      "descricao": "Enunciado fornecido pelo usuário.",
+      "bytes": 597309,
+      "sha256": "e599dae420e7b72d60f66586a032b7b87ba3fec9dfae58a18025caaeedbde6c0"
+    },
+    {
+      "arquivo": "inep_resultados_e_metas_municipios_2023.xlsx",
+      "url": "https://download.inep.gov.br/avaliacao_da_alfabetizacao/resultados_e_metas_municipios.xlsx",
+      "descricao": "Publicação de resultados e metas de 2023; título local identifica o ano.",
+      "bytes": 825415,
+      "sha256": "70a4b1e36f16a16090aaa226101f973cae26024663cdb10b3334bb8009c2bcc7"
+    },
+    {
+      "arquivo": "inep_resultados_e_metas_municipios_2024.xlsx",
+      "url": "https://download.inep.gov.br/alfabetiza_brasil/resultados_e_metas_municipios_2024.xlsx",
+      "descricao": "Publicação de resultados e metas de 2024.",
+      "bytes": 629758,
+      "sha256": "64cf09f3dc0d3f9c6b1298f11ef4a8f3803e91d038f98fe99379558f858363e7"
+    }
+  ]
+}

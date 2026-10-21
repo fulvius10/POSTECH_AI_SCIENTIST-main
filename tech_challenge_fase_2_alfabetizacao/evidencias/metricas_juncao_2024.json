@@ -1,0 +1,17 @@
+[
+  {
+    "atingiu": "2788", 
+    "com_correspondencia": "5352", 
+    "comparaveis": "5232", 
+    "comparaveis_percentual": "96.0352422907489", 
+    "correspondencia_percentual": "98.23788546255507", 
+    "divergencias_acima_001_pp": "0", 
+    "linhas_apos_join": "5448", 
+    "linhas_meta": "5352", 
+    "linhas_resultado": "5448", 
+    "meta_2024_nula": "120", 
+    "nao_atingiu": "2444", 
+    "resultado_nulo": "0", 
+    "sem_correspondencia": "96"
+  }
+]

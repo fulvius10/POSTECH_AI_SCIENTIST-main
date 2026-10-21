@@ -1,0 +1,758 @@
+[
+  {
+    "ano_referencia_fonte": "2023", 
+    "id_territorio": "BR", 
+    "meta_alfabetizacao_2024": "59.9", 
+    "meta_alfabetizacao_2030": "80.0", 
+    "nivel_territorial": "BRASIL", 
+    "rede": "Pública", 
+    "taxa_alfabetizacao": "55.9"
+  }, 
+  {
+    "ano_referencia_fonte": "2024", 
+    "id_territorio": "BR", 
+    "meta_alfabetizacao_2024": "59.9", 
+    "meta_alfabetizacao_2030": "80.0", 
+    "nivel_territorial": "BRASIL", 
+    "rede": "Pública", 
+    "taxa_alfabetizacao": "59.2"
+  }, 
+  {
+    "ano_referencia_fonte": "2025", 
+    "id_territorio": "BR", 
+    "meta_alfabetizacao_2024": "60.0", 
+    "meta_alfabetizacao_2030": "80.0", 
+    "nivel_territorial": "BRASIL", 
+    "rede": "Pública", 
+    "taxa_alfabetizacao": "66.0"
+  }, 
+  {
+    "ano_referencia_fonte": "2023", 
+    "id_territorio": "AC", 
+    "meta_alfabetizacao_2024": null, 
+    "meta_alfabetizacao_2030": "80.0", 
+    "nivel_territorial": "UF", 
+    "rede": "Pública", 
+    "taxa_alfabetizacao": null
+  }, 
+  {
+    "ano_referencia_fonte": "2024", 
+    "id_territorio": "AC", 
+    "meta_alfabetizacao_2024": null, 
+    "meta_alfabetizacao_2030": "80.0", 
+    "nivel_territorial": "UF", 
+    "rede": "Pública", 
+    "taxa_alfabetizacao": "51.38"
+  }, 
+  {
+    "ano_referencia_fonte": "2025", 
+    "id_territorio": "AC", 
+    "meta_alfabetizacao_2024": null, 
+    "meta_alfabetizacao_2030": "80.0", 
+    "nivel_territorial": "UF", 
+    "rede": "Pública", 
+    "taxa_alfabetizacao": "68.0"
+  }, 
+  {
+    "ano_referencia_fonte": "2023", 
+    "id_territorio": "AL", 
+    "meta_alfabetizacao_2024": "49.7", 
+    "meta_alfabetizacao_2030": "80.0", 
+    "nivel_territorial": "UF", 
+    "rede": "Pública", 
+    "taxa_alfabetizacao": "43.88"
+  }, 
+  {
+    "ano_referencia_fonte": "2024", 
+    "id_territorio": "AL", 
+    "meta_alfabetizacao_2024": "49.7", 
+    "meta_alfabetizacao_2030": "80.0", 
+    "nivel_territorial": "UF", 
+    "rede": "Pública", 
+    "taxa_alfabetizacao": "48.63"
+  }, 
+  {
+    "ano_referencia_fonte": "2025", 
+    "id_territorio": "AL", 
+    "meta_alfabetizacao_2024": "50.0", 
+    "meta_alfabetizacao_2030": "80.0", 
+    "nivel_territorial": "UF", 
+    "rede": "Pública", 
+    "taxa_alfabetizacao": "64.0"
+  }, 
+  {
+    "ano_referencia_fonte": "2023", 
+    "id_territorio": "AM", 
+    "meta_alfabetizacao_2024": "56.8", 
+    "meta_alfabetizacao_2030": "80.0", 
+    "nivel_territorial": "UF", 
+    "rede": "Pública", 
+    "taxa_alfabetizacao": "52.2"
+  }, 
+  {
+    "ano_referencia_fonte": "2024", 
+    "id_territorio": "AM", 
+    "meta_alfabetizacao_2024": "56.8", 
+    "meta_alfabetizacao_2030": "80.0", 
+    "nivel_territorial": "UF", 
+    "rede": "Pública", 
+    "taxa_alfabetizacao": "49.17"
+  }, 
+  {
+    "ano_referencia_fonte": "2025", 
+    "id_territorio": "AM", 
+    "meta_alfabetizacao_2024": "57.0", 
+    "meta_alfabetizacao_2030": "80.0", 
+    "nivel_territorial": "UF", 
+    "rede": "Pública", 
+    "taxa_alfabetizacao": "57.0"
+  }, 
+  {
+    "ano_referencia_fonte": "2023", 
+    "id_territorio": "AP", 
+    "meta_alfabetizacao_2024": "47.6", 
+    "meta_alfabetizacao_2030": "80.0", 
+    "nivel_territorial": "UF", 
+    "rede": "Pública", 
+    "taxa_alfabetizacao": "41.56"
+  }, 
+  {
+    "ano_referencia_fonte": "2024", 
+    "id_territorio": "AP", 
+    "meta_alfabetizacao_2024": "47.6", 
+    "meta_alfabetizacao_2030": "80.0", 
+    "nivel_territorial": "UF", 
+    "rede": "Pública", 
+    "taxa_alfabetizacao": "46.62"
+  }, 
+  {
+    "ano_referencia_fonte": "2025", 
+    "id_territorio": "AP", 
+    "meta_alfabetizacao_2024": "48.0", 
+    "meta_alfabetizacao_2030": "80.0", 
+    "nivel_territorial": "UF", 
+    "rede": "Pública", 
+    "taxa_alfabetizacao": "60.0"
+  }, 
+  {
+    "ano_referencia_fonte": "2023", 
+    "id_territorio": "BA", 
+    "meta_alfabetizacao_2024": "43.4", 
+    "meta_alfabetizacao_2030": "80.0", 
+    "nivel_territorial": "UF", 
+    "rede": "Pública", 
+    "taxa_alfabetizacao": "36.8"
+  }, 
+  {
+    "ano_referencia_fonte": "2024", 
+    "id_territorio": "BA", 
+    "meta_alfabetizacao_2024": "43.4", 
+    "meta_alfabetizacao_2030": "80.0", 
+    "nivel_territorial": "UF", 
+    "rede": "Pública", 
+    "taxa_alfabetizacao": "35.96"
+  }, 
+  {
+    "ano_referencia_fonte": "2025", 
+    "id_territorio": "BA", 
+    "meta_alfabetizacao_2024": "43.0", 
+    "meta_alfabetizacao_2030": "80.0", 
+    "nivel_territorial": "UF", 
+    "rede": "Pública", 
+    "taxa_alfabetizacao": "55.0"
+  }, 
+  {
+    "ano_referencia_fonte": "2023", 
+    "id_territorio": "CE", 
+    "meta_alfabetizacao_2024": "80.0", 
+    "meta_alfabetizacao_2030": "80.0", 
+    "nivel_territorial": "UF", 
+    "rede": "Pública", 
+    "taxa_alfabetizacao": "84.5"
+  }, 
+  {
+    "ano_referencia_fonte": "2024", 
+    "id_territorio": "CE", 
+    "meta_alfabetizacao_2024": "80.0", 
+    "meta_alfabetizacao_2030": "80.0", 
+    "nivel_territorial": "UF", 
+    "rede": "Pública", 
+    "taxa_alfabetizacao": "85.31"
+  }, 
+  {
+    "ano_referencia_fonte": "2025", 
+    "id_territorio": "CE", 
+    "meta_alfabetizacao_2024": "80.0", 
+    "meta_alfabetizacao_2030": "80.0", 
+    "nivel_territorial": "UF", 
+    "rede": "Pública", 
+    "taxa_alfabetizacao": "84.0"
+  }, 
+  {
+    "ano_referencia_fonte": "2023", 
+    "id_territorio": "DF", 
+    "meta_alfabetizacao_2024": null, 
+    "meta_alfabetizacao_2030": "80.0", 
+    "nivel_territorial": "UF", 
+    "rede": "Pública", 
+    "taxa_alfabetizacao": null
+  }, 
+  {
+    "ano_referencia_fonte": "2024", 
+    "id_territorio": "DF", 
+    "meta_alfabetizacao_2024": null, 
+    "meta_alfabetizacao_2030": "80.0", 
+    "nivel_territorial": "UF", 
+    "rede": "Pública", 
+    "taxa_alfabetizacao": "59.13"
+  }, 
+  {
+    "ano_referencia_fonte": "2025", 
+    "id_territorio": "DF", 
+    "meta_alfabetizacao_2024": null, 
+    "meta_alfabetizacao_2030": "80.0", 
+    "nivel_territorial": "UF", 
+    "rede": "Pública", 
+    "taxa_alfabetizacao": "65.0"
+  }, 
+  {
+    "ano_referencia_fonte": "2023", 
+    "id_territorio": "ES", 
+    "meta_alfabetizacao_2024": "69.9", 
+    "meta_alfabetizacao_2030": "80.0", 
+    "nivel_territorial": "UF", 
+    "rede": "Pública", 
+    "taxa_alfabetizacao": "67.93"
+  }, 
+  {
+    "ano_referencia_fonte": "2024", 
+    "id_territorio": "ES", 
+    "meta_alfabetizacao_2024": "69.9", 
+    "meta_alfabetizacao_2030": "80.0", 
+    "nivel_territorial": "UF", 
+    "rede": "Pública", 
+    "taxa_alfabetizacao": "71.69"
+  }, 
+  {
+    "ano_referencia_fonte": "2025", 
+    "id_territorio": "ES", 
+    "meta_alfabetizacao_2024": "70.0", 
+    "meta_alfabetizacao_2030": "80.0", 
+    "nivel_territorial": "UF", 
+    "rede": "Pública", 
+    "taxa_alfabetizacao": "77.0"
+  }, 
+  {
+    "ano_referencia_fonte": "2023", 
+    "id_territorio": "GO", 
+    "meta_alfabetizacao_2024": "68.9", 
+    "meta_alfabetizacao_2030": "80.0", 
+    "nivel_territorial": "UF", 
+    "rede": "Pública", 
+    "taxa_alfabetizacao": "66.7"
+  }, 
+  {
+    "ano_referencia_fonte": "2024", 
+    "id_territorio": "GO", 
+    "meta_alfabetizacao_2024": "68.9", 
+    "meta_alfabetizacao_2030": "80.0", 
+    "nivel_territorial": "UF", 
+    "rede": "Pública", 
+    "taxa_alfabetizacao": "72.74"
+  }, 
+  {
+    "ano_referencia_fonte": "2025", 
+    "id_territorio": "GO", 
+    "meta_alfabetizacao_2024": "69.0", 
+    "meta_alfabetizacao_2030": "80.0", 
+    "nivel_territorial": "UF", 
+    "rede": "Pública", 
+    "taxa_alfabetizacao": "80.0"
+  }, 
+  {
+    "ano_referencia_fonte": "2023", 
+    "id_territorio": "MA", 
+    "meta_alfabetizacao_2024": "60.3", 
+    "meta_alfabetizacao_2030": "80.0", 
+    "nivel_territorial": "UF", 
+    "rede": "Pública", 
+    "taxa_alfabetizacao": "56.43"
+  }, 
+  {
+    "ano_referencia_fonte": "2024", 
+    "id_territorio": "MA", 
+    "meta_alfabetizacao_2024": "60.3", 
+    "meta_alfabetizacao_2030": "80.0", 
+    "nivel_territorial": "UF", 
+    "rede": "Pública", 
+    "taxa_alfabetizacao": "59.64"
+  }, 
+  {
+    "ano_referencia_fonte": "2025", 
+    "id_territorio": "MA", 
+    "meta_alfabetizacao_2024": "60.0", 
+    "meta_alfabetizacao_2030": "80.0", 
+    "nivel_territorial": "UF", 
+    "rede": "Pública", 
+    "taxa_alfabetizacao": "69.0"
+  }, 
+  {
+    "ano_referencia_fonte": "2023", 
+    "id_territorio": "MG", 
+    "meta_alfabetizacao_2024": "63.2", 
+    "meta_alfabetizacao_2030": "80.0", 
+    "nivel_territorial": "UF", 
+    "rede": "Pública", 
+    "taxa_alfabetizacao": "59.81"
+  }, 
+  {
+    "ano_referencia_fonte": "2024", 
+    "id_territorio": "MG", 
+    "meta_alfabetizacao_2024": "63.2", 
+    "meta_alfabetizacao_2030": "80.0", 
+    "nivel_territorial": "UF", 
+    "rede": "Pública", 
+    "taxa_alfabetizacao": "72.07"
+  }, 
+  {
+    "ano_referencia_fonte": "2025", 
+    "id_territorio": "MG", 
+    "meta_alfabetizacao_2024": "63.0", 
+    "meta_alfabetizacao_2030": "80.0", 
+    "nivel_territorial": "UF", 
+    "rede": "Pública", 
+    "taxa_alfabetizacao": "74.0"
+  }, 
+  {
+    "ano_referencia_fonte": "2023", 
+    "id_territorio": "MS", 
+    "meta_alfabetizacao_2024": "52.8", 
+    "meta_alfabetizacao_2030": "80.0", 
+    "nivel_territorial": "UF", 
+    "rede": "Pública", 
+    "taxa_alfabetizacao": "47.45"
+  }, 
+  {
+    "ano_referencia_fonte": "2024", 
+    "id_territorio": "MS", 
+    "meta_alfabetizacao_2024": "52.8", 
+    "meta_alfabetizacao_2030": "80.0", 
+    "nivel_territorial": "UF", 
+    "rede": "Pública", 
+    "taxa_alfabetizacao": "55.87"
+  }, 
+  {
+    "ano_referencia_fonte": "2025", 
+    "id_territorio": "MS", 
+    "meta_alfabetizacao_2024": "53.0", 
+    "meta_alfabetizacao_2030": "80.0", 
+    "nivel_territorial": "UF", 
+    "rede": "Pública", 
+    "taxa_alfabetizacao": "66.0"
+  }, 
+  {
+    "ano_referencia_fonte": "2023", 
+    "id_territorio": "MT", 
+    "meta_alfabetizacao_2024": "59.2", 
+    "meta_alfabetizacao_2030": "80.0", 
+    "nivel_territorial": "UF", 
+    "rede": "Pública", 
+    "taxa_alfabetizacao": "55.06"
+  }, 
+  {
+    "ano_referencia_fonte": "2024", 
+    "id_territorio": "MT", 
+    "meta_alfabetizacao_2024": "59.2", 
+    "meta_alfabetizacao_2030": "80.0", 
+    "nivel_territorial": "UF", 
+    "rede": "Pública", 
+    "taxa_alfabetizacao": "60.59"
+  }, 
+  {
+    "ano_referencia_fonte": "2025", 
+    "id_territorio": "MT", 
+    "meta_alfabetizacao_2024": "59.0", 
+    "meta_alfabetizacao_2030": "80.0", 
+    "nivel_territorial": "UF", 
+    "rede": "Pública", 
+    "taxa_alfabetizacao": "75.0"
+  }, 
+  {
+    "ano_referencia_fonte": "2023", 
+    "id_territorio": "PA", 
+    "meta_alfabetizacao_2024": "53.6", 
+    "meta_alfabetizacao_2030": "80.0", 
+    "nivel_territorial": "UF", 
+    "rede": "Pública", 
+    "taxa_alfabetizacao": "48.4"
+  }, 
+  {
+    "ano_referencia_fonte": "2024", 
+    "id_territorio": "PA", 
+    "meta_alfabetizacao_2024": "53.6", 
+    "meta_alfabetizacao_2030": "80.0", 
+    "nivel_territorial": "UF", 
+    "rede": "Pública", 
+    "taxa_alfabetizacao": "48.2"
+  }, 
+  {
+    "ano_referencia_fonte": "2025", 
+    "id_territorio": "PA", 
+    "meta_alfabetizacao_2024": "54.0", 
+    "meta_alfabetizacao_2030": "80.0", 
+    "nivel_territorial": "UF", 
+    "rede": "Pública", 
+    "taxa_alfabetizacao": "58.0"
+  }, 
+  {
+    "ano_referencia_fonte": "2023", 
+    "id_territorio": "PB", 
+    "meta_alfabetizacao_2024": "55.9", 
+    "meta_alfabetizacao_2030": "80.0", 
+    "nivel_territorial": "UF", 
+    "rede": "Pública", 
+    "taxa_alfabetizacao": "51.12"
+  }, 
+  {
+    "ano_referencia_fonte": "2024", 
+    "id_territorio": "PB", 
+    "meta_alfabetizacao_2024": "55.9", 
+    "meta_alfabetizacao_2030": "80.0", 
+    "nivel_territorial": "UF", 
+    "rede": "Pública", 
+    "taxa_alfabetizacao": "55.96"
+  }, 
+  {
+    "ano_referencia_fonte": "2025", 
+    "id_territorio": "PB", 
+    "meta_alfabetizacao_2024": "56.0", 
+    "meta_alfabetizacao_2030": "80.0", 
+    "nivel_territorial": "UF", 
+    "rede": "Pública", 
+    "taxa_alfabetizacao": "71.0"
+  }, 
+  {
+    "ano_referencia_fonte": "2023", 
+    "id_territorio": "PE", 
+    "meta_alfabetizacao_2024": "62.4", 
+    "meta_alfabetizacao_2030": "80.0", 
+    "nivel_territorial": "UF", 
+    "rede": "Pública", 
+    "taxa_alfabetizacao": "59.0"
+  }, 
+  {
+    "ano_referencia_fonte": "2024", 
+    "id_territorio": "PE", 
+    "meta_alfabetizacao_2024": "62.4", 
+    "meta_alfabetizacao_2030": "80.0", 
+    "nivel_territorial": "UF", 
+    "rede": "Pública", 
+    "taxa_alfabetizacao": "60.79"
+  }, 
+  {
+    "ano_referencia_fonte": "2025", 
+    "id_territorio": "PE", 
+    "meta_alfabetizacao_2024": "62.0", 
+    "meta_alfabetizacao_2030": "80.0", 
+    "nivel_territorial": "UF", 
+    "rede": "Pública", 
+    "taxa_alfabetizacao": "66.0"
+  }, 
+  {
+    "ano_referencia_fonte": "2023", 
+    "id_territorio": "PI", 
+    "meta_alfabetizacao_2024": "57.0", 
+    "meta_alfabetizacao_2030": "80.0", 
+    "nivel_territorial": "UF", 
+    "rede": "Pública", 
+    "taxa_alfabetizacao": "52.48"
+  }, 
+  {
+    "ano_referencia_fonte": "2024", 
+    "id_territorio": "PI", 
+    "meta_alfabetizacao_2024": "57.0", 
+    "meta_alfabetizacao_2030": "80.0", 
+    "nivel_territorial": "UF", 
+    "rede": "Pública", 
+    "taxa_alfabetizacao": "59.82"
+  }, 
+  {
+    "ano_referencia_fonte": "2025", 
+    "id_territorio": "PI", 
+    "meta_alfabetizacao_2024": "57.0", 
+    "meta_alfabetizacao_2030": "80.0", 
+    "nivel_territorial": "UF", 
+    "rede": "Pública", 
+    "taxa_alfabetizacao": "77.0"
+  }, 
+  {
+    "ano_referencia_fonte": "2023", 
+    "id_territorio": "PR", 
+    "meta_alfabetizacao_2024": "74.2", 
+    "meta_alfabetizacao_2030": "80.0", 
+    "nivel_territorial": "UF", 
+    "rede": "Pública", 
+    "taxa_alfabetizacao": "73.12"
+  }, 
+  {
+    "ano_referencia_fonte": "2024", 
+    "id_territorio": "PR", 
+    "meta_alfabetizacao_2024": "74.2", 
+    "meta_alfabetizacao_2030": "80.0", 
+    "nivel_territorial": "UF", 
+    "rede": "Pública", 
+    "taxa_alfabetizacao": "70.42"
+  }, 
+  {
+    "ano_referencia_fonte": "2025", 
+    "id_territorio": "PR", 
+    "meta_alfabetizacao_2024": "74.0", 
+    "meta_alfabetizacao_2030": "80.0", 
+    "nivel_territorial": "UF", 
+    "rede": "Pública", 
+    "taxa_alfabetizacao": "80.0"
+  }, 
+  {
+    "ano_referencia_fonte": "2023", 
+    "id_territorio": "RJ", 
+    "meta_alfabetizacao_2024": "56.7", 
+    "meta_alfabetizacao_2030": "80.0", 
+    "nivel_territorial": "UF", 
+    "rede": "Pública", 
+    "taxa_alfabetizacao": "52.13"
+  }, 
+  {
+    "ano_referencia_fonte": "2024", 
+    "id_territorio": "RJ", 
+    "meta_alfabetizacao_2024": "56.7", 
+    "meta_alfabetizacao_2030": "80.0", 
+    "nivel_territorial": "UF", 
+    "rede": "Pública", 
+    "taxa_alfabetizacao": "55.25"
+  }, 
+  {
+    "ano_referencia_fonte": "2025", 
+    "id_territorio": "RJ", 
+    "meta_alfabetizacao_2024": "57.0", 
+    "meta_alfabetizacao_2030": "80.0", 
+    "nivel_territorial": "UF", 
+    "rede": "Pública", 
+    "taxa_alfabetizacao": "60.0"
+  }, 
+  {
+    "ano_referencia_fonte": "2023", 
+    "id_territorio": "RN", 
+    "meta_alfabetizacao_2024": "43.8", 
+    "meta_alfabetizacao_2030": "80.0", 
+    "nivel_territorial": "UF", 
+    "rede": "Pública", 
+    "taxa_alfabetizacao": "37.24"
+  }, 
+  {
+    "ano_referencia_fonte": "2024", 
+    "id_territorio": "RN", 
+    "meta_alfabetizacao_2024": "43.8", 
+    "meta_alfabetizacao_2030": "80.0", 
+    "nivel_territorial": "UF", 
+    "rede": "Pública", 
+    "taxa_alfabetizacao": "39.29"
+  }, 
+  {
+    "ano_referencia_fonte": "2025", 
+    "id_territorio": "RN", 
+    "meta_alfabetizacao_2024": "44.0", 
+    "meta_alfabetizacao_2030": "80.0", 
+    "nivel_territorial": "UF", 
+    "rede": "Pública", 
+    "taxa_alfabetizacao": "48.0"
+  }, 
+  {
+    "ano_referencia_fonte": "2023", 
+    "id_territorio": "RO", 
+    "meta_alfabetizacao_2024": "67.1", 
+    "meta_alfabetizacao_2030": "80.0", 
+    "nivel_territorial": "UF", 
+    "rede": "Pública", 
+    "taxa_alfabetizacao": "64.6"
+  }, 
+  {
+    "ano_referencia_fonte": "2024", 
+    "id_territorio": "RO", 
+    "meta_alfabetizacao_2024": "67.1", 
+    "meta_alfabetizacao_2030": "80.0", 
+    "nivel_territorial": "UF", 
+    "rede": "Pública", 
+    "taxa_alfabetizacao": "62.62"
+  }, 
+  {
+    "ano_referencia_fonte": "2025", 
+    "id_territorio": "RO", 
+    "meta_alfabetizacao_2024": "67.0", 
+    "meta_alfabetizacao_2030": "80.0", 
+    "nivel_territorial": "UF", 
+    "rede": "Pública", 
+    "taxa_alfabetizacao": "75.0"
+  }, 
+  {
+    "ano_referencia_fonte": "2023", 
+    "id_territorio": "RR", 
+    "meta_alfabetizacao_2024": null, 
+    "meta_alfabetizacao_2030": null, 
+    "nivel_territorial": "UF", 
+    "rede": "Pública", 
+    "taxa_alfabetizacao": null
+  }, 
+  {
+    "ano_referencia_fonte": "2024", 
+    "id_territorio": "RR", 
+    "meta_alfabetizacao_2024": null, 
+    "meta_alfabetizacao_2030": null, 
+    "nivel_territorial": "UF", 
+    "rede": "Pública", 
+    "taxa_alfabetizacao": null
+  }, 
+  {
+    "ano_referencia_fonte": "2025", 
+    "id_territorio": "RR", 
+    "meta_alfabetizacao_2024": null, 
+    "meta_alfabetizacao_2030": "80.0", 
+    "nivel_territorial": "UF", 
+    "rede": "Pública", 
+    "taxa_alfabetizacao": "57.0"
+  }, 
+  {
+    "ano_referencia_fonte": "2023", 
+    "id_territorio": "RS", 
+    "meta_alfabetizacao_2024": "66.2", 
+    "meta_alfabetizacao_2030": "80.0", 
+    "nivel_territorial": "UF", 
+    "rede": "Pública", 
+    "taxa_alfabetizacao": "63.4"
+  }, 
+  {
+    "ano_referencia_fonte": "2024", 
+    "id_territorio": "RS", 
+    "meta_alfabetizacao_2024": "66.2", 
+    "meta_alfabetizacao_2030": "80.0", 
+    "nivel_territorial": "UF", 
+    "rede": "Pública", 
+    "taxa_alfabetizacao": "44.67"
+  }, 
+  {
+    "ano_referencia_fonte": "2025", 
+    "id_territorio": "RS", 
+    "meta_alfabetizacao_2024": "66.0", 
+    "meta_alfabetizacao_2030": "80.0", 
+    "nivel_territorial": "UF", 
+    "rede": "Pública", 
+    "taxa_alfabetizacao": "52.0"
+  }, 
+  {
+    "ano_referencia_fonte": "2023", 
+    "id_territorio": "SC", 
+    "meta_alfabetizacao_2024": "64.5", 
+    "meta_alfabetizacao_2030": "80.0", 
+    "nivel_territorial": "UF", 
+    "rede": "Pública", 
+    "taxa_alfabetizacao": "61.38"
+  }, 
+  {
+    "ano_referencia_fonte": "2024", 
+    "id_territorio": "SC", 
+    "meta_alfabetizacao_2024": "64.5", 
+    "meta_alfabetizacao_2030": "80.0", 
+    "nivel_territorial": "UF", 
+    "rede": "Pública", 
+    "taxa_alfabetizacao": "62.02"
+  }, 
+  {
+    "ano_referencia_fonte": "2025", 
+    "id_territorio": "SC", 
+    "meta_alfabetizacao_2024": "65.0", 
+    "meta_alfabetizacao_2030": "80.0", 
+    "nivel_territorial": "UF", 
+    "rede": "Pública", 
+    "taxa_alfabetizacao": "59.0"
+  }, 
+  {
+    "ano_referencia_fonte": "2023", 
+    "id_territorio": "SE", 
+    "meta_alfabetizacao_2024": "38.3", 
+    "meta_alfabetizacao_2030": "80.0", 
+    "nivel_territorial": "UF", 
+    "rede": "Pública", 
+    "taxa_alfabetizacao": "31.3"
+  }, 
+  {
+    "ano_referencia_fonte": "2024", 
+    "id_territorio": "SE", 
+    "meta_alfabetizacao_2024": "38.3", 
+    "meta_alfabetizacao_2030": "80.0", 
+    "nivel_territorial": "UF", 
+    "rede": "Pública", 
+    "taxa_alfabetizacao": "38.39"
+  }, 
+  {
+    "ano_referencia_fonte": "2025", 
+    "id_territorio": "SE", 
+    "meta_alfabetizacao_2024": "38.0", 
+    "meta_alfabetizacao_2030": "80.0", 
+    "nivel_territorial": "UF", 
+    "rede": "Pública", 
+    "taxa_alfabetizacao": "50.0"
+  }, 
+  {
+    "ano_referencia_fonte": "2023", 
+    "id_territorio": "SP", 
+    "meta_alfabetizacao_2024": "56.6", 
+    "meta_alfabetizacao_2030": "80.0", 
+    "nivel_territorial": "UF", 
+    "rede": "Pública", 
+    "taxa_alfabetizacao": "51.91"
+  }, 
+  {
+    "ano_referencia_fonte": "2024", 
+    "id_territorio": "SP", 
+    "meta_alfabetizacao_2024": "56.6", 
+    "meta_alfabetizacao_2030": "80.0", 
+    "nivel_territorial": "UF", 
+    "rede": "Pública", 
+    "taxa_alfabetizacao": "58.13"
+  }, 
+  {
+    "ano_referencia_fonte": "2025", 
+    "id_territorio": "SP", 
+    "meta_alfabetizacao_2024": "57.0", 
+    "meta_alfabetizacao_2030": "80.0", 
+    "nivel_territorial": "UF", 
+    "rede": "Pública", 
+    "taxa_alfabetizacao": "61.0"
+  }, 
+  {
+    "ano_referencia_fonte": "2023", 
+    "id_territorio": "TO", 
+    "meta_alfabetizacao_2024": "49.5", 
+    "meta_alfabetizacao_2030": "80.0", 
+    "nivel_territorial": "UF", 
+    "rede": "Pública", 
+    "taxa_alfabetizacao": "43.72"
+  }, 
+  {
+    "ano_referencia_fonte": "2024", 
+    "id_territorio": "TO", 
+    "meta_alfabetizacao_2024": "49.5", 
+    "meta_alfabetizacao_2030": "80.0", 
+    "nivel_territorial": "UF", 
+    "rede": "Pública", 
+    "taxa_alfabetizacao": "50.07"
+  }, 
+  {
+    "ano_referencia_fonte": "2025", 
+    "id_territorio": "TO", 
+    "meta_alfabetizacao_2024": "50.0", 
+    "meta_alfabetizacao_2030": "80.0", 
+    "nivel_territorial": "UF", 
+    "rede": "Pública", 
+    "taxa_alfabetizacao": "61.0"
+  }
+]
