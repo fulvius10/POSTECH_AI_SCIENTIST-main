@@ -1,136 +1,251 @@
-# Tech Challenge Fase 2: alfabetização no Brasil
+# Tech Challenge Fase 2: pipeline híbrida de alfabetização no Brasil
 
-**Batch e streaming simulado no Google Cloud Shell, com publicação no BigQuery gratuito e sem ativar faturamento.**
+Projeto de engenharia de dados para acompanhar o Indicador Criança Alfabetizada,
+integrar resultados e metas educacionais e disponibilizar uma base analítica
+confiável. A solução executa batch e streaming simulado no Google Cloud, com
+camadas Bronze, Silver e Gold, validações bloqueantes, métricas persistidas e
+alertas de falha. O ambiente acadêmico funciona com faturamento desativado.
 
-O projeto integra o Indicador Criança Alfabetizada e suas metas para identificar
-desigualdades e acompanhar resultados do 2º ano do ensino fundamental. A comparação
-principal usa o recorte municipal de 2024; UF e Brasil mantêm seus próprios
-universos. A meta pactuada nacional para 2030 é 80, distinta da universalização
-aspiracional de 100%. O corte de classificação dos microdados é 743 pontos.
+**Apresentação:** [PowerPoint com roteiro nas notas do apresentador](presentation/tech_challenge_alfabetizacao_fase_2.pptx).
+**Vídeo executivo:** gravação ainda não publicada.
 
-## Começar a partir de um clone
+## 1. Contexto e definição do problema
 
-Pré-requisitos: Git, Python **3.12** (versão testada), internet e conta Google com
-acesso a um projeto próprio **sem faturamento**. Não copie credenciais para o
-repositório. A autenticação é configuração externa ao clone.
+O indicador mede a proporção de estudantes alfabetizados ao final do 2º ano do
+ensino fundamental. Nos microdados, o ponto de corte é de 743 pontos de
+proficiência. O projeto organiza as fontes para comparar resultados com metas,
+identificar lacunas e apoiar análises de desigualdade educacional.
 
-```bash
-git clone https://github.com/fulvius10/POSTECH_AI_SCIENTIST-main.git
-cd POSTECH_AI_SCIENTIST-main/tech_challenge_fase_2_alfabetizacao
-```
+O acompanhamento principal usa resultados municipais de 2024 e a meta do mesmo
+ano, território e rede. A meta pactuada nacional para 2030 é 80. A universalização
+de 100% é um cenário aspiracional distinto. A trajetória de metas não representa
+uma previsão produzida pelo projeto.
 
-No **Google Cloud Shell**, autorize o acesso à conta quando solicitado, substitua
-o ID abaixo pelo seu projeto e execute os comandos da próxima seção. O Cloud Shell
-já tem Git, Python e Google Cloud CLI. O bootstrap cria um ambiente Python novo e
-instala as versões de `requirements.txt` antes de executar o batch.
+Referência dos requisitos: [enunciado do desafio](referencias/enunciado_fase_2.pdf).
 
-Para execução **local no Windows**, instale também a Google Cloud CLI e prepare:
+## 2. Inventário das fontes e escolha de acesso
 
-```powershell
-gcloud auth application-default login
-gcloud auth application-default set-quota-project SEU_ID_DE_PROJETO
-python -m venv .venv
-.venv\Scripts\python -m pip install -r requirements.txt
-.venv\Scripts\python -m unittest discover -s tests -v
-.venv\Scripts\python src/batch.py
-.venv\Scripts\python src/stream_demo.py
-```
+Investigamos as sete tabelas do dataset público
+`basedosdados.br_inep_avaliacao_alfabetizacao`, incluindo as seis entidades
+obrigatórias e o dicionário oficial.
 
-Os testes automatizados não precisam de conta Google, dados baixados nem alertas
-reais. A execução completa baixa as sete tabelas públicas; o streaming local usa
-a Gold recém-gerada pelo batch. Para receber alertas já na primeira execução,
-instale as dependências e siga a seção de alertas antes de iniciar a pipeline.
+| Fonte | Utilização na solução |
+| --- | --- |
+| `municipio` | Resultados por município, ano, série e rede |
+| `uf` | Conferência dos resultados estaduais agregados |
+| `alunos` | Recálculo ponderado e confronto com os agregados publicados |
+| `meta_alfabetizacao_municipio` | Resultado divulgado, metas municipais e comparação oficial |
+| `meta_alfabetizacao_uf` | Acompanhamento das metas estaduais |
+| `meta_alfabetizacao_brasil` | Acompanhamento nacional e trajetória pactuada |
+| `dicionario` | Interpretação e validação dos códigos categóricos |
 
-**Reprodução verificada em 26/10/2026:** foi criado um snapshot Git temporário da
-versão candidata e feito um clone novo no Cloud Shell, inicialmente sem `data/`,
-sem `.venv/` e com a árvore Git limpa. A autenticação Google já autorizada foi o
-pré-requisito externo. O batch baixou novamente as sete tabelas, incluindo os
-3.867.999 alunos; dependências, 25 testes, batch e streaming passaram. Os comandos
-publicaram 14 + 12 tabelas na GCP. A falha bloqueante retornou código 1 e manteve
-os três ponteiros de publicação intactos. O clone terminou com a árvore Git limpa.
-O tópico ntfy privado não foi copiado para esse teste; a entrega dos alertas foi
-comprovada separadamente e confirmada pelo usuário. Evidência:
-[relatório do clone limpo](evidencias/reprodutibilidade_clone_limpo.json).
-Esse teste valida a versão candidata; a publicação do commit final permanece uma
-etapa da entrega. Links do console dependem de acesso ao projeto; as evidências
-versionadas permitem examinar a execução sem compartilhar credenciais.
+Escolhemos a API REST do BigQuery, com `tables.get` e `tabledata.list`, para baixar
+as tabelas completas sem jobs de consulta SQL. O volume cabe no ambiente gratuito
+e permite processamento local com histórico reproduzível. A leitura preserva
+metadados, contagens, SHA-256 e identificadores das extrações. Se a fonte mudar
+durante a paginação ou o download ficar incompleto, a extração falha.
 
-## Executar no Google Cloud
+As consultas de investigação ficam em [sql/](sql/), e os originais do Inep e do
+IBGE ficam em [referencias/](referencias/), identificados no
+[manifesto das fontes](referencias/manifesto.json). A cópia de uma consulta salva
+no BigQuery contém o SQL, enquanto as camadas da pipeline preservam os dados.
 
-No Cloud Shell, dentro deste diretório (o ID é um exemplo configurável):
+## 3. Investigação dos resultados e das lacunas
 
-```bash
-gcloud services enable bigquery.googleapis.com cloudbilling.googleapis.com --project=postech-fase2-fulvius
-bash src/run_cloudshell.sh postech-fase2-fulvius
-.venv/bin/python -m unittest discover -s tests -v
-bash src/run_streaming_cloudshell.sh postech-fase2-fulvius
-```
+A junção municipal de 2024 identificou 5.448 resultados e 5.352 correspondências
+de meta. Destes, 120 registros não têm valor de meta para 2024. Outros 96
+municípios não têm registro de meta, totalizando **216 casos sem comparação**.
 
-O ID do projeto é argumento do script. A API de faturamento é usada somente para
-confirmar que o projeto está **sem faturamento**; o código não vincula contas nem
-ativa serviços pagos. Se essa confirmação falhar, a execução para.
+Entre os 120, 70 têm resultado de 2023 na tabela de agregados, mas não na
+publicação de resultados e metas. Conferimos os casos nas planilhas originais
+do Inep e preservamos a ausência. Ela não vira zero nem classificação de baixo
+desempenho. As exceções são reconhecidas pelas chaves, não apenas por uma contagem.
 
-O batch baixa as fontes e processa as camadas dentro do Cloud Shell. Bronze fica
-no disco persistente; Silver e Gold também são carregadas no BigQuery por jobs de
-carga batch, sem consultas SQL. Cada execução cria um dataset versionado com
-prefixo `fase2_batch_`, inicialmente candidato. Só recebe o rótulo `published`
-depois de concluir os jobs e conciliar as contagens. Nenhuma versão é sobrescrita.
+Evidências: [investigação da junção](docs/02_investigacao_metas_2024.md),
+[conferência dos 70 municípios](evidencias/comparacao_70_municipios.csv) e
+[resumo da conferência](evidencias/resumo_conferencia.json).
 
-As evidências ficam em `data/cloud_audit/`, os logs em `data/console/` e a última
-publicação em `data/cloud_latest.json`. Faça backup de `data/`: o BigQuery gratuito
-expira tabelas após 60 dias e o armazenamento persistente do Cloud Shell é limitado.
-O empacotador `python src/package_cloudshell.py` gera `data/cloudshell_code.zip`
-com código e referências necessárias, sem credenciais, ambiente Python ou alunos.
-`python src/export_cloud_artifacts.py` gera um ZIP das camadas e evidências para
-download e preservação independente dos prazos do ambiente gratuito.
+## 4. Decisões de rede, território, fonte e pesos
+
+- **Rede:** o acompanhamento municipal usa a rede Municipal. No contexto
+  investigado, a rede Pública das metas estaduais corresponde ao agregado
+  Estadual e Municipal, código 5. O código 6 inclui a rede Federal e mantém
+  significado distinto. Os códigos vêm do dicionário oficial.
+- **Território:** a dimensão usa a Divisão Territorial Brasileira do IBGE de cada
+  ano. A conferência territorial encontrou correspondência para todos os códigos
+  das fontes investigadas, sem projetar uma geografia futura de 2030.
+- **Precedência:** o cumprimento da meta usa o resultado da própria publicação de
+  resultados e metas, conferido contra o original. Os agregados dos microdados e o
+  recálculo ficam ao lado para conferência, sem substituir o indicador divulgado.
+- **Contexto temporal:** a comparação de 2024 usa a publicação de referência 2024.
+  Uma linha posterior não sobrescreve o passado. O Brasil mantém meta de 59,9
+  para esse recorte, mesmo havendo outro contexto com valor 60,0.
+- **Precisão:** a referência original preserva o texto, o operador e as casas
+  decimais. A escrita original `> 80` permanece identificável; o número 80 da Base
+  dos Dados é a referência normalizada para distância numérica.
+- **Alunos elegíveis:** presença e caderno preenchido, classificação binária,
+  proficiência finita e peso positivo e finito. A taxa é
+  `100 × soma dos pesos dos alfabetizados / soma dos pesos dos avaliados`.
+
+O recálculo é uma conferência adicional. Quando diverge, mantemos os dois valores,
+a diferença e o status `CALCULADO_NAO_HOMOLOGADO`. Cobertura incompleta e ausência
+de avaliações elegíveis permanecem explícitas. A média simples dos municípios
+não substitui o indicador nacional.
+
+Detalhes: [redes, território e fontes](docs/05_decisoes_redes_territorio_fontes.md)
+e [elegibilidade e pesos](docs/06_elegibilidade_pesos_recalculo.md).
+
+## 5. Construção do batch e das camadas
+
+Implementamos primeiro o processamento completo das sete tabelas. A carga de
+alunos contém **3.867.999 registros**, antes dos filtros de elegibilidade.
+Python organiza a execução e DuckDB realiza as transformações SQL com limite de
+512 MB e duas threads. Gzip e Parquet com ZSTD reduzem o armazenamento e a transferência.
+
+| Camada | Conteúdo e política |
+| --- | --- |
+| Bronze | CSV comprimido, metadados, manifesto, contagens e hashes por execução. Uma extração não sobrescreve a anterior |
+| Silver | Tipos padronizados, chaves e domínios validados, território por ano, metas anuais e referência original |
+| Gold | Comparação municipal, estadual e nacional, além da conferência ponderada dos alunos, em CSV e Parquet |
+
+A Gold contém `comparacao_municipal_2024` com 5.448 linhas,
+`comparacao_uf_2024` com 27, `comparacao_brasil_2024` com uma e
+`conferencia_alunos` com 10.899 combinações de ano e município. O arquivo
+`data/latest.json` aponta para a versão aprovada. O histórico continua disponível.
+
+## 6. Qualidade e bloqueio de publicação
+
+O catálogo distingue regras bloqueantes e informativas. Chaves obrigatórias,
+duplicidade, domínios, percentuais, elegibilidade, classificação pelo corte e
+consistência com a publicação original têm verificações automáticas.
+
+As **12 métricas de junção** do batch registram entradas, correspondências,
+ausências, cardinalidade, taxa bruta e limiar. Território e originais exigem 100%
+dos pares esperados. A junção municipal permite somente os 96 códigos sem
+registro confirmados na fonte, com correspondência bruta de 98,24%. Os 120 valores
+de meta ausentes recebem controle separado. No agregado público de UF/2024,
+série 2/rede 5, DF e RR não têm linha no snapshot verificado; outras ausências
+bloqueiam. A cobertura da conferência ponderada depende dos alunos elegíveis e
+dos agregados disponíveis, com os dois lados sem par preservados.
+
+A versão revisada executa **116 verificações**. Uma falha bloqueante interrompe
+a execução antes da promoção, persiste o motivo e termina com erro. As ausências
+conhecidas e divergências descritivas geram alertas, mantendo seu significado.
+Demonstramos uma falha real e verificamos que a versão válida anterior permaneceu
+intacta. O catálogo completo é uma referência de contrato, com escopo e exceções
+descritos em [docs/07_catalogo_qualidade.md](docs/07_catalogo_qualidade.md).
+
+## 7. Execução no Google Cloud
+
+Levamos o batch ao Cloud Shell e publicamos Silver e Gold no BigQuery gratuito.
+Os jobs de carga usam o pool compartilhado e `WRITE_EMPTY` em um dataset novo por
+execução, com prefixo `fase2_batch_`. A versão começa como candidata e recebe o
+rótulo `published` somente após a conclusão dos jobs e a conciliação das contagens.
+O arquivo `data/cloud_latest.json` registra a publicação aprovada.
+
+As 14 tabelas publicadas correspondem a dez tabelas Silver e quatro Gold. A Bronze
+permanece no disco persistente do Cloud Shell e nos backups. Mantemos a Gold
+preservada para a fase 3, independentemente da expiração das tabelas gratuitas.
 
 ```mermaid
 flowchart LR
-    Fonte[BigQuery público: leitura da API] --> Bronze[Bronze: histórico no Cloud Shell]
+    Fonte[BigQuery público: API de leitura] --> Bronze[Bronze: histórico no Cloud Shell]
     Bronze --> Validacao[DuckDB e regras de qualidade]
     Validacao --> Silver[Silver: Parquet]
     Silver --> Gold[Gold: Parquet e CSV]
-    Silver --> BQS[BigQuery: tabelas silver]
-    Gold --> BQG[BigQuery: tabelas gold]
-    Validacao --> Auditoria[Histórico de validações e métricas]
-    Simulador[Produtor de eventos SIMULADOS] --> HTTP[Recepção HTTP no Cloud Shell]
-    HTTP --> Fila[Bronze: fila SQLite WAL durável]
-    Fila --> Microlotes[Validação, deduplicação e Silver incremental]
-    Microlotes --> Cenario[Gold: cenário SIMULADO]
-    Microlotes --> Quarentena[Inválidos com motivo e payload preservado]
+    Silver --> BQS[BigQuery: tabelas Silver]
+    Gold --> BQG[BigQuery: tabelas Gold]
+    Validacao --> Auditoria[Validações e métricas persistidas]
+    Simulador[Eventos simulados] --> HTTP[Recepção HTTP no Cloud Shell]
+    HTTP --> Fila[Bronze: fila SQLite WAL]
+    Fila --> Microlotes[Validação e Silver incremental]
+    Microlotes --> Cenario[Gold: cenário simulado]
+    Microlotes --> Quarentena[Inválidos com motivo e payload]
     Cenario --> BQSim[BigQuery: checkpoints do cenário]
 ```
 
-Este é um ambiente de demonstração acadêmica com início manual. Agendamento e
-infraestrutura como código são evoluções opcionais, ainda não implementadas.
-O Cloud Shell não é um
-serviço para hospedar uma pipeline de produção continuamente.
+Evidências: [execução batch na GCP](evidencias/execucao_batch_google_cloud.json),
+[validações da execução original](evidencias/validacoes_batch_google_cloud.json)
+e [prova de falha bloqueante](evidencias/falha_bloqueante_google_cloud.json).
+As contagens das auditorias pertencem às suas versões; a revisão final acrescentou
+regras e métricas sem alterar os resultados oficiais.
 
-Execução real de **26/10/2026**: 14 jobs de carga, 279.923.160 bytes lógicos
-armazenados no BigQuery e 408,049 segundos de execução total, com faturamento
-desativado antes e depois. Nenhum job de consulta SQL foi usado nesta publicação.
-As 101 verificações incluem alertas conhecidos; as regras bloqueantes passaram.
-Essa contagem pertence à execução histórica citada. A revisão posterior acrescentou
-métricas `joins` com entradas, pares, ausências, taxa e limiar, e métricas `stages`
-com duração, status e contagens por etapa. Novas auditorias podem ter mais regras.
-Território e originais exigem 100% de pares esperados. A junção municipal admite
-somente os 96 códigos sem registro confirmados no Inep; preenchimento das 120
-metas nulas é verificado separadamente. No agregado público de UF/2024, série 2,
-rede 5, DF e RR não têm linha no snapshot verificado; outras ausências bloqueiam.
-Na conferência ponderada, a cobertura esperada deriva da disponibilidade de
-avaliações elegíveis e de agregados, com preservação dos dois lados sem par.
-Evidências: [jobs e métricas da nuvem](evidencias/execucao_batch_google_cloud.json)
-e [validações do batch](evidencias/validacoes_batch_google_cloud.json).
-O [teste de falha na nuvem](evidencias/falha_bloqueante_google_cloud.json) terminou
-com erro esperado, sem novos jobs de carga e sem alterar as versões publicadas.
-Os [resultados das regras nessa falha](evidencias/validacoes_falha_google_cloud.json)
-também foram preservados.
+## 8. Streaming simulado e processamento incremental
 
-[Abrir o dataset publicado no BigQuery](https://console.cloud.google.com/bigquery?project=postech-fase2-fulvius&p=postech-fase2-fulvius&d=fase2_batch_20261026t183455z_ef5d3e21&page=dataset).
+Implementamos um produtor que envia JSON para `/events`, em HTTP de loopback com
+porta temporária. Cada evento identifica seu ID, versão, tipo, origem, horário
+real de produção, ano, município, série, rede e taxa. O receptor confirma HTTP 202
+somente depois de persistir o payload original em Base64 e um horário próprio de
+recepção na fila SQLite, com WAL e sincronização FULL. O 202 confirma recebimento,
+enquanto a validação ocorre de forma assíncrona.
 
-## FinOps: medições e projeção mensal
+O consumidor lê somente os pendentes, em microlotes a cada 0,5 segundo. Registro
+na Silver, atualização do estado municipal e confirmação de consumo usam uma
+transação. Uma falha antes do commit preserva o recebimento para retomada.
 
-Apuração em **26/10/2026**, em USD. **Custo do ambiente atual: US$ 0**, com
+- Mesmo ID e conteúdo: duplicado registrado, sem reaplicar o efeito.
+- Mesmo ID com conteúdo diferente: quarentena por conflito.
+- JSON, origem, recorte, território, horário ou percentual inválido: quarentena.
+- Evento atrasado: permanece na Silver. O estado usa o horário de produção e
+  desempate por ID, preservando o resultado mais recente.
+- Os eventos aceitos têm `origem=SIMULADO` e não alteram a Gold oficial.
+
+A demonstração produziu **17 envios: 6 eventos únicos válidos, 2 duplicados e
+9 inválidos propositais**, com todos os destinos contabilizados e nenhuma
+pendência. Três microlotes alimentaram dois checkpoints. Belo Horizonte passou de
+60 para 65 no cenário, e Uberlândia de 70 para 75, com os resultados oficiais em
+colunas separadas. Foram 12 jobs de carga para as duas versões das seis tabelas.
+
+| Aspecto | Batch | Streaming simulado |
+| --- | --- | --- |
+| Fonte | Tabelas oficiais completas | Eventos sintéticos recebidos por HTTP |
+| Consumo | Snapshot escolhido por execução | Novos recebimentos pendentes em microlotes |
+| Garantias | Integridade da extração e bloqueio antes da promoção | Recebimento durável, transação e deduplicação por ID |
+| Latência | Duração das etapas do processamento completo | Produção até recepção e produção até processamento |
+
+A latência média da demonstração foi 46,34 ms até recepção e 328,66 ms até
+processamento. Os carimbos de produção e recepção são distintos. Os tempos dos
+jobs de publicação ficam separados desses valores. O [BigQuery sem faturamento](https://docs.cloud.google.com/bigquery/docs/sandbox)
+não aceita inserção streaming nativa: o streaming ocorre no receptor e no
+consumidor, e os checkpoints chegam ao BigQuery por cargas batch gratuitas.
+
+Os arquivos ficam em `data/streaming/ID_DA_EXECUCAO/`. Cada checkpoint preserva
+Bronze, Silver, destinos, quarentena, métricas e Gold. O rótulo do dataset e
+`data/streaming_latest.json` só avançam depois da conciliação das contagens.
+Demonstramos recuperação após falha, reexecução sem novos efeitos e chegada fora
+de ordem. Evidência: [auditoria do streaming](evidencias/execucao_streaming_google_cloud.json).
+
+## 9. Monitoramento e notificações de falha
+
+Os comandos de ingestão, batch local, batch na GCP e streaming registram início,
+término, duração e status em `data/monitor/`. O batch também persiste duração e
+contagens das quatro etapas: obter Bronze, tipar e validar Silver, integrar e
+validar Gold e exportar os arquivos. Validações, contagens, tempos dos jobs e
+métricas dos microlotes sobrevivem ao encerramento dos processos.
+
+Exceções que encerram a pipeline geram um incidente e uma notificação pelo
+[ntfy gratuito](https://ntfy.sh/). Fulvius recebe o aviso no tópico inscrito.
+Nos testes reais, o servidor aceitou o alerta do streaming em 0,191 s e o do
+batch em 0,153 s após a detecção. O usuário confirmou a visualização dos dois.
+Esses tempos não medem leitura humana nem garantem notificação do sistema
+operacional, que depende de conexão e permissões do dispositivo.
+
+A fila de avisos e o histórico de tentativas ficam em `data/alerts/`. Cada envio
+tem até três tentativas, com espera e timeouts. Um incidente já confirmado não é
+reenviado. Em indisponibilidade, fica pendente para reenvio e a pipeline continua
+marcada como falha, com código de saída diferente de zero. Timeout após aceitação
+remota ainda pode gerar aviso duplicado. Alertas informativos dos dados e eventos
+já tratados em quarentena não disparam uma falha operacional.
+
+O tópico aleatório fica em `data/alerts/config.json`, fora do Git e do pacote de
+código. Em tópicos gratuitos, quem conhece o endereço pode ler ou publicar.
+Enviamos somente resumo da execução, sem dados de alunos, credenciais ou detalhes
+completos da exceção. Evidências: [alertas confirmados](evidencias/alertas_google_cloud.json)
+e [histórico de entrega](evidencias/historico_alertas.json).
+
+## 10. FinOps: medições e controle de custos
+
+Valores em USD, com fontes e data de consulta preservadas na memória de cálculo. **Custo do ambiente atual: US$ 0**, com
 faturamento desativado, Cloud Shell gratuito, BigQuery sem faturamento e ntfy
 gratuito. A [memória de cálculo e medição](evidencias/finops_medicoes.json) reúne
 verificação atual das 26 tabelas por `tables.get`, estatísticas dos jobs, tamanho
@@ -186,243 +301,189 @@ expiração em 60 dias e quota de armazenamento de 10 GiB cumulativos, não recu
 ao apagar tabelas. O histórico e a Gold da fase 3 estão em backups locais; não se
 projeta crescimento ilimitado dentro do ambiente gratuito.
 
-## Alertas de falha
+## 11. Revisão do enunciado e reprodução em clone limpo
 
-Os comandos de batch local, ingestão, batch na GCP e streaming são monitorados.
-Quando uma exceção encerra a execução, `alerts.py` persiste um incidente e envia
-uma notificação pelo [ntfy gratuito](https://ntfy.sh/). Falhas conhecidas da fonte
-registradas como alertas de qualidade, duplicados tratados e eventos já colocados
-em quarentena não geram notificações de falha operacional.
+Revisamos a solução contra o PDF e completamos métricas de correspondência após
+as junções e duração por etapa. Um snapshot Git temporário da versão candidata
+originou um clone novo no Cloud Shell, inicialmente sem `data/`, sem `.venv/` e
+com a árvore Git limpa. A autenticação Google autorizada foi o pré-requisito
+externo. Nenhum dado ou ambiente Python anterior foi copiado para o teste.
 
-A configuração já foi feita neste computador e no Cloud Shell. Para reproduzir
-em outro ambiente, depois de configurar o Python:
+O clone baixou novamente as sete tabelas, instalou as dependências, passou em
+**25 testes automatizados**, executou batch e streaming e publicou 26 tabelas na
+GCP. A verificação de dependências não encontrou conflitos. A falha bloqueante
+terminou com código 1 e preservou os três ponteiros de publicação. A árvore Git
+terminou limpa. Os originais mantiveram os hashes e os links locais foram conferidos.
+
+O tópico privado do ntfy não foi copiado para o clone. O teste de falha registrou
+`UNCONFIGURED`, como previsto sem destino externo. As notificações reais foram
+comprovadas separadamente. O [relatório de reprodução](evidencias/reprodutibilidade_clone_limpo.json)
+preserva comandos, resultados, métricas e os 26 identificadores reais de jobs.
+
+## 12. Resultados analíticos e uso na fase 3
+
+| Resultado municipal de 2024 | Municípios |
+| --- | ---: |
+| Atingiram a meta | 2.788 |
+| Não atingiram | 2.444 |
+| Meta de 2024 ausente no registro | 120 |
+| Sem registro de meta | 96 |
+| **Total** | **5.448** |
+
+São **5.232 comparações possíveis**. No Brasil, o resultado publicado de 59,2 fica
+0,7 ponto percentual abaixo da meta de 59,9. As limitações das fontes permanecem
+identificadas, com os resultados oficiais como referência e a conferência dos
+microdados separada. A investigação necessária ao recorte desta fase está consolidada.
+
+A Gold pode apoiar modelos de desempenho municipal e análises de desigualdade.
+Para prever resultado de 2024, os preditores devem estar disponíveis antes desse
+resultado, como o histórico de 2023. A validação deve respeitar o tempo e a
+cobertura. O próprio resultado, seu recálculo, saldo e status de cumprimento
+revelam o alvo e ficam fora dos preditores. Metas e revisões posteriores ao
+instante da previsão também precisam ser excluídas.
+
+Não treinamos modelo preditivo nesta fase. Dois anos e a cobertura incompleta dos
+microdados não sustentam uma previsão robusta até 2030. Eventos simulados servem
+à demonstração de engenharia e ficam fora do treinamento com dados oficiais.
+Os backups preservam a Gold para a fase 3.
+
+## Apresentação executiva
+
+O [PowerPoint](presentation/tech_challenge_alfabetizacao_fase_2.pptx) apresenta o
+problema, a investigação, os resultados, a arquitetura, a qualidade, o streaming,
+os alertas, os custos e a reprodução. O roteiro está nas **notas de cada slide**,
+visível no Modo do Apresentador. A leitura foi dimensionada para aproximadamente
+quatro a cinco minutos, com o integrante apresentando o projeto.
+
+O roteiro e os números usam as evidências do repositório. A publicação da gravação
+do vídeo executivo ainda não foi informada.
+
+## Como reproduzir a solução
+
+Pré-requisitos: Git, Python **3.12**, internet e conta Google com acesso a um
+projeto próprio sem faturamento. A autenticação é externa ao clone e nenhuma
+credencial deve ser versionada. O código recebe o ID do projeto por argumento.
+
+```bash
+git clone https://github.com/fulvius10/POSTECH_AI_SCIENTIST-main.git
+cd POSTECH_AI_SCIENTIST-main/tech_challenge_fase_2_alfabetizacao
+```
+
+### Google Cloud Shell
+
+Autorize o acesso à conta quando solicitado e substitua o ID de exemplo pelo seu:
+
+```bash
+gcloud services enable bigquery.googleapis.com cloudbilling.googleapis.com --project=postech-fase2-fulvius
+bash src/run_cloudshell.sh postech-fase2-fulvius
+.venv/bin/python -m unittest discover -s tests -v
+bash src/run_streaming_cloudshell.sh postech-fase2-fulvius
+```
+
+O bootstrap instala as versões de `requirements.txt` num ambiente Python próprio.
+A API de faturamento é usada apenas para confirmar que o faturamento está
+desativado. O código não vincula conta de cobrança e interrompe esse caminho se
+a confirmação falhar. Os links de console dependem de acesso ao projeto;
+as evidências versionadas permitem examinar a execução sem compartilhar credenciais.
+
+### Execução local no Windows
+
+Com a Google Cloud CLI instalada e o projeto gratuito preparado:
+
+```powershell
+gcloud auth application-default login
+gcloud auth application-default set-quota-project SEU_ID_DE_PROJETO
+python -m venv .venv
+.venv\Scripts\python -m pip install -r requirements.txt
+.venv\Scripts\python -m unittest discover -s tests -v
+.venv\Scripts\python src/batch.py
+.venv\Scripts\python src/stream_demo.py
+```
+
+Os testes não precisam de conta Google, dados baixados nem notificações reais.
+A execução completa do batch precisa de autenticação. O streaming local usa a
+Gold recém-gerada pelo batch e executa a demonstração sem publicar no BigQuery.
+Para reprocessar um snapshot sem baixar novamente:
+
+```powershell
+.venv\Scripts\python src/batch.py --bronze data/bronze/ID_DO_SNAPSHOT
+```
+
+`--inject-failure` demonstra um bloqueio antes da publicação, com erro esperado.
+
+### Configuração dos alertas
+
+Depois de instalar as dependências, execute no ambiente Python configurado:
 
 ```bash
 python src/alerts.py setup --owner "Fulvius"
 ```
 
-Abra o endereço impresso, inscreva-se no tópico e permita notificações no navegador
-ou no aplicativo ntfy. O tópico aleatório fica em `data/alerts/config.json`, fora
-do Git e do pacote de código. Em tópicos gratuitos o nome não é controle de acesso:
-quem conhece o endereço pode ler ou publicar. As mensagens contêm apenas pipeline,
-identificador da execução, horário, classe do erro e responsável, sem payloads de
-alunos, credenciais, detalhes completos de exceção ou dados pessoais da base.
-
-**Quem descobre e em quanto tempo:** Fulvius recebe o aviso no tópico inscrito
-assim que uma exceção é detectada e o ntfy aceita o envio. Nos testes reais na GCP,
-a aceitação levou 0,191 s para o streaming e 0,153 s para o batch. Esses tempos
-medem detecção até confirmação do servidor, não leitura humana ou exibição no
-aparelho. Recepção no dispositivo depende da conexão e das permissões locais.
-
-O monitor registra início, término, duração e status em `data/monitor/`. O histórico
-de notificações e tentativas fica em SQLite e em `data/alerts/delivery_history.json`.
-O envio tem até três tentativas, com espera e timeouts de conexão/leitura. Um
-incidente já confirmado não é reenviado; timeout após aceitação remota ainda pode
-produzir duplicidade, pois não há transação distribuída com o provedor externo.
-Se o envio falhar, permanece pendente e o erro original da pipeline é relançado,
-mantendo código de saída diferente de zero. Para tentar novamente e exportar:
+Abra o endereço impresso, inscreva-se no tópico e permita as notificações no
+navegador ou no aplicativo ntfy. Para receber avisos desde a primeira execução,
+configure o canal antes de iniciar a pipeline. Para reenviar pendentes e exportar
+o histórico:
 
 ```bash
 python src/alerts.py retry
 python src/alerts.py export
 ```
 
-Não há reenvio agendado. O monitor cobre exceções dos comandos enquanto o processo
-Python está ativo; desligamento da máquina, execução que não chegou a iniciar e
-encerramento forçado exigem monitor externo, ainda não implementado neste ambiente.
+No Cloud Shell, use `.venv/bin/python`; no Windows, `.venv\Scripts\python`.
+Avisos de demonstração usam `POSTECH_ALERT_TEST_MODE=1`. Os comandos normais
+funcionam sem essa variável.
 
-[Evidências dos dois alertas reais na GCP](evidencias/alertas_google_cloud.json) e
-[histórico de entrega sem o endereço privado](evidencias/historico_alertas.json).
-Os testes controlados provocaram uma falha bloqueante do batch e uma falha de
-inicialização do streaming, confirmaram as mensagens pela API do ntfy e preservaram
-as publicações anteriores. Avisos de demonstração usam `POSTECH_ALERT_TEST_MODE=1`;
-as execuções normais não precisam dessa variável. O servidor confirmou os envios
-e o usuário confirmou a visualização dos dois avisos no tópico. Isso não presume
-que o navegador tenha exibido uma notificação do sistema operacional.
-
-## Executar o streaming simulado
-
-Depois de executar o batch, na mesma pasta do Cloud Shell:
+### Backups e estrutura dos artefatos
 
 ```bash
-bash src/run_streaming_cloudshell.sh postech-fase2-fulvius
+python src/export_cloud_artifacts.py
+python src/export_cloud_artifacts.py --streaming
 ```
 
-Para testar localmente sem publicar: `python src/stream_demo.py` no ambiente
-Python já configurado. A demonstração é finita e encerra os processos ao concluir.
+O primeiro comando gera um ZIP das camadas e evidências do ambiente. O segundo
+preserva a demonstração de streaming com fila, referência oficial e checkpoints.
+O histórico exportável de alertas não contém o tópico privado de configuração.
+`python src/package_cloudshell.py` empacota código e referências para upload,
+sem credenciais, ambiente Python ou microdados de alunos.
 
-O produtor envia JSON por HTTP para `/events`, em endereço de loopback com porta
-temporária. Cada envio tem `event_id`, versão do contrato, tipo do evento, origem,
-horário real de produção, ano, município, série, rede e taxa. O receptor só devolve
-HTTP 202 depois de persistir o payload original, codificado reversivelmente em
-Base64, e um horário próprio de recepção na fila SQLite com WAL e sincronização FULL.
-A validação ocorre de forma assíncrona; HTTP 202 confirma recebimento, não aprovação.
-
-O consumidor consulta **somente os pendentes**, em microlotes a cada 0,5 segundo.
-O evento válido entra na Silver e atualiza o estado municipal do cenário. Registro
-de evento, atualização de estado e confirmação de consumo usam a mesma transação:
-uma falha antes do commit preserva o recebimento pendente para retomada.
-
-- Mesmo ID e conteúdo: duplicado registrado, sem reaplicar o efeito.
-- Mesmo ID com conteúdo diferente: quarentena por conflito.
-- JSON, origem, recorte, território, horário ou percentual inválido: quarentena.
-- Evento atrasado: preservado na Silver; o estado é escolhido por horário de
-  produção, com desempate por ID. Não há descarte por janela nem watermark.
-- Os únicos eventos aceitos têm `origem=SIMULADO`; não alteram a Gold oficial.
-
-As garantias valem para a mesma fila persistente. O produtor demonstra reenvio
-com ID estável; não há broker gerenciado, disponibilidade contínua ou promessa de
-entrega durante indisponibilidade permanente. A perda do disco exige restauração
-do backup, e consumidores dependem de reinício manual neste ambiente acadêmico.
-
-| Aspecto | Batch | Streaming simulado |
-| --- | --- | --- |
-| Fonte | Tabelas oficiais completas | Eventos sintéticos recebidos por HTTP |
-| Frequência | Execução manual por snapshot | Consumo periódico dos novos pendentes |
-| Processamento | Reprocessa o snapshot escolhido | Atualiza somente os municípios dos eventos novos |
-| Garantias | Integridade do snapshot e bloqueio antes da promoção | Recebimento durável, transação e deduplicação por ID |
-| Latência | Duração da extração e transformação | Produção até recepção e produção até processamento, medidas separadamente |
-
-O streaming acontece no receptor e no consumidor. Como o [BigQuery sem faturamento
-não aceita inserção streaming nativa](https://docs.cloud.google.com/bigquery/docs/sandbox),
-os resultados são publicados por **jobs de carga batch gratuitos** em dois
-checkpoints, `c01` e `c02`. Essas cargas não são apresentadas como streaming nativo
-do BigQuery. A latência do consumidor não inclui a espera pelos jobs de publicação;
-os tempos desses jobs também ficam registrados na auditoria.
-
-Cada checkpoint tem Bronze, Silver, destinos, quarentena, métricas dos microlotes
-e Gold, em CSV/Parquet e tabelas BigQuery com sufixo correspondente. A versão
-anterior permanece disponível. O rótulo `checkpoint` do dataset e o arquivo
-`data/streaming_latest.json` só avançam depois da conciliação de todas as contagens.
-As junções da Gold são verificadas contra o número de estados municipais esperados.
-
-A [execução real de streaming de 26/10/2026](evidencias/execucao_streaming_google_cloud.json)
-registrou 17 recebimentos: 6 eventos únicos aceitos, 2 duplicados e 9 inválidos
-propositais em quarentena, sem pendências; três microlotes e 12 jobs de carga.
-As duas versões mostram Belo Horizonte e Uberlândia com valores simulados; seus
-resultados oficiais são mantidos como referência em colunas separadas.
-Também foram demonstradas falha antes do commit, recuperação após reinício,
-reexecução sem novos efeitos e chegada fora de ordem. A latência média de recepção
-foi 46,34 ms e a média até processamento, 328,66 ms, nesta demonstração pequena.
-Esses números não são uma medição de capacidade ou garantia de produção.
-
-[Abrir os checkpoints de streaming no BigQuery](https://console.cloud.google.com/bigquery?project=postech-fase2-fulvius&p=postech-fase2-fulvius&d=fase2_stream_20261026t185721z_76d716b6&page=dataset).
-
-Fila, snapshots e auditoria ficam em `data/streaming/ID_DA_EXECUCAO/`. Para preservar
-a demonstração: `python src/export_cloud_artifacts.py --streaming`. O ZIP gerado
-inclui a fila e os checkpoints. As tabelas do ambiente gratuito expiram em 60 dias.
-
-## Executar o batch
-
-Requer Python 3.12 e o login ADC configurado conforme o passo a passo inicial.
-
-```powershell
-python -m venv .venv
-.venv\Scripts\python -m pip install -r requirements.txt
-.venv\Scripts\python src/batch.py
+```text
+src/             Ingestão, batch, streaming, qualidade e alertas
+tests/           Testes automatizados
+sql/             Consultas da investigação
+referencias/     Originais e manifesto de fontes
+docs/            Decisões e investigação documentadas
+evidencias/      Resultados e métricas versionáveis das execuções
+presentation/    PowerPoint com notas do apresentador
+data/            Camadas, filas, auditorias e backups locais, fora do Git
 ```
 
-O comando lê as tabelas públicas pela API de leitura (sem jobs SQL), preserva
-Bronze comprimida, gera Silver/Gold locais em Parquet e valida antes de publicar.
-O arquivo `data/latest.json` aponta para a última execução aprovada; os dados e
-credenciais não são versionados. O histórico de validações fica em `data/audit/`.
-Para reprocessar sem baixar novamente:
+## Limitações do ambiente
 
-```powershell
-.venv\Scripts\python src/batch.py --bronze data/bronze/ID_DO_SNAPSHOT
-```
+O projeto é uma demonstração acadêmica com início manual. A simulação é finita e
+encerra os processos ao concluir. As garantias de retomada valem para a mesma
+fila persistente. A perda do disco exige restauração do backup. Não há broker
+gerenciado, disponibilidade contínua, watermark ou agendamento implementado.
 
-`--inject-failure` permite demonstrar uma falha bloqueante antes da publicação.
-O streaming simulado tem execução e publicação próprias, descritas acima.
+O monitor de falhas cobre exceções enquanto o processo Python está ativo.
+Desligamento da máquina, execução que não chegou a iniciar e encerramento forçado
+exigem monitor externo. O reenvio de avisos pendentes é manual. Infraestrutura
+como código e monitoramento externo não integram esta implementação.
 
-Este diretório reúne as descobertas, consultas e evidências da investigação do
-dataset `basedosdados.br_inep_avaliacao_alfabetizacao`. O projeto já executa batch
-e streaming simulado, com Bronze, Silver e Gold e evidências reais em nuvem.
-Métricas, alertas de falha e FinOps estão registrados no escopo descrito acima.
-A Gold deverá ser preservada para
-a fase 3.
+Tempos medidos em uma demonstração pequena não representam capacidade de produção
+ou SLA. Divergências do recálculo não são homologadas automaticamente. A publicação
+e a geografia são identificadas por contexto e ano para preservar a interpretação.
 
-## Aplicação em IA e conclusão analítica
+## Documentação e consultas da investigação
 
-A investigação necessária para esta fase está consolidada no recorte 2024:
-5.448 municípios, 5.232 comparáveis, 2.788 que atingiram a meta e 2.444 que não
-atingiram; 216 permanecem sem comparação. No Brasil, o resultado publicado de
-59,2 fica 0,7 ponto percentual abaixo da meta de 59,9. As taxas oficiais são a
-referência; o recálculo ponderado fica separado e não homologado quando diverge.
-Não se calcula o indicador nacional pela média simples dos municípios.
+- [Inventário e acesso](docs/01_inventario_e_acesso.md).
+- [Investigação das metas e exceções](docs/02_investigacao_metas_2024.md).
+- [Registro inicial dos requisitos](docs/03_plano_e_requisitos.md).
+- [Desenho da base analítica](docs/04_desenho_base_analitica.md).
+- [Decisões de rede, território e fonte](docs/05_decisoes_redes_territorio_fontes.md).
+- [Alunos, pesos e recálculo](docs/06_elegibilidade_pesos_recalculo.md).
+- [Catálogo de qualidade](docs/07_catalogo_qualidade.md).
 
-Na fase 3, a Gold poderá apoiar modelos de desempenho municipal e análises de
-desigualdade. Para prever resultado de 2024, use apenas variáveis disponíveis
-antes desse resultado, por exemplo o histórico de 2023, com validação temporal
-e cobertura documentada. Exclua dos preditores o próprio resultado de 2024, seu
-recálculo, saldo da meta e status de cumprimento, que revelam o alvo. Metas e
-revisões posteriores ao instante da previsão também não podem ser usadas.
-
-Ainda não foi treinado modelo preditivo, nem isso é exigido nesta fase. Dois anos
-e a cobertura incompleta dos microdados não sustentam uma previsão robusta até
-2030; a trajetória de metas é uma referência pactuada, não uma previsão do modelo.
-Eventos simulados servem à demonstração de engenharia e ficam fora do treino oficial.
-
-## Materiais da entrega
-
-- Vídeo executivo: **a gravar**, até 5 minutos, com ao menos um integrante;
-  inserir aqui o link público final depois de conferir o acesso.
-- PowerPoint: **a preparar** como apoio à apresentação e à organização da entrega;
-  não é um requisito adicional explícito do PDF da fase 2.
-- Código e evidências: revisar, fazer commit e publicar a versão que será entregue.
-- As tabelas gratuitas expiram; preservar e conferir o backup da Gold para a fase 3.
-
-## Conferência final com o enunciado
-
-Estado da revisão técnica em 26/10/2026; as linhas não representam uma nota prevista.
-
-| Critério do PDF | Situação verificada | Evidência principal |
-| --- | --- | --- |
-| Ingestão híbrida | Batch e streaming simulado executados; duplicados, inválidos e retomada demonstrados | Auditorias cloud e streaming; clone limpo |
-| Medalhão | Bronze histórica, Silver tipada e Gold analítica; backups preservados | Manifests e arquivos das execuções |
-| Qualidade | Bloqueios e alertas; 12 métricas de junção no batch, com limiares por política; falha real antes da publicação | `joins` e `stages` no relatório do clone; testes de qualidade |
-| Monitoramento | Duração e contagens por etapa, status, latência real e notificações recebidas | Auditorias, métricas dos microlotes e prova dos alertas |
-| FinOps | Uso real medido e projeção mensal com preços, premissas e limitações | Seção FinOps e memória de cálculo |
-| Cloud e organização | Execuções reais na GCP; versões por execução e configurações externas | IDs de 26 novos jobs no teste e fontes de configuração |
-| README e documentação | Contexto, tecnologias, diagrama, reprodução, decisões, IA e limitações descritos; falta o link do vídeo final | Este README e documentos de referência |
-| Vídeo executivo | **Pendente**, até 5 minutos e com integrante apresentando | Gravação e link ainda serão acrescentados |
-
-Agendamento, infraestrutura como código e monitor de desligamento do ambiente não
-foram implementados; são evoluções, sem alegação de disponibilidade contínua.
-
-Pesquisa inicialmente consolidada em **21/10/2026**, com implementação e revisão
-em **26/10/2026**. Os números representam as versões consultadas, não uma garantia
-de que futuras revisões da fonte retornarão os mesmos valores.
-
-## Por onde começar
-
-1. [Inventário e acesso](docs/01_inventario_e_acesso.md): fontes, volumes, recortes e autenticação.
-2. [Resultados da investigação](docs/02_investigacao_metas_2024.md): junção, 216 exceções e comparação dos 70 casos com o Inep.
-3. [Plano e requisitos](docs/03_plano_e_requisitos.md): próximos passos e checklist do enunciado.
-4. [Enunciado original](referencias/enunciado_fase_2.pdf).
-5. [Manifesto das fontes](referencias/manifesto.json): URLs, arquivos, tamanhos e SHA-256.
-6. [Desenho proposto da base analítica](docs/04_desenho_base_analitica.md): tabelas, junções e decisões abertas.
-7. [Decisões de rede, território e fonte](docs/05_decisoes_redes_territorio_fontes.md): regras fechadas e evidências.
-8. [Alunos, pesos e recálculo](docs/06_elegibilidade_pesos_recalculo.md): regra de elegibilidade, fórmula e limites de reprodução.
-9. [Catálogo de qualidade](docs/07_catalogo_qualidade.md): bloqueios, alertas, exceções e registro das divergências.
-
-## O que já foi verificado
-
-- Projeto Google Cloud: `postech-fase2-fulvius`.
-- BigQuery API habilitada e acesso pelo computador testado.
-- Sete tabelas acessíveis: seis entidades obrigatórias e dicionário.
-- Resultados municipais de 2024 comparados com metas da **rede municipal**.
-- 5.448 resultados, 5.352 correspondências e 5.232 comparações possíveis.
-- 96 municípios sem registro de meta e 120 com meta de 2024 ausente.
-- Entre os 120, 70 têm resultado de 2023 em `municipio`, mas não na publicação de
-  resultados e metas. As duas planilhas originais confirmam a diferença.
-- Meta pactuada e cenário aspiracional são conceitos separados: a coluna nacional
-  de 2030 para a rede Pública contém 80; universalização é a aspiração de 100%.
-
-## Consultas para repetir a investigação
-
-Abra os arquivos abaixo no editor SQL do BigQuery, com o projeto
-`postech-fase2-fulvius` selecionado. São consultas de leitura, sem criação de tabelas.
+As consultas abaixo reproduzem a investigação com o projeto selecionado no BigQuery:
 
 | Arquivo | Objetivo |
 | --- | --- |
@@ -439,41 +500,3 @@ Abra os arquivos abaixo no editor SQL do BigQuery, com o projeto
 | [11_recalculo_municipal.sql](sql/11_recalculo_municipal.sql) | Taxa ponderada municipal e comparação entre fontes |
 | [12_recalculo_publico_uf_brasil.sql](sql/12_recalculo_publico_uf_brasil.sql) | Agregação dos alunos públicos elegíveis por UF e no conjunto disponível |
 | [13_chaves_e_excluidos_alunos.sql](sql/13_chaves_e_excluidos_alunos.sql) | Chave candidata e classificação nos registros excluídos |
-
-O usuário informou ter salvo `03_resultados_municipais_metas_2024` no BigQuery
-Studio. Este diretório guarda uma versão SQL com a mesma lógica; a consulta salva
-não foi inspecionada por API para confirmar igualdade de conteúdo.
-
-**Sandbox** é o modo de utilização do BigQuery. A consulta salva é um recurso do
-projeto, contendo SQL; ela não é uma cópia dos resultados nem uma camada Bronze.
-
-## Evidências locais
-
-- [Planilha original de 2023](referencias/inep_resultados_e_metas_municipios_2023.xlsx).
-- [Planilha original de 2024](referencias/inep_resultados_e_metas_municipios_2024.xlsx).
-- [Comparação dos 70 municípios](evidencias/comparacao_70_municipios.csv).
-- [Resumo da conferência](evidencias/resumo_conferencia.json).
-- [Métricas retornadas pela consulta da junção](evidencias/metricas_juncao_2024.json).
-- [Contexto consultado das metas de UF e Brasil](evidencias/contexto_metas_uf_brasil.json).
-- [Conferência de rede, território e fontes originais](evidencias/decisoes_rede_territorio_fontes.json).
-- [Resumo do recálculo ponderado](evidencias/resumo_recalculo_alunos.json).
-- [Conferência municipal dos alunos](evidencias/recalculo_municipal_alunos.csv).
-
-Os originais foram copiados sem alterações. Esses arquivos e consultas registram
-a pesquisa; a execução da pipeline tem evidências próprias nas seções anteriores.
-Nenhuma credencial deve ser versionada.
-
-## Verificação deste registro
-
-- Sete SQLs validados por dry run no BigQuery.
-- Consulta `05_metricas_da_juncao.sql` executada novamente e contagens confirmadas.
-- Os 70 casos conferidos contra os dois originais, incluindo metas de 2025 e 2030.
-- SHA-256 das três referências e links locais da documentação conferidos.
-
-Essas verificações históricas validam a investigação. Os testes atuais da pipeline
-estão em `tests/` e são executados pelos comandos de reprodução acima.
-
-## Próximo passo
-
-Concluir a conferência de reprodução, publicar a versão revisada e preparar os
-materiais de apresentação indicados acima.
