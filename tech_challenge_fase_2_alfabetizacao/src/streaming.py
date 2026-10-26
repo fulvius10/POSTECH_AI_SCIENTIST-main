@@ -227,6 +227,10 @@ class EventStore:
         with self.connect() as source, duckdb.connect() as dest:
             source.execute("BEGIN")
             expected_gold = source.execute("SELECT count(*) FROM state").fetchone()[0]
+            event_matches = source.execute("SELECT count(*) FROM state s JOIN events e USING(event_id)").fetchone()[0]
+            territory_matches = source.execute("SELECT count(*) FROM state s JOIN events e USING(event_id) JOIN baseline b ON b.id_municipio=s.id_municipio").fetchone()[0]
+            if event_matches != expected_gold or territory_matches != event_matches:
+                raise ValueError("Correspondência obrigatória de 100% nas junções do cenário não atendida")
             for name, (query, schema) in specs.items():
                 rows = source.execute(query).fetchall()
                 if name == "gold_cenario_municipal" and len(rows) != expected_gold:
@@ -243,6 +247,10 @@ class EventStore:
         if output["bronze_recebimentos"]["rows"] != output["silver_destinos"]["rows"]:
             raise ValueError("Recebimentos e destinos não conciliam")
         write_json(target / "manifest.json", {"checkpoint": checkpoint, "tables": output,
+                   "joins": [{"name": name, "input_rows": total, "matched_rows": matched,
+                              "match_rate": matched/total if total else None, "minimum_match_rate": 1.0}
+                             for name,total,matched in (("state_events",expected_gold,event_matches),
+                                                        ("events_baseline",event_matches,territory_matches))],
                    "gold_join": {"expected": expected_gold, "matched": output["gold_cenario_municipal"]["rows"],
                                  "match_rate": 1.0 if expected_gold else None}})
         return output

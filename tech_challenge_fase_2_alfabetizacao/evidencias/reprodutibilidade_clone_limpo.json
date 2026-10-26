@@ -1,0 +1,655 @@
+{
+  "started_at": "2026-10-26T19:43:17.746259+00:00",
+  "kind": "CLEAN_CLONE_OF_TEMPORARY_LOCAL_CANDIDATE",
+  "candidate_commit": "4deb3e82c2146f19553311ab065efa85d805a988",
+  "execution": "GOOGLE_CLOUD_SHELL",
+  "steps": [
+    {
+      "name": "batch_from_readme",
+      "command": [
+        "bash",
+        "src/run_cloudshell.sh",
+        "postech-fase2-fulvius"
+      ],
+      "started_at": "2026-10-26T19:43:17.816932+00:00",
+      "exit_code": 0,
+      "expected_exit_code": 0,
+      "duration_seconds": 408.275,
+      "finished_at": "2026-10-26T19:50:06.091838+00:00"
+    },
+    {
+      "name": "dependencies",
+      "command": [
+        ".venv/bin/python",
+        "-m",
+        "pip",
+        "check"
+      ],
+      "started_at": "2026-10-26T19:50:06.092287+00:00",
+      "exit_code": 0,
+      "expected_exit_code": 0,
+      "duration_seconds": 0.635,
+      "finished_at": "2026-10-26T19:50:06.728604+00:00"
+    },
+    {
+      "name": "unit_tests",
+      "command": [
+        ".venv/bin/python",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests",
+        "-v"
+      ],
+      "started_at": "2026-10-26T19:50:06.729048+00:00",
+      "exit_code": 0,
+      "expected_exit_code": 0,
+      "duration_seconds": 1.762,
+      "finished_at": "2026-10-26T19:50:08.492261+00:00"
+    },
+    {
+      "name": "streaming_from_readme",
+      "command": [
+        "bash",
+        "src/run_streaming_cloudshell.sh",
+        "postech-fase2-fulvius"
+      ],
+      "started_at": "2026-10-26T19:50:08.492914+00:00",
+      "exit_code": 0,
+      "expected_exit_code": 0,
+      "duration_seconds": 56.594,
+      "finished_at": "2026-10-26T19:51:05.087660+00:00"
+    },
+    {
+      "name": "blocking_failure",
+      "command": [
+        ".venv/bin/python",
+        "src/batch.py",
+        "--bronze",
+        "/home/fulvius11/postech-repro-20261026/candidate_clone/tech_challenge_fase_2_alfabetizacao/data/bronze/20261026T194329Z_73fb49dd",
+        "--inject-failure"
+      ],
+      "started_at": "2026-10-26T19:51:05.088457+00:00",
+      "exit_code": 1,
+      "expected_exit_code": 1,
+      "duration_seconds": 71.075,
+      "finished_at": "2026-10-26T19:52:16.164476+00:00"
+    }
+  ],
+  "external_prerequisites": "Existing authorized Google account and free project; no credentials copied into clone",
+  "initial_git_status": "",
+  "data_absent_before_start": true,
+  "venv_absent_before_start": true,
+  "alerts_config_copied": false,
+  "status": "PASS",
+  "finished_at": "2026-10-26T19:52:16.165962+00:00",
+  "publication_pointers_unchanged_after_failure": true,
+  "batch_run_id": "20261026T194329Z_ffcfc255",
+  "batch_stages": [
+    {
+      "name": "obter_bronze",
+      "status": "SUCCESS",
+      "duration_seconds": 251.56,
+      "input_counts": {
+        "dicionario": 27,
+        "meta_alfabetizacao_brasil": 3,
+        "meta_alfabetizacao_uf": 81,
+        "meta_alfabetizacao_municipio": 10704,
+        "uf": 145,
+        "municipio": 23995,
+        "alunos": 3867999
+      },
+      "output_counts": {
+        "dicionario": 27,
+        "meta_alfabetizacao_brasil": 3,
+        "meta_alfabetizacao_uf": 81,
+        "meta_alfabetizacao_municipio": 10704,
+        "uf": 145,
+        "municipio": 23995,
+        "alunos": 3867999
+      },
+      "finished_at": "2026-10-26T19:47:41.480017+00:00"
+    },
+    {
+      "name": "tipar_e_validar_silver",
+      "status": "SUCCESS",
+      "duration_seconds": 8.825,
+      "input_counts": {
+        "dicionario": 27,
+        "meta_alfabetizacao_brasil": 3,
+        "meta_alfabetizacao_uf": 81,
+        "meta_alfabetizacao_municipio": 10704,
+        "uf": 145,
+        "municipio": 23995,
+        "alunos": 3867999
+      },
+      "output_counts": {
+        "dicionario": 27,
+        "meta_alfabetizacao_brasil": 3,
+        "meta_alfabetizacao_uf": 81,
+        "meta_alfabetizacao_municipio": 10704,
+        "uf": 145,
+        "municipio": 23995,
+        "alunos": 3867999
+      },
+      "finished_at": "2026-10-26T19:47:50.305421+00:00"
+    },
+    {
+      "name": "integrar_e_validar_gold",
+      "status": "SUCCESS",
+      "duration_seconds": 61.629,
+      "input_counts": {
+        "dicionario": 27,
+        "meta_alfabetizacao_brasil": 3,
+        "meta_alfabetizacao_uf": 81,
+        "meta_alfabetizacao_municipio": 10704,
+        "uf": 145,
+        "municipio": 23995,
+        "alunos": 3867999
+      },
+      "output_counts": {
+        "comparacao_municipal_2024": 5448,
+        "comparacao_uf_2024": 27,
+        "comparacao_brasil_2024": 1,
+        "conferencia_alunos": 10899
+      },
+      "finished_at": "2026-10-26T19:48:51.936291+00:00"
+    },
+    {
+      "name": "exportar_parquet_csv",
+      "status": "SUCCESS",
+      "duration_seconds": 6.285,
+      "input_counts": {
+        "dicionario": 27,
+        "meta_alfabetizacao_brasil": 3,
+        "meta_alfabetizacao_uf": 81,
+        "meta_alfabetizacao_municipio": 10704,
+        "uf": 145,
+        "municipio": 23995,
+        "alunos": 3867999,
+        "comparacao_municipal_2024": 5448,
+        "comparacao_uf_2024": 27,
+        "comparacao_brasil_2024": 1,
+        "conferencia_alunos": 10899
+      },
+      "output_counts": {
+        "dicionario": 27,
+        "meta_alfabetizacao_brasil": 3,
+        "meta_alfabetizacao_uf": 81,
+        "meta_alfabetizacao_municipio": 10704,
+        "uf": 145,
+        "municipio": 23995,
+        "alunos": 3867999,
+        "territorio": 11141,
+        "metas_anuais": 75516,
+        "referencia_publicacao": 37660,
+        "comparacao_municipal_2024": 5448,
+        "comparacao_uf_2024": 27,
+        "comparacao_brasil_2024": 1,
+        "conferencia_alunos": 10899
+      },
+      "finished_at": "2026-10-26T19:48:58.223145+00:00"
+    }
+  ],
+  "batch_joins": [
+    {
+      "name": "territorio_municipio",
+      "keys": [
+        "ano",
+        "id_municipio"
+      ],
+      "input_rows": 23995,
+      "matched_rows": 23995,
+      "unmatched_rows": 0,
+      "output_rows_left_join": 23995,
+      "match_rate": 1.0,
+      "minimum_match_rate": 1.0,
+      "allowed_missing_key_count": 0,
+      "missing_key_count": 0,
+      "unexpected_missing_keys": [],
+      "blocking_violations": 0
+    },
+    {
+      "name": "territorio_alunos",
+      "keys": [
+        "ano",
+        "id_municipio"
+      ],
+      "input_rows": 3867999,
+      "matched_rows": 3867999,
+      "unmatched_rows": 0,
+      "output_rows_left_join": 3867999,
+      "match_rate": 1.0,
+      "minimum_match_rate": 1.0,
+      "allowed_missing_key_count": 0,
+      "missing_key_count": 0,
+      "unexpected_missing_keys": [],
+      "blocking_violations": 0
+    },
+    {
+      "name": "territorio_meta_alfabetizacao_municipio",
+      "keys": [
+        "ano",
+        "id_municipio"
+      ],
+      "input_rows": 10704,
+      "matched_rows": 10704,
+      "unmatched_rows": 0,
+      "output_rows_left_join": 10704,
+      "match_rate": 1.0,
+      "minimum_match_rate": 1.0,
+      "allowed_missing_key_count": 0,
+      "missing_key_count": 0,
+      "unexpected_missing_keys": [],
+      "blocking_violations": 0
+    },
+    {
+      "name": "municipio_metas_2024",
+      "keys": [
+        "ano",
+        "id_municipio"
+      ],
+      "input_rows": 5448,
+      "matched_rows": 5352,
+      "unmatched_rows": 96,
+      "output_rows_left_join": 5448,
+      "match_rate": 0.9823788546255506,
+      "minimum_match_rate": 0.9823788546255506,
+      "allowed_missing_key_count": 96,
+      "missing_key_count": 96,
+      "unexpected_missing_keys": [],
+      "blocking_violations": 0
+    },
+    {
+      "name": "metas_original_UF",
+      "keys": [
+        "territorio"
+      ],
+      "input_rows": 27,
+      "matched_rows": 27,
+      "unmatched_rows": 0,
+      "output_rows_left_join": 27,
+      "match_rate": 1.0,
+      "minimum_match_rate": 1.0,
+      "allowed_missing_key_count": 0,
+      "missing_key_count": 0,
+      "unexpected_missing_keys": [],
+      "blocking_violations": 0
+    },
+    {
+      "name": "metas_original_BRASIL",
+      "keys": [
+        "territorio"
+      ],
+      "input_rows": 1,
+      "matched_rows": 1,
+      "unmatched_rows": 0,
+      "output_rows_left_join": 1,
+      "match_rate": 1.0,
+      "minimum_match_rate": 1.0,
+      "allowed_missing_key_count": 0,
+      "missing_key_count": 0,
+      "unexpected_missing_keys": [],
+      "blocking_violations": 0
+    },
+    {
+      "name": "uf_agregado_2024",
+      "keys": [
+        "sigla_uf"
+      ],
+      "input_rows": 27,
+      "matched_rows": 25,
+      "unmatched_rows": 2,
+      "output_rows_left_join": 27,
+      "match_rate": 0.9259259259259259,
+      "minimum_match_rate": 0.9259259259259259,
+      "allowed_missing_key_count": 2,
+      "missing_key_count": 2,
+      "unexpected_missing_keys": [],
+      "blocking_violations": 0
+    },
+    {
+      "name": "agregado_recalculo",
+      "keys": [
+        "ano",
+        "id_municipio"
+      ],
+      "input_rows": 10896,
+      "matched_rows": 10269,
+      "unmatched_rows": 627,
+      "output_rows_left_join": 10896,
+      "match_rate": 0.9424559471365639,
+      "minimum_match_rate": 0.9424559471365639,
+      "allowed_missing_key_count": 627,
+      "missing_key_count": 627,
+      "unexpected_missing_keys": [],
+      "blocking_violations": 0
+    },
+    {
+      "name": "recalculo_agregado",
+      "keys": [
+        "ano",
+        "id_municipio"
+      ],
+      "input_rows": 10272,
+      "matched_rows": 10269,
+      "unmatched_rows": 3,
+      "output_rows_left_join": 10272,
+      "match_rate": 0.9997079439252337,
+      "minimum_match_rate": 0.9997079439252337,
+      "allowed_missing_key_count": 3,
+      "missing_key_count": 3,
+      "unexpected_missing_keys": [],
+      "blocking_violations": 0
+    },
+    {
+      "name": "conferencia_original_MUNICIPIO",
+      "keys": [
+        "territorio"
+      ],
+      "input_rows": 5352,
+      "matched_rows": 5352,
+      "unmatched_rows": 0,
+      "output_rows_left_join": 5352,
+      "match_rate": 1.0,
+      "minimum_match_rate": 1.0,
+      "allowed_missing_key_count": 0,
+      "missing_key_count": 0,
+      "unexpected_missing_keys": [],
+      "blocking_violations": 0
+    },
+    {
+      "name": "conferencia_original_UF",
+      "keys": [
+        "territorio"
+      ],
+      "input_rows": 27,
+      "matched_rows": 27,
+      "unmatched_rows": 0,
+      "output_rows_left_join": 27,
+      "match_rate": 1.0,
+      "minimum_match_rate": 1.0,
+      "allowed_missing_key_count": 0,
+      "missing_key_count": 0,
+      "unexpected_missing_keys": [],
+      "blocking_violations": 0
+    },
+    {
+      "name": "conferencia_original_BRASIL",
+      "keys": [
+        "territorio"
+      ],
+      "input_rows": 1,
+      "matched_rows": 1,
+      "unmatched_rows": 0,
+      "output_rows_left_join": 1,
+      "match_rate": 1.0,
+      "minimum_match_rate": 1.0,
+      "allowed_missing_key_count": 0,
+      "missing_key_count": 0,
+      "unexpected_missing_keys": [],
+      "blocking_violations": 0
+    }
+  ],
+  "batch_counts": {
+    "dicionario": 27,
+    "meta_alfabetizacao_brasil": 3,
+    "meta_alfabetizacao_uf": 81,
+    "meta_alfabetizacao_municipio": 10704,
+    "uf": 145,
+    "municipio": 23995,
+    "alunos": 3867999,
+    "territorio": 11141,
+    "metas_anuais": 75516,
+    "referencia_publicacao": 37660,
+    "comparacao_municipal_2024": 5448,
+    "comparacao_uf_2024": 27,
+    "comparacao_brasil_2024": 1,
+    "conferencia_alunos": 10899
+  },
+  "municipal_status": {
+    "Meta 2024 ausente": 120,
+    "Não atingiu": 2444,
+    "Sem registro de meta": 96,
+    "Atingiu": 2788
+  },
+  "cloud_publication": {
+    "run_id": "20261026t194329z_a01581f6",
+    "project": "postech-fase2-fulvius",
+    "dataset": "fase2_batch_20261026t194329z_a01581f6",
+    "batch_run_id": "20261026T194329Z_ffcfc255",
+    "evidence": "/home/fulvius11/postech-repro-20261026/candidate_clone/tech_challenge_fase_2_alfabetizacao/data/cloud_audit/20261026t194329z_a01581f6.json"
+  },
+  "streaming_publication": {
+    "run_id": "20261026t195008z_5335a91e",
+    "project": "postech-fase2-fulvius",
+    "dataset": "fase2_stream_20261026t195008z_5335a91e",
+    "checkpoint": "c02",
+    "audit": "/home/fulvius11/postech-repro-20261026/candidate_clone/tech_challenge_fase_2_alfabetizacao/data/streaming/20261026t195008z_5335a91e/audit.json"
+  },
+  "final_git_status": "",
+  "unit_test_count": 25,
+  "dependency_check": "PASS",
+  "cloud_batch_load_jobs": 14,
+  "cloud_streaming_load_jobs": 12,
+  "billing_disabled_after_runs": true,
+  "reference_checks": {
+    "markdown_links_checked": 62,
+    "missing_links": [],
+    "reference_hash_failures": []
+  },
+  "code_snapshot": {
+    "candidate_commit_temporary_only": "4deb3e82c2146f19553311ab065efa85d805a988",
+    "original_repository_head": "d373565c2cc0b948432a2e40bce0eb32075032cf",
+    "file_count": 75,
+    "archive_bytes": 14252541,
+    "contains_data_or_credentials": false,
+    "source_code_sha256": {
+      "alerts.py": "3cc197c0d8fd768d10d2c5f1e01317727ce55de774f1feede2199f1024b169fb",
+      "batch.py": "de96fd64613c2e6fb71abc1ed26f04e87c39a6883149b568efc961ce997fd6f3",
+      "cloud_batch.py": "aede198387e50d8e285a41856d3201b258d056631a3be531b3d413f32a0d1623",
+      "export_cloud_artifacts.py": "3e4d68d6ee1ebb2dbcb17562b899f79c5e624417b23cc748b6f95f4096893ed8",
+      "ingest.py": "33f60b0eb014712615c282f815abfa728a5d555df6961f510b49bac63b1b2f1c",
+      "package_cloudshell.py": "fb691753a26a12203c58dc52f40faf83c7c81fd8d3be55fd548cd92b88417a68",
+      "quality.py": "f2d546b493f920191e96f2347f305b5164f38098d5dcfd8ce6aa74a2f1478b36",
+      "streaming.py": "9e3f9465d5370a4c39f03492fef8435f43dcc620f179b33cf3528e7eff00f9cb",
+      "stream_demo.py": "90a20be038c58c82aab7bde25cf8f7fc7d789a3f71f6cfc558ebad4c9c35f8b9"
+    }
+  },
+  "secret_config_note": "O tópico ntfy não foi copiado. O teste de falha gerou UNCONFIGURED, comportamento esperado sem destino externo; notificações reais foram comprovadas e confirmadas separadamente em alertas_google_cloud.json.",
+  "backup": {
+    "file": "clone_limpo_evidencias.zip",
+    "bytes": 1238435,
+    "sha256": "8537aed915da95bb8c40b976ff0309417cbda38f4a73736ac1f8d91bec71813d"
+  },
+  "batch_validation_count": 116,
+  "cloud_jobs": [
+    {
+      "job_id": "fase2_batch_20261026t194329z_a01581f6_silver_alunos",
+      "table": "silver_alunos",
+      "status": "DONE",
+      "rows": 3867999
+    },
+    {
+      "job_id": "fase2_batch_20261026t194329z_a01581f6_silver_dicionario",
+      "table": "silver_dicionario",
+      "status": "DONE",
+      "rows": 27
+    },
+    {
+      "job_id": "fase2_batch_20261026t194329z_a01581f6_silver_meta_alfabetizacao_brasil",
+      "table": "silver_meta_alfabetizacao_brasil",
+      "status": "DONE",
+      "rows": 3
+    },
+    {
+      "job_id": "fase2_batch_20261026t194329z_a01581f6_silver_meta_alfabetizacao_municipio",
+      "table": "silver_meta_alfabetizacao_municipio",
+      "status": "DONE",
+      "rows": 10704
+    },
+    {
+      "job_id": "fase2_batch_20261026t194329z_a01581f6_silver_meta_alfabetizacao_uf",
+      "table": "silver_meta_alfabetizacao_uf",
+      "status": "DONE",
+      "rows": 81
+    },
+    {
+      "job_id": "fase2_batch_20261026t194329z_a01581f6_silver_metas_anuais",
+      "table": "silver_metas_anuais",
+      "status": "DONE",
+      "rows": 75516
+    },
+    {
+      "job_id": "fase2_batch_20261026t194329z_a01581f6_silver_municipio",
+      "table": "silver_municipio",
+      "status": "DONE",
+      "rows": 23995
+    },
+    {
+      "job_id": "fase2_batch_20261026t194329z_a01581f6_silver_referencia_publicacao",
+      "table": "silver_referencia_publicacao",
+      "status": "DONE",
+      "rows": 37660
+    },
+    {
+      "job_id": "fase2_batch_20261026t194329z_a01581f6_silver_territorio",
+      "table": "silver_territorio",
+      "status": "DONE",
+      "rows": 11141
+    },
+    {
+      "job_id": "fase2_batch_20261026t194329z_a01581f6_silver_uf",
+      "table": "silver_uf",
+      "status": "DONE",
+      "rows": 145
+    },
+    {
+      "job_id": "fase2_batch_20261026t194329z_a01581f6_gold_comparacao_brasil_2024",
+      "table": "gold_comparacao_brasil_2024",
+      "status": "DONE",
+      "rows": 1
+    },
+    {
+      "job_id": "fase2_batch_20261026t194329z_a01581f6_gold_comparacao_municipal_2024",
+      "table": "gold_comparacao_municipal_2024",
+      "status": "DONE",
+      "rows": 5448
+    },
+    {
+      "job_id": "fase2_batch_20261026t194329z_a01581f6_gold_comparacao_uf_2024",
+      "table": "gold_comparacao_uf_2024",
+      "status": "DONE",
+      "rows": 27
+    },
+    {
+      "job_id": "fase2_batch_20261026t194329z_a01581f6_gold_conferencia_alunos",
+      "table": "gold_conferencia_alunos",
+      "status": "DONE",
+      "rows": 10899
+    },
+    {
+      "job_id": "fase2_stream_20261026t195008z_5335a91e_bronze_recebimentos_c01",
+      "table": "bronze_recebimentos_c01",
+      "status": "DONE",
+      "rows": 8
+    },
+    {
+      "job_id": "fase2_stream_20261026t195008z_5335a91e_silver_eventos_c01",
+      "table": "silver_eventos_c01",
+      "status": "DONE",
+      "rows": 2
+    },
+    {
+      "job_id": "fase2_stream_20261026t195008z_5335a91e_silver_destinos_c01",
+      "table": "silver_destinos_c01",
+      "status": "DONE",
+      "rows": 8
+    },
+    {
+      "job_id": "fase2_stream_20261026t195008z_5335a91e_quarentena_c01",
+      "table": "quarentena_c01",
+      "status": "DONE",
+      "rows": 5
+    },
+    {
+      "job_id": "fase2_stream_20261026t195008z_5335a91e_metricas_microlotes_c01",
+      "table": "metricas_microlotes_c01",
+      "status": "DONE",
+      "rows": 1
+    },
+    {
+      "job_id": "fase2_stream_20261026t195008z_5335a91e_gold_cenario_municipal_c01",
+      "table": "gold_cenario_municipal_c01",
+      "status": "DONE",
+      "rows": 2
+    },
+    {
+      "job_id": "fase2_stream_20261026t195008z_5335a91e_bronze_recebimentos_c02",
+      "table": "bronze_recebimentos_c02",
+      "status": "DONE",
+      "rows": 17
+    },
+    {
+      "job_id": "fase2_stream_20261026t195008z_5335a91e_silver_eventos_c02",
+      "table": "silver_eventos_c02",
+      "status": "DONE",
+      "rows": 6
+    },
+    {
+      "job_id": "fase2_stream_20261026t195008z_5335a91e_silver_destinos_c02",
+      "table": "silver_destinos_c02",
+      "status": "DONE",
+      "rows": 17
+    },
+    {
+      "job_id": "fase2_stream_20261026t195008z_5335a91e_quarentena_c02",
+      "table": "quarentena_c02",
+      "status": "DONE",
+      "rows": 9
+    },
+    {
+      "job_id": "fase2_stream_20261026t195008z_5335a91e_metricas_microlotes_c02",
+      "table": "metricas_microlotes_c02",
+      "status": "DONE",
+      "rows": 3
+    },
+    {
+      "job_id": "fase2_stream_20261026t195008z_5335a91e_gold_cenario_municipal_c02",
+      "table": "gold_cenario_municipal_c02",
+      "status": "DONE",
+      "rows": 2
+    }
+  ],
+  "console_urls": {
+    "batch": "https://console.cloud.google.com/bigquery?project=postech-fase2-fulvius&p=postech-fase2-fulvius&d=fase2_batch_20261026t194329z_a01581f6&page=dataset",
+    "streaming": "https://console.cloud.google.com/bigquery?project=postech-fase2-fulvius&p=postech-fase2-fulvius&d=fase2_stream_20261026t195008z_5335a91e&page=dataset"
+  },
+  "warnings_are_preserved": [
+    {
+      "name": "metas_ausentes_conhecidas",
+      "violations": 216,
+      "severity": "WARN",
+      "status": "WARNING"
+    },
+    {
+      "name": "uf_agregado_cobertura_incompleta",
+      "violations": 2,
+      "severity": "WARN",
+      "status": "WARNING"
+    },
+    {
+      "name": "recalculo_diferenca_maior_001_pp_descritivo",
+      "violations": 2361,
+      "severity": "WARN",
+      "status": "WARNING"
+    },
+    {
+      "name": "recalculo_cobertura_incompleta",
+      "violations": 630,
+      "severity": "WARN",
+      "status": "WARNING"
+    }
+  ]
+}

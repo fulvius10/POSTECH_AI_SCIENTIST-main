@@ -1,5 +1,9 @@
 # Plano antes da implementação
 
+**Registro histórico do planejamento de 21/10/2026.** Os estados abaixo descrevem
+aquela etapa; para implementação, evidências e pendências atuais da entrega,
+consulte o [README](../README.md).
+
 Estado em 21/10/2026: investigação documentada. Acesso ao BigQuery não equivale
 à implementação da pipeline exigida no desafio.
 

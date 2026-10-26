@@ -2,13 +2,68 @@
 
 **Batch e streaming simulado no Google Cloud Shell, com publicação no BigQuery gratuito e sem ativar faturamento.**
 
+O projeto integra o Indicador Criança Alfabetizada e suas metas para identificar
+desigualdades e acompanhar resultados do 2º ano do ensino fundamental. A comparação
+principal usa o recorte municipal de 2024; UF e Brasil mantêm seus próprios
+universos. A meta pactuada nacional para 2030 é 80, distinta da universalização
+aspiracional de 100%. O corte de classificação dos microdados é 743 pontos.
+
+## Começar a partir de um clone
+
+Pré-requisitos: Git, Python **3.12** (versão testada), internet e conta Google com
+acesso a um projeto próprio **sem faturamento**. Não copie credenciais para o
+repositório. A autenticação é configuração externa ao clone.
+
+```bash
+git clone https://github.com/fulvius10/POSTECH_AI_SCIENTIST-main.git
+cd POSTECH_AI_SCIENTIST-main/tech_challenge_fase_2_alfabetizacao
+```
+
+No **Google Cloud Shell**, autorize o acesso à conta quando solicitado, substitua
+o ID abaixo pelo seu projeto e execute os comandos da próxima seção. O Cloud Shell
+já tem Git, Python e Google Cloud CLI. O bootstrap cria um ambiente Python novo e
+instala as versões de `requirements.txt` antes de executar o batch.
+
+Para execução **local no Windows**, instale também a Google Cloud CLI e prepare:
+
+```powershell
+gcloud auth application-default login
+gcloud auth application-default set-quota-project SEU_ID_DE_PROJETO
+python -m venv .venv
+.venv\Scripts\python -m pip install -r requirements.txt
+.venv\Scripts\python -m unittest discover -s tests -v
+.venv\Scripts\python src/batch.py
+.venv\Scripts\python src/stream_demo.py
+```
+
+Os testes automatizados não precisam de conta Google, dados baixados nem alertas
+reais. A execução completa baixa as sete tabelas públicas; o streaming local usa
+a Gold recém-gerada pelo batch. Para receber alertas já na primeira execução,
+instale as dependências e siga a seção de alertas antes de iniciar a pipeline.
+
+**Reprodução verificada em 26/10/2026:** foi criado um snapshot Git temporário da
+versão candidata e feito um clone novo no Cloud Shell, inicialmente sem `data/`,
+sem `.venv/` e com a árvore Git limpa. A autenticação Google já autorizada foi o
+pré-requisito externo. O batch baixou novamente as sete tabelas, incluindo os
+3.867.999 alunos; dependências, 25 testes, batch e streaming passaram. Os comandos
+publicaram 14 + 12 tabelas na GCP. A falha bloqueante retornou código 1 e manteve
+os três ponteiros de publicação intactos. O clone terminou com a árvore Git limpa.
+O tópico ntfy privado não foi copiado para esse teste; a entrega dos alertas foi
+comprovada separadamente e confirmada pelo usuário. Evidência:
+[relatório do clone limpo](evidencias/reprodutibilidade_clone_limpo.json).
+Esse teste valida a versão candidata; a publicação do commit final permanece uma
+etapa da entrega. Links do console dependem de acesso ao projeto; as evidências
+versionadas permitem examinar a execução sem compartilhar credenciais.
+
 ## Executar no Google Cloud
 
-No Cloud Shell, dentro deste diretório:
+No Cloud Shell, dentro deste diretório (o ID é um exemplo configurável):
 
 ```bash
 gcloud services enable bigquery.googleapis.com cloudbilling.googleapis.com --project=postech-fase2-fulvius
 bash src/run_cloudshell.sh postech-fase2-fulvius
+.venv/bin/python -m unittest discover -s tests -v
+bash src/run_streaming_cloudshell.sh postech-fase2-fulvius
 ```
 
 O ID do projeto é argumento do script. A API de faturamento é usada somente para
@@ -46,14 +101,24 @@ flowchart LR
     Cenario --> BQSim[BigQuery: checkpoints do cenário]
 ```
 
-Este é um ambiente de demonstração acadêmica com início manual. Agendamento
-ainda está pendente. O Cloud Shell não é um
+Este é um ambiente de demonstração acadêmica com início manual. Agendamento e
+infraestrutura como código são evoluções opcionais, ainda não implementadas.
+O Cloud Shell não é um
 serviço para hospedar uma pipeline de produção continuamente.
 
 Execução real de **26/10/2026**: 14 jobs de carga, 279.923.160 bytes lógicos
 armazenados no BigQuery e 408,049 segundos de execução total, com faturamento
 desativado antes e depois. Nenhum job de consulta SQL foi usado nesta publicação.
 As 101 verificações incluem alertas conhecidos; as regras bloqueantes passaram.
+Essa contagem pertence à execução histórica citada. A revisão posterior acrescentou
+métricas `joins` com entradas, pares, ausências, taxa e limiar, e métricas `stages`
+com duração, status e contagens por etapa. Novas auditorias podem ter mais regras.
+Território e originais exigem 100% de pares esperados. A junção municipal admite
+somente os 96 códigos sem registro confirmados no Inep; preenchimento das 120
+metas nulas é verificado separadamente. No agregado público de UF/2024, série 2,
+rede 5, DF e RR não têm linha no snapshot verificado; outras ausências bloqueiam.
+Na conferência ponderada, a cobertura esperada deriva da disponibilidade de
+avaliações elegíveis e de agregados, com preservação dos dois lados sem par.
 Evidências: [jobs e métricas da nuvem](evidencias/execucao_batch_google_cloud.json)
 e [validações do batch](evidencias/validacoes_batch_google_cloud.json).
 O [teste de falha na nuvem](evidencias/falha_bloqueante_google_cloud.json) terminou
@@ -249,7 +314,7 @@ inclui a fila e os checkpoints. As tabelas do ambiente gratuito expiram em 60 di
 
 ## Executar o batch
 
-Requer Python 3.12+ e o login ADC já configurado neste computador.
+Requer Python 3.12 e o login ADC configurado conforme o passo a passo inicial.
 
 ```powershell
 python -m venv .venv
@@ -277,9 +342,57 @@ Métricas, alertas de falha e FinOps estão registrados no escopo descrito acima
 A Gold deverá ser preservada para
 a fase 3.
 
-Registro consolidado em **21/10/2026**. Os números representam o estado consultado
-da fonte nessa investigação, não uma garantia de que consultas futuras retornarão
-os mesmos valores.
+## Aplicação em IA e conclusão analítica
+
+A investigação necessária para esta fase está consolidada no recorte 2024:
+5.448 municípios, 5.232 comparáveis, 2.788 que atingiram a meta e 2.444 que não
+atingiram; 216 permanecem sem comparação. No Brasil, o resultado publicado de
+59,2 fica 0,7 ponto percentual abaixo da meta de 59,9. As taxas oficiais são a
+referência; o recálculo ponderado fica separado e não homologado quando diverge.
+Não se calcula o indicador nacional pela média simples dos municípios.
+
+Na fase 3, a Gold poderá apoiar modelos de desempenho municipal e análises de
+desigualdade. Para prever resultado de 2024, use apenas variáveis disponíveis
+antes desse resultado, por exemplo o histórico de 2023, com validação temporal
+e cobertura documentada. Exclua dos preditores o próprio resultado de 2024, seu
+recálculo, saldo da meta e status de cumprimento, que revelam o alvo. Metas e
+revisões posteriores ao instante da previsão também não podem ser usadas.
+
+Ainda não foi treinado modelo preditivo, nem isso é exigido nesta fase. Dois anos
+e a cobertura incompleta dos microdados não sustentam uma previsão robusta até
+2030; a trajetória de metas é uma referência pactuada, não uma previsão do modelo.
+Eventos simulados servem à demonstração de engenharia e ficam fora do treino oficial.
+
+## Materiais da entrega
+
+- Vídeo executivo: **a gravar**, até 5 minutos, com ao menos um integrante;
+  inserir aqui o link público final depois de conferir o acesso.
+- PowerPoint: **a preparar** como apoio à apresentação e à organização da entrega;
+  não é um requisito adicional explícito do PDF da fase 2.
+- Código e evidências: revisar, fazer commit e publicar a versão que será entregue.
+- As tabelas gratuitas expiram; preservar e conferir o backup da Gold para a fase 3.
+
+## Conferência final com o enunciado
+
+Estado da revisão técnica em 26/10/2026; as linhas não representam uma nota prevista.
+
+| Critério do PDF | Situação verificada | Evidência principal |
+| --- | --- | --- |
+| Ingestão híbrida | Batch e streaming simulado executados; duplicados, inválidos e retomada demonstrados | Auditorias cloud e streaming; clone limpo |
+| Medalhão | Bronze histórica, Silver tipada e Gold analítica; backups preservados | Manifests e arquivos das execuções |
+| Qualidade | Bloqueios e alertas; 12 métricas de junção no batch, com limiares por política; falha real antes da publicação | `joins` e `stages` no relatório do clone; testes de qualidade |
+| Monitoramento | Duração e contagens por etapa, status, latência real e notificações recebidas | Auditorias, métricas dos microlotes e prova dos alertas |
+| FinOps | Uso real medido e projeção mensal com preços, premissas e limitações | Seção FinOps e memória de cálculo |
+| Cloud e organização | Execuções reais na GCP; versões por execução e configurações externas | IDs de 26 novos jobs no teste e fontes de configuração |
+| README e documentação | Contexto, tecnologias, diagrama, reprodução, decisões, IA e limitações descritos; falta o link do vídeo final | Este README e documentos de referência |
+| Vídeo executivo | **Pendente**, até 5 minutos e com integrante apresentando | Gravação e link ainda serão acrescentados |
+
+Agendamento, infraestrutura como código e monitor de desligamento do ambiente não
+foram implementados; são evoluções, sem alegação de disponibilidade contínua.
+
+Pesquisa inicialmente consolidada em **21/10/2026**, com implementação e revisão
+em **26/10/2026**. Os números representam as versões consultadas, não uma garantia
+de que futuras revisões da fonte retornarão os mesmos valores.
 
 ## Por onde começar
 
@@ -346,8 +459,8 @@ projeto, contendo SQL; ela não é uma cópia dos resultados nem uma camada Bron
 - [Resumo do recálculo ponderado](evidencias/resumo_recalculo_alunos.json).
 - [Conferência municipal dos alunos](evidencias/recalculo_municipal_alunos.csv).
 
-Os originais foram copiados sem alterações. Esses arquivos e consultas são material
-de pesquisa, não representam ingestão, tratamento ou execução da futura pipeline.
+Os originais foram copiados sem alterações. Esses arquivos e consultas registram
+a pesquisa; a execução da pipeline tem evidências próprias nas seções anteriores.
 Nenhuma credencial deve ser versionada.
 
 ## Verificação deste registro
@@ -357,9 +470,10 @@ Nenhuma credencial deve ser versionada.
 - Os 70 casos conferidos contra os dois originais, incluindo metas de 2025 e 2030.
 - SHA-256 das três referências e links locais da documentação conferidos.
 
-Essas verificações validam o material de investigação; não são testes da futura pipeline.
+Essas verificações históricas validam a investigação. Os testes atuais da pipeline
+estão em `tests/` e são executados pelos comandos de reprodução acima.
 
 ## Próximo passo
 
-Executar e verificar o batch local; depois avançar na simulação de eventos e na
-demonstração possível no BigQuery Sandbox, sem serviços pagos.
+Concluir a conferência de reprodução, publicar a versão revisada e preparar os
+materiais de apresentação indicados acima.

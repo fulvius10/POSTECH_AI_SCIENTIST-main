@@ -15,6 +15,7 @@ from pathlib import Path
 import duckdb
 
 from ingest import ROOT, TABLES, digest, download, new_run_id, now, write_json
+from quality import join_profile
 
 
 def ident(value: str) -> str:
@@ -103,9 +104,19 @@ def run(bronze: Path | None = None, inject_failure: bool = False) -> dict:
     audit = {"run_id": run_id, "started_at": now(), "status": "RUNNING",
              "execution": "GOOGLE_CLOUD_SHELL" if os.environ.get("CLOUD_SHELL") == "true" else "LOCAL",
              "hostname": socket.gethostname(),
-             "paid_cloud_services": False, "checks": [], "counts": {}}
+             "paid_cloud_services": False, "checks": [], "counts": {}, "joins": [], "stages": []}
     audit_path = ROOT / "data" / "audit" / f"{run_id}.json"
     started = time.monotonic()
+    stage_started = started
+    stage_name = "obter_bronze"
+
+    def finish_stage(next_name, input_counts, output_counts):
+        nonlocal stage_started, stage_name
+        audit["stages"].append({"name": stage_name, "status": "SUCCESS",
+            "duration_seconds": round(time.monotonic()-stage_started,3),
+            "input_counts": input_counts, "output_counts": output_counts, "finished_at": now()})
+        write_json(audit_path, audit)
+        stage_name, stage_started = next_name, time.monotonic()
 
     def check(name: str, bad: int, severity: str = "BLOCK") -> None:
         audit["checks"].append({"name": name, "violations": bad, "severity": severity,
@@ -113,6 +124,11 @@ def run(bronze: Path | None = None, inject_failure: bool = False) -> dict:
         write_json(audit_path, audit)
         if bad and severity == "BLOCK":
             raise ValueError(f"Qualidade bloqueante: {name} ({bad} ocorrências)")
+
+    def audit_join(name, left_sql, right_sql, keys, allowed_missing=()):
+        profile = join_profile(con, name, left_sql, right_sql, keys, allowed_missing)
+        audit["joins"].append(profile)
+        check(f"correspondencia_{name}", profile["blocking_violations"])
 
     con = duckdb.connect()
     con.execute("SET memory_limit='512MB'; SET threads=2")
@@ -124,6 +140,8 @@ def run(bronze: Path | None = None, inject_failure: bool = False) -> dict:
         manifest = json.loads((bronze / "manifest.json").read_text(encoding="utf-8"))
         audit["bronze_run_id"] = manifest["run_id"]
         check("bronze_completa", int(manifest["status"] != "SUCCESS" or set(manifest["tables"]) != set(TABLES)))
+        bronze_counts = {name: entry["rows"] for name, entry in manifest["tables"].items()}
+        finish_stage("tipar_e_validar_silver", bronze_counts, bronze_counts)
         types = {"INTEGER": "BIGINT", "FLOAT": "DOUBLE", "STRING": "VARCHAR", "BOOLEAN": "BOOLEAN"}
         keys = {
             "municipio": ["ano", "id_municipio", "serie", "rede"], "uf": ["ano", "sigla_uf", "serie", "rede"],
@@ -153,6 +171,7 @@ def run(bronze: Path | None = None, inject_failure: bool = False) -> dict:
                     check(f"percentual_{table}_{col}", con.execute(f"SELECT count(*) FROM {ident(table)} WHERE {ident(col)} IS NOT NULL AND (NOT isfinite({ident(col)}) OR {ident(col)}<0 OR {ident(col)}>100)").fetchone()[0])
             print(f"[silver] {table}: {count:,}", flush=True)
 
+        finish_stage("integrar_e_validar_gold", bronze_counts, {name:audit["counts"][name] for name in TABLES})
         for table in ("municipio", "uf", "alunos"):
             for column in ("rede", "serie"):
                 bad = con.execute(f"SELECT count(*) FROM {table} a WHERE NOT EXISTS (SELECT 1 FROM dicionario d WHERE d.id_tabela={literal(table)} AND d.nome_coluna={literal(column)} AND d.chave=a.{column})").fetchone()[0]
@@ -167,8 +186,10 @@ def run(bronze: Path | None = None, inject_failure: bool = False) -> dict:
         con.executemany("INSERT INTO territorio VALUES (?,?,?,?,?,?)", territories)
         for table in ("municipio", "alunos", "meta_alfabetizacao_municipio"):
             check(f"territorio_{table}", con.execute(f"SELECT count(*) FROM {table} r ANTI JOIN territorio t USING(ano,id_municipio)").fetchone()[0])
+            audit_join(f"territorio_{table}", f"SELECT ano,id_municipio FROM {table}", "SELECT * FROM territorio", ["ano","id_municipio"])
         con.execute("CREATE TABLE referencia_publicacao(nivel VARCHAR,territorio VARCHAR,ano_meta BIGINT,texto_original VARCHAR,operador VARCHAR,meta_numerica DOUBLE,resultado_original DOUBLE)")
         con.executemany("INSERT INTO referencia_publicacao VALUES (?,?,?,?,?,?,?)", references)
+        check("chave_referencia_publicacao", con.execute("SELECT count(*) FROM (SELECT nivel,territorio,ano_meta FROM referencia_publicacao GROUP BY ALL HAVING count(*)>1)").fetchone()[0])
         con.execute("CREATE TABLE faltas_conhecidas(id_municipio VARCHAR, tipo VARCHAR)")
         con.executemany("INSERT INTO faltas_conhecidas VALUES (?,?)", [(code,"SEM_REGISTRO") for code in sorted(missing)] + [(code,"META_NULA") for code in sorted(empty)])
 
@@ -177,6 +198,10 @@ def run(bronze: Path | None = None, inject_failure: bool = False) -> dict:
             for year in range(2024, 2031):
                 selects.append(f"SELECT {literal(level)} AS nivel, {territory} AS territorio, ano AS ano_referencia, rede, {year} AS ano_meta, meta_alfabetizacao_{year} AS meta_percentual FROM meta_alfabetizacao_{source}")
         con.execute("CREATE TABLE metas_anuais AS " + " UNION ALL ".join(selects))
+
+        audit_join("municipio_metas_2024", "SELECT ano,id_municipio FROM municipio WHERE ano=2024 AND serie='2' AND rede='3'",
+                   "SELECT ano,id_municipio FROM meta_alfabetizacao_municipio WHERE ano=2024 AND rede='Municipal'",
+                   ["ano","id_municipio"], [(2024,code) for code in missing])
 
         con.execute("""CREATE TABLE comparacao_municipal_2024 AS
             SELECT r.id_municipio,t.nome_municipio,t.sigla_uf,r.ano,'Municipal' AS rede,
@@ -199,6 +224,8 @@ def run(bronze: Path | None = None, inject_failure: bool = False) -> dict:
         check("metas_ausentes_conhecidas", con.execute("SELECT count(*) FROM comparacao_municipal_2024 WHERE NOT tem_registro_meta OR meta_alfabetizacao_2024 IS NULL").fetchone()[0], "WARN")
 
         for level, table, territory in (("UF", "uf", "sigla_uf"), ("BRASIL", "brasil", "'BR'")):
+            audit_join(f"metas_original_{level}", f"SELECT {territory} AS territorio FROM meta_alfabetizacao_{table} WHERE ano=2024",
+                       f"SELECT territorio FROM referencia_publicacao WHERE nivel='{level}' AND ano_meta=2024", ["territorio"])
             con.execute(f"""CREATE TABLE comparacao_{table}_2024 AS SELECT {territory} AS territorio,m.ano,m.rede,
                 m.taxa_alfabetizacao AS resultado_publicado,m.meta_alfabetizacao_2024,m.meta_alfabetizacao_2030,
                 p.texto_original AS meta_2024_texto_original,p.operador AS meta_2024_operador,
@@ -222,27 +249,44 @@ def run(bronze: Path | None = None, inject_failure: bool = False) -> dict:
             FROM comparacao_uf_2024 c LEFT JOIN uf_agregado_2024 u ON c.territorio=u.sigla_uf""")
         check("cardinalidade_uf", abs(con.execute("SELECT count(*) FROM comparacao_uf_com_agregado").fetchone()[0] - con.execute("SELECT count(*) FROM comparacao_uf_2024").fetchone()[0]))
         audit["uf_join"] = dict(zip(("linhas", "com_resultado_agregado"), con.execute("SELECT count(*),count(resultado_agregado) FROM comparacao_uf_com_agregado").fetchone()))
+        # Exceções verificadas no snapshot UF/2024/série 2/rede 5: DF e RR não têm linha.
+        audit_join("uf_agregado_2024", "SELECT territorio AS sigla_uf FROM comparacao_uf_2024",
+                   "SELECT * FROM uf_agregado_2024", ["sigla_uf"], [("DF",),("RR",)])
+        check("uf_resultado_ausente_inesperado", con.execute("SELECT count(*) FROM comparacao_uf_com_agregado WHERE NOT tem_resultado_agregado AND territorio NOT IN ('DF','RR')").fetchone()[0])
         check("uf_agregado_cobertura_incompleta", con.execute("SELECT count(*) FROM comparacao_uf_com_agregado WHERE NOT tem_resultado_agregado").fetchone()[0], "WARN")
         con.execute("DROP TABLE comparacao_uf_2024; ALTER TABLE comparacao_uf_com_agregado RENAME TO comparacao_uf_2024")
 
-        con.execute("""CREATE TABLE conferencia_alunos AS WITH calculo AS (
+        con.execute("""CREATE TABLE calculo_alunos AS
             SELECT ano,id_municipio,count(*) AS elegiveis,sum(peso_aluno) AS soma_pesos,
               sum(CASE WHEN alfabetizado='1' THEN peso_aluno ELSE 0 END) AS pesos_alfabetizados,
               100.0*sum(CASE WHEN alfabetizado='1' THEN peso_aluno ELSE 0 END)/sum(peso_aluno) AS taxa_recalculada
             FROM alunos WHERE serie='2' AND rede='3' AND presenca='1' AND preenchimento_caderno='1'
               AND alfabetizado IN ('0','1') AND peso_aluno>0 AND isfinite(peso_aluno) AND isfinite(proficiencia)
-            GROUP BY ano,id_municipio)
+            GROUP BY ano,id_municipio""")
+        aggregate_sql = "SELECT ano,id_municipio FROM municipio WHERE serie='2' AND rede='3'"
+        eligible_sql = """SELECT DISTINCT ano,id_municipio FROM alunos WHERE serie='2' AND rede='3'
+            AND presenca='1' AND preenchimento_caderno='1' AND alfabetizado IN ('0','1')
+            AND peso_aluno>0 AND isfinite(peso_aluno) AND isfinite(proficiencia)"""
+        aggregate_keys = set(con.execute(aggregate_sql).fetchall())
+        eligible_keys = set(con.execute(eligible_sql).fetchall())
+        audit_join("agregado_recalculo", aggregate_sql, "SELECT * FROM calculo_alunos", ["ano","id_municipio"], aggregate_keys-eligible_keys)
+        audit_join("recalculo_agregado", "SELECT * FROM calculo_alunos", aggregate_sql, ["ano","id_municipio"], eligible_keys-aggregate_keys)
+        con.execute("""CREATE TABLE conferencia_alunos AS
             SELECT coalesce(c.ano,r.ano) AS ano,coalesce(c.id_municipio,r.id_municipio) AS id_municipio,
               c.elegiveis,c.soma_pesos,c.pesos_alfabetizados,c.taxa_recalculada,
               r.taxa_alfabetizacao AS taxa_agregado,c.taxa_recalculada-r.taxa_alfabetizacao AS diferenca_pp,
               CASE WHEN c.taxa_recalculada IS NULL OR r.taxa_alfabetizacao IS NULL THEN 'NAO_AVALIAVEL'
                    ELSE 'CALCULADO_NAO_HOMOLOGADO' END AS status_conferencia
-            FROM calculo c FULL OUTER JOIN (SELECT * FROM municipio WHERE serie='2' AND rede='3') r USING(ano,id_municipio)""")
+            FROM calculo_alunos c FULL OUTER JOIN (SELECT * FROM municipio WHERE serie='2' AND rede='3') r USING(ano,id_municipio)""")
+        check("cardinalidade_conferencia", abs(con.execute("SELECT count(*) FROM conferencia_alunos").fetchone()[0]-len(aggregate_keys|eligible_keys)))
         check("recalculo_diferenca_maior_001_pp_descritivo", con.execute("SELECT count(*) FROM conferencia_alunos WHERE abs(diferenca_pp)>0.01").fetchone()[0], "WARN")
         check("recalculo_cobertura_incompleta", con.execute("SELECT count(*) FROM conferencia_alunos WHERE status_conferencia='NAO_AVALIAVEL'").fetchone()[0], "WARN")
 
         # Autoridade da publicação selecionada, conferida contra os originais preservados.
         for name, level, territory, rate in (("comparacao_municipal_2024", "MUNICIPIO", "id_municipio", "resultado_publicado"), ("comparacao_uf_2024", "UF", "territorio", "resultado_publicado"), ("comparacao_brasil_2024", "BRASIL", "territorio", "resultado_publicado")):
+            scope = " WHERE tem_registro_meta" if level == "MUNICIPIO" else ""
+            audit_join(f"conferencia_original_{level}", f"SELECT {territory} AS territorio FROM {name}{scope}",
+                       f"SELECT territorio FROM referencia_publicacao WHERE nivel='{level}' AND ano_meta=2024", ["territorio"])
             check(f"publicacao_original_{level}", con.execute(f"""SELECT count(*) FROM {name} c JOIN referencia_publicacao p
                 ON p.nivel={literal(level)} AND p.territorio=c.{territory} AND p.ano_meta=2024
                 WHERE (c.meta_alfabetizacao_2024 IS NULL) <> (p.meta_numerica IS NULL)
@@ -252,6 +296,10 @@ def run(bronze: Path | None = None, inject_failure: bool = False) -> dict:
         if inject_failure:
             check("falha_proposital_demonstracao", 1)
 
+        gold_counts = {name:con.execute(f"SELECT count(*) FROM {name}").fetchone()[0] for name in (
+            "comparacao_municipal_2024","comparacao_uf_2024","comparacao_brasil_2024","conferencia_alunos")}
+        finish_stage("exportar_parquet_csv", dict(audit["counts"]), gold_counts)
+        export_input_counts = {**audit["counts"], **gold_counts}
         silver = ROOT / "data" / "silver" / run_id
         gold = ROOT / "data" / "gold" / run_id
         silver.mkdir(parents=True, exist_ok=False)
@@ -265,12 +313,14 @@ def run(bronze: Path | None = None, inject_failure: bool = False) -> dict:
             con.execute(f"COPY {ident(table)} TO {literal(gold / (table + '.csv'))} (HEADER, DELIMITER ',')")
             audit["counts"][table] = con.execute(f"SELECT count(*) FROM {ident(table)}").fetchone()[0]
         audit["municipal_status"] = dict(con.execute("SELECT situacao,count(*) FROM comparacao_municipal_2024 GROUP BY situacao").fetchall())
+        finish_stage("concluido", export_input_counts, dict(audit["counts"]))
         audit.update(status="SUCCESS_WITH_WARNINGS" if any(c["status"] == "WARNING" for c in audit["checks"]) else "SUCCESS",
                      finished_at=now(), duration_seconds=round(time.monotonic() - started, 3), silver=str(silver), gold=str(gold))
         write_json(audit_path, audit)
         write_json(ROOT / "data" / "latest.json", {"run_id": run_id, "bronze": str(bronze), "silver": str(silver), "gold": str(gold), "audit": str(audit_path)})
         print(json.dumps({"status": audit["status"], "gold": str(gold), "municipal_status": audit["municipal_status"]}, ensure_ascii=False), flush=True)
     except Exception as exc:
+        audit["stages"].append({"name":stage_name,"status":"FAILED","duration_seconds":round(time.monotonic()-stage_started,3),"finished_at":now()})
         audit.update(status="FAILED", finished_at=now(), error=f"{type(exc).__name__}: {exc}", duration_seconds=round(time.monotonic() - started, 3))
         write_json(audit_path, audit)
         raise
