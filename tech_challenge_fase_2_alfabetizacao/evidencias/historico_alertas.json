@@ -1,0 +1,44 @@
+{
+  "notifications": [
+    {
+      "notification_id": "c96c5c10af7c4232307b689bddc55e1f",
+      "payload": "{\"incident_id\": \"20261026t190927z_73c7e0d6\", \"pipeline\": \"streaming\", \"error_class\": \"FileNotFoundError\", \"detected_at\": \"2026-10-26T19:09:27.978860+00:00\", \"test_mode\": true}",
+      "status": "SENT",
+      "created_at": "2026-10-26T19:09:27.993031+00:00",
+      "attempted_at": "2026-10-26T19:09:27.998854+00:00",
+      "delivered_at": "2026-10-26T19:09:28.169534+00:00",
+      "provider_id": "CGU8gd1SCnMh"
+    },
+    {
+      "notification_id": "c3c1c490f51f30cf167d315dc65affcb",
+      "payload": "{\"incident_id\": \"20261026t190928z_2ef274ff\", \"pipeline\": \"batch_cloud\", \"error_class\": \"ValueError\", \"detected_at\": \"2026-10-26T19:10:35.935489+00:00\", \"test_mode\": true}",
+      "status": "SENT",
+      "created_at": "2026-10-26T19:10:35.936460+00:00",
+      "attempted_at": "2026-10-26T19:10:35.944076+00:00",
+      "delivered_at": "2026-10-26T19:10:36.088461+00:00",
+      "provider_id": "dXI3VAr0jOmT"
+    }
+  ],
+  "attempts": [
+    {
+      "attempt_id": 1,
+      "notification_id": "c96c5c10af7c4232307b689bddc55e1f",
+      "started_at": "2026-10-26T19:09:28.003767+00:00",
+      "finished_at": "2026-10-26T19:09:28.169534+00:00",
+      "http_status": 200,
+      "error_class": null,
+      "duration_seconds": 0.1657975989996885,
+      "provider_id": "CGU8gd1SCnMh"
+    },
+    {
+      "attempt_id": 2,
+      "notification_id": "c3c1c490f51f30cf167d315dc65affcb",
+      "started_at": "2026-10-26T19:10:35.949364+00:00",
+      "finished_at": "2026-10-26T19:10:36.088461+00:00",
+      "http_status": 200,
+      "error_class": null,
+      "duration_seconds": 0.13912343199990573,
+      "provider_id": "dXI3VAr0jOmT"
+    }
+  ]
+}

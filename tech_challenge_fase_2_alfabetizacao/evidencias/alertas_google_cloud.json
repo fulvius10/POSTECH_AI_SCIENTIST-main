@@ -1,0 +1,76 @@
+{
+  "status": "PASS",
+  "execution": "GOOGLE_CLOUD_SHELL",
+  "cases": [
+    {
+      "pipeline": "streaming",
+      "monitor": {
+        "run_id": "20261026t190927z_73c7e0d6",
+        "pipeline": "streaming",
+        "started_at": "2026-10-26T19:09:27.977866+00:00",
+        "status": "FAILED",
+        "execution": "GOOGLE_CLOUD_SHELL",
+        "hostname": "cs-411897809278-default",
+        "failure_detected_at": "2026-10-26T19:09:27.978860+00:00",
+        "error_class": "FileNotFoundError",
+        "duration_until_failure_seconds": 0.001,
+        "notification": {
+          "status": "SENT",
+          "notification_id": "c96c5c10af7c4232307b689bddc55e1f",
+          "provider_id": "CGU8gd1SCnMh",
+          "delivered_at": "2026-10-26T19:09:28.169534+00:00",
+          "attempts_this_call": 1,
+          "seconds_from_failure": 0.190674
+        },
+        "finished_at": "2026-10-26T19:09:28.176989+00:00",
+        "duration_seconds": 0.199
+      },
+      "nonzero_exit_verified_in_live_test": true,
+      "failure_traceback_persisted": true
+    },
+    {
+      "pipeline": "batch_cloud",
+      "monitor": {
+        "run_id": "20261026t190928z_2ef274ff",
+        "pipeline": "batch_cloud",
+        "started_at": "2026-10-26T19:09:28.574471+00:00",
+        "status": "FAILED",
+        "execution": "GOOGLE_CLOUD_SHELL",
+        "hostname": "cs-411897809278-default",
+        "failure_detected_at": "2026-10-26T19:10:35.935489+00:00",
+        "error_class": "ValueError",
+        "duration_until_failure_seconds": 67.361,
+        "notification": {
+          "status": "SENT",
+          "notification_id": "c3c1c490f51f30cf167d315dc65affcb",
+          "provider_id": "dXI3VAr0jOmT",
+          "delivered_at": "2026-10-26T19:10:36.088461+00:00",
+          "attempts_this_call": 1,
+          "seconds_from_failure": 0.152972
+        },
+        "finished_at": "2026-10-26T19:10:36.096833+00:00",
+        "duration_seconds": 67.522
+      },
+      "nonzero_exit_verified_in_live_test": true,
+      "failure_traceback_persisted": true
+    }
+  ],
+  "provider_messages_verified": true,
+  "provider_message_ids": [
+    "CGU8gd1SCnMh",
+    "dXI3VAr0jOmT"
+  ],
+  "publication_pointers_unchanged": true,
+  "human_device_receipt_confirmed": true,
+  "verified_at": "2026-10-26T19:11:26.783290+00:00",
+  "billing_verified_disabled_after_tests": true,
+  "human_confirmation": {
+    "confirmed_at": "2026-10-26T19:14:36.824136+00:00",
+    "source": "Confirmação explícita do usuário nesta conversa",
+    "received_pipelines": [
+      "streaming",
+      "batch_cloud"
+    ],
+    "scope": "Avisos visualizados no tópico ntfy; não presume notificação do sistema operacional."
+  }
+}

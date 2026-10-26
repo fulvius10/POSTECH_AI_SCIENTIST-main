@@ -180,6 +180,8 @@ divulgação para cada município dentro das alternativas descritas pelo Inep.
   proveniência, status de divulgação e conferência separados.
 - Histórico de metas e precisão preservado, sem preenchimento automático.
 
-As três decisões estão fechadas para o recorte investigado. Próximas decisões:
-elegibilidade/pesos dos alunos, tolerâncias por campo e catálogo de regras
-bloqueantes/informativas. Só depois avançar para arquitetura e implementação.
+As três decisões estão fechadas para o recorte investigado. A elegibilidade e a
+fórmula foram posteriormente definidas no [documento 06](06_elegibilidade_pesos_recalculo.md),
+e o catálogo de regras no [documento 07](07_catalogo_qualidade.md). A precisão
+de cada campo deve ser comprovada antes de aceitar divergências como arredondamento.
+Próxima etapa de planejamento: arquitetura de execução, ainda sem implementação.

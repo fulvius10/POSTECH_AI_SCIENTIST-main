@@ -1,0 +1,604 @@
+{
+  "run_id": "20261026t183455z_ef5d3e21",
+  "execution": "GOOGLE_CLOUD_SHELL",
+  "hostname": "cs-411897809278-default",
+  "project": "postech-fase2-fulvius",
+  "started_at": "2026-10-26T18:34:55.842891+00:00",
+  "status": "SUCCESS_WITH_WARNINGS",
+  "jobs": [
+    {
+      "table": "silver_alunos",
+      "job_id": "fase2_batch_20261026t183455z_ef5d3e21_silver_alunos",
+      "file_sha256": "43c3e55d4e36366636eb01c7a4d4e0dc577ca41a3357ef4ca1aa7f6c43b3b130",
+      "status": "DONE",
+      "rows": 3867999,
+      "logical_bytes": 268545240,
+      "expiration_time": "1798224047467",
+      "statistics": {
+        "creationTime": "1793040037067",
+        "startTime": "1793040037555",
+        "endTime": "1793040047559",
+        "completionRatio": 1,
+        "load": {
+          "inputFiles": "1",
+          "inputFileBytes": "58110983",
+          "outputRows": "3867999",
+          "outputBytes": "268545240",
+          "badRecords": "0",
+          "timeline": [
+            {
+              "elapsedMs": "445",
+              "totalSlotMs": "0",
+              "pendingUnits": "1",
+              "completedUnits": "0",
+              "activeUnits": "0",
+              "shuffleRamUsageRatio": 3.0517578125e-05,
+              "estimatedRunnableUnits": "0"
+            },
+            {
+              "elapsedMs": "3445",
+              "totalSlotMs": "1717",
+              "pendingUnits": "1",
+              "completedUnits": "0",
+              "activeUnits": "1",
+              "shuffleRamUsageRatio": 3.0517578125e-05,
+              "estimatedRunnableUnits": "0"
+            },
+            {
+              "elapsedMs": "4445",
+              "totalSlotMs": "1717",
+              "pendingUnits": "1",
+              "completedUnits": "0",
+              "activeUnits": "1",
+              "shuffleRamUsageRatio": 3.0517578125e-05,
+              "estimatedRunnableUnits": "0"
+            },
+            {
+              "elapsedMs": "5445",
+              "totalSlotMs": "3891",
+              "pendingUnits": "1",
+              "completedUnits": "0",
+              "activeUnits": "1",
+              "shuffleRamUsageRatio": 3.0517578125e-05,
+              "estimatedRunnableUnits": "0"
+            },
+            {
+              "elapsedMs": "6445",
+              "totalSlotMs": "5919",
+              "pendingUnits": "1",
+              "completedUnits": "0",
+              "activeUnits": "1",
+              "shuffleRamUsageRatio": 3.0517578125e-05,
+              "estimatedRunnableUnits": "0"
+            },
+            {
+              "elapsedMs": "7445",
+              "totalSlotMs": "8062",
+              "pendingUnits": "1",
+              "completedUnits": "0",
+              "activeUnits": "1",
+              "shuffleRamUsageRatio": 3.0517578125e-05,
+              "estimatedRunnableUnits": "0"
+            },
+            {
+              "elapsedMs": "9241",
+              "totalSlotMs": "15218",
+              "pendingUnits": "0",
+              "completedUnits": "1",
+              "activeUnits": "1",
+              "shuffleRamUsageRatio": 1.52587890625e-05,
+              "estimatedRunnableUnits": "0"
+            }
+          ]
+        },
+        "totalSlotMs": "15218",
+        "reservation_id": "default-pipeline",
+        "finalExecutionDurationMs": "8987"
+      }
+    },
+    {
+      "table": "silver_dicionario",
+      "job_id": "fase2_batch_20261026t183455z_ef5d3e21_silver_dicionario",
+      "file_sha256": "643974e98a939dd6d519775cfe9b919fbf332de9b0fd0fe28f21cb7261db6415",
+      "status": "DONE",
+      "rows": 27,
+      "logical_bytes": 1174,
+      "expiration_time": "1798224051653",
+      "statistics": {
+        "creationTime": "1793040050226",
+        "startTime": "1793040050505",
+        "endTime": "1793040051758",
+        "completionRatio": 1,
+        "load": {
+          "inputFiles": "1",
+          "inputFileBytes": "1507",
+          "outputRows": "27",
+          "outputBytes": "1174",
+          "badRecords": "0",
+          "timeline": [
+            {
+              "elapsedMs": "495",
+              "totalSlotMs": "282",
+              "pendingUnits": "1",
+              "completedUnits": "0",
+              "activeUnits": "0",
+              "estimatedRunnableUnits": "0"
+            },
+            {
+              "elapsedMs": "682",
+              "totalSlotMs": "282",
+              "pendingUnits": "0",
+              "completedUnits": "1",
+              "shuffleRamUsageRatio": 1.52587890625e-05,
+              "estimatedRunnableUnits": "0"
+            }
+          ]
+        },
+        "totalSlotMs": "282",
+        "reservation_id": "default-pipeline",
+        "finalExecutionDurationMs": "428"
+      }
+    },
+    {
+      "table": "silver_meta_alfabetizacao_brasil",
+      "job_id": "fase2_batch_20261026t183455z_ef5d3e21_silver_meta_alfabetizacao_brasil",
+      "file_sha256": "0525e63e4474dab19eb4440ca229a45139e03b4084c06db7ce8a817b48eca3d3",
+      "status": "DONE",
+      "rows": 3,
+      "logical_bytes": 270,
+      "expiration_time": "1798224057888",
+      "statistics": {
+        "creationTime": "1793040054203",
+        "startTime": "1793040054443",
+        "endTime": "1793040057990",
+        "completionRatio": 1,
+        "load": {
+          "inputFiles": "1",
+          "inputFileBytes": "2018",
+          "outputRows": "3",
+          "outputBytes": "270",
+          "badRecords": "0",
+          "timeline": [
+            {
+              "elapsedMs": "557",
+              "totalSlotMs": "0",
+              "pendingUnits": "1",
+              "completedUnits": "0",
+              "activeUnits": "0",
+              "shuffleRamUsageRatio": 3.0517578125e-05,
+              "estimatedRunnableUnits": "0"
+            },
+            {
+              "elapsedMs": "2892",
+              "totalSlotMs": "434",
+              "pendingUnits": "0",
+              "completedUnits": "1",
+              "shuffleRamUsageRatio": 1.52587890625e-05,
+              "estimatedRunnableUnits": "0"
+            }
+          ]
+        },
+        "totalSlotMs": "434",
+        "reservation_id": "default-pipeline",
+        "finalExecutionDurationMs": "2708"
+      }
+    },
+    {
+      "table": "silver_meta_alfabetizacao_municipio",
+      "job_id": "fase2_batch_20261026t183455z_ef5d3e21_silver_meta_alfabetizacao_municipio",
+      "file_sha256": "9de64c7067101d0c175bcf7f0bbadb405dbccad2127098ae26538130254d0ed6",
+      "status": "DONE",
+      "rows": 10704,
+      "logical_bytes": 1151232,
+      "expiration_time": "1798224061931",
+      "statistics": {
+        "creationTime": "1793040060394",
+        "startTime": "1793040060697",
+        "endTime": "1793040062031",
+        "load": {
+          "inputFiles": "1",
+          "inputFileBytes": "156403",
+          "outputRows": "10704",
+          "outputBytes": "1151232",
+          "badRecords": "0",
+          "timeline": [
+            {
+              "elapsedMs": "702",
+              "totalSlotMs": "250",
+              "pendingUnits": "0",
+              "completedUnits": "1",
+              "shuffleRamUsageRatio": 1.52587890625e-05,
+              "estimatedRunnableUnits": "0"
+            }
+          ]
+        },
+        "totalSlotMs": "250",
+        "reservation_id": "default-pipeline",
+        "finalExecutionDurationMs": "413"
+      }
+    },
+    {
+      "table": "silver_meta_alfabetizacao_uf",
+      "job_id": "fase2_batch_20261026t183455z_ef5d3e21_silver_meta_alfabetizacao_uf",
+      "file_sha256": "b3034a1bd9c28c800c9595ad89fbfa32a3e3cd4ed687a99b887e9eacd8bc2a8d",
+      "status": "DONE",
+      "rows": 81,
+      "logical_bytes": 7374,
+      "expiration_time": "1798224065962",
+      "statistics": {
+        "creationTime": "1793040064321",
+        "startTime": "1793040064617",
+        "endTime": "1793040066058",
+        "load": {
+          "inputFiles": "1",
+          "inputFileBytes": "4433",
+          "outputRows": "81",
+          "outputBytes": "7374",
+          "badRecords": "0",
+          "timeline": [
+            {
+              "elapsedMs": "383",
+              "totalSlotMs": "225",
+              "pendingUnits": "0",
+              "completedUnits": "0",
+              "activeUnits": "0",
+              "estimatedRunnableUnits": "0"
+            },
+            {
+              "elapsedMs": "711",
+              "totalSlotMs": "225",
+              "pendingUnits": "0",
+              "completedUnits": "1",
+              "shuffleRamUsageRatio": 1.52587890625e-05,
+              "estimatedRunnableUnits": "0"
+            }
+          ]
+        },
+        "totalSlotMs": "225",
+        "reservation_id": "default-pipeline",
+        "finalExecutionDurationMs": "508"
+      }
+    },
+    {
+      "table": "silver_metas_anuais",
+      "job_id": "fase2_batch_20261026t183455z_ef5d3e21_silver_metas_anuais",
+      "file_sha256": "db97249120cff37d0017ef0e2df6971a74e46879030ce8808f6ec5ee50f40db0",
+      "status": "DONE",
+      "rows": 75516,
+      "logical_bytes": 4143724,
+      "expiration_time": "1798224070103",
+      "statistics": {
+        "creationTime": "1793040068319",
+        "startTime": "1793040068595",
+        "endTime": "1793040070197",
+        "load": {
+          "inputFiles": "1",
+          "inputFileBytes": "118838",
+          "outputRows": "75516",
+          "outputBytes": "4143724",
+          "badRecords": "0",
+          "timeline": [
+            {
+              "elapsedMs": "405",
+              "totalSlotMs": "260",
+              "pendingUnits": "0",
+              "completedUnits": "0",
+              "activeUnits": "0",
+              "estimatedRunnableUnits": "0"
+            },
+            {
+              "elapsedMs": "671",
+              "totalSlotMs": "260",
+              "pendingUnits": "0",
+              "completedUnits": "1",
+              "shuffleRamUsageRatio": 1.52587890625e-05,
+              "estimatedRunnableUnits": "0"
+            }
+          ]
+        },
+        "totalSlotMs": "260",
+        "reservation_id": "default-pipeline",
+        "finalExecutionDurationMs": "478"
+      }
+    },
+    {
+      "table": "silver_municipio",
+      "job_id": "fase2_batch_20261026t183455z_ef5d3e21_silver_municipio",
+      "file_sha256": "37eb61c66c1de2320d1b180d6ed8082629b3ab012524a001fa05a51b47c1d2f0",
+      "status": "DONE",
+      "rows": 23995,
+      "logical_bytes": 1832061,
+      "expiration_time": "1798224074078",
+      "statistics": {
+        "creationTime": "1793040072393",
+        "startTime": "1793040072856",
+        "endTime": "1793040074170",
+        "load": {
+          "inputFiles": "1",
+          "inputFileBytes": "439179",
+          "outputRows": "23995",
+          "outputBytes": "1832061",
+          "badRecords": "0",
+          "timeline": [
+            {
+              "elapsedMs": "727",
+              "totalSlotMs": "432",
+              "pendingUnits": "0",
+              "completedUnits": "1",
+              "shuffleRamUsageRatio": 1.52587890625e-05,
+              "estimatedRunnableUnits": "0"
+            }
+          ]
+        },
+        "totalSlotMs": "432",
+        "reservation_id": "default-pipeline",
+        "finalExecutionDurationMs": "470"
+      }
+    },
+    {
+      "table": "silver_referencia_publicacao",
+      "job_id": "fase2_batch_20261026t183455z_ef5d3e21_silver_referencia_publicacao",
+      "file_sha256": "cac49c6f6285b1f500e1531779a821b5165d2e909d7e7ec321cb5b7c0a3af78a",
+      "status": "DONE",
+      "rows": 37660,
+      "logical_bytes": 2115482,
+      "expiration_time": "1798224078241",
+      "statistics": {
+        "creationTime": "1793040076710",
+        "startTime": "1793040076965",
+        "endTime": "1793040078376",
+        "load": {
+          "inputFiles": "1",
+          "inputFileBytes": "203844",
+          "outputRows": "37660",
+          "outputBytes": "2115482",
+          "badRecords": "0",
+          "timeline": [
+            {
+              "elapsedMs": "644",
+              "totalSlotMs": "399",
+              "pendingUnits": "0",
+              "completedUnits": "1",
+              "shuffleRamUsageRatio": 1.52587890625e-05,
+              "estimatedRunnableUnits": "0"
+            }
+          ]
+        },
+        "totalSlotMs": "399",
+        "reservation_id": "default-pipeline",
+        "finalExecutionDurationMs": "461"
+      }
+    },
+    {
+      "table": "silver_territorio",
+      "job_id": "fase2_batch_20261026t183455z_ef5d3e21_silver_territorio",
+      "file_sha256": "4e3a38355b7d7515ea8ab2862ebc3e57bfd47a06ece8bda64c29aeac5b37f935",
+      "status": "DONE",
+      "rows": 11141,
+      "logical_bytes": 571596,
+      "expiration_time": "1798224082231",
+      "statistics": {
+        "creationTime": "1793040080682",
+        "startTime": "1793040081033",
+        "endTime": "1793040082328",
+        "load": {
+          "inputFiles": "1",
+          "inputFileBytes": "53307",
+          "outputRows": "11141",
+          "outputBytes": "571596",
+          "badRecords": "0",
+          "timeline": [
+            {
+              "elapsedMs": "714",
+              "totalSlotMs": "462",
+              "pendingUnits": "0",
+              "completedUnits": "1",
+              "shuffleRamUsageRatio": 1.52587890625e-05,
+              "estimatedRunnableUnits": "0"
+            }
+          ]
+        },
+        "totalSlotMs": "462",
+        "reservation_id": "default-pipeline",
+        "finalExecutionDurationMs": "420"
+      }
+    },
+    {
+      "table": "silver_uf",
+      "job_id": "fase2_batch_20261026t183455z_ef5d3e21_silver_uf",
+      "file_sha256": "51e4745b0703599b15f157faabfa37bb84de42c6121d505025412320ec743ce5",
+      "status": "DONE",
+      "rows": 145,
+      "logical_bytes": 10330,
+      "expiration_time": "1798224086117",
+      "statistics": {
+        "creationTime": "1793040084800",
+        "startTime": "1793040085053",
+        "endTime": "1793040086235",
+        "load": {
+          "inputFiles": "1",
+          "inputFileBytes": "7430",
+          "outputRows": "145",
+          "outputBytes": "10330",
+          "badRecords": "0",
+          "timeline": [
+            {
+              "elapsedMs": "627",
+              "totalSlotMs": "231",
+              "pendingUnits": "0",
+              "completedUnits": "1",
+              "shuffleRamUsageRatio": 1.52587890625e-05,
+              "estimatedRunnableUnits": "0"
+            }
+          ]
+        },
+        "totalSlotMs": "231",
+        "reservation_id": "default-pipeline",
+        "finalExecutionDurationMs": "447"
+      }
+    },
+    {
+      "table": "gold_comparacao_brasil_2024",
+      "job_id": "fase2_batch_20261026t183455z_ef5d3e21_gold_comparacao_brasil_2024",
+      "file_sha256": "6eac1dcb2197acdd2cfd3449065e58595fad4c51d048501b0127814653eb62ce",
+      "status": "DONE",
+      "rows": 1,
+      "logical_bytes": 87,
+      "expiration_time": "1798224090064",
+      "statistics": {
+        "creationTime": "1793040088712",
+        "startTime": "1793040089008",
+        "endTime": "1793040090162",
+        "load": {
+          "inputFiles": "1",
+          "inputFileBytes": "1732",
+          "outputRows": "1",
+          "outputBytes": "87",
+          "badRecords": "0",
+          "timeline": [
+            {
+              "elapsedMs": "547",
+              "totalSlotMs": "101",
+              "pendingUnits": "0",
+              "completedUnits": "1",
+              "shuffleRamUsageRatio": 1.52587890625e-05,
+              "estimatedRunnableUnits": "0"
+            }
+          ]
+        },
+        "totalSlotMs": "101",
+        "reservation_id": "default-pipeline",
+        "finalExecutionDurationMs": "338"
+      }
+    },
+    {
+      "table": "gold_comparacao_municipal_2024",
+      "job_id": "fase2_batch_20261026t183455z_ef5d3e21_gold_comparacao_municipal_2024",
+      "file_sha256": "7477bcc03a9a2642cff46042fee99197a8601659eaed08430d416e4d82bc79ff",
+      "status": "DONE",
+      "rows": 5448,
+      "logical_bytes": 582321,
+      "expiration_time": "1798224093998",
+      "statistics": {
+        "creationTime": "1793040092631",
+        "startTime": "1793040092890",
+        "endTime": "1793040094096",
+        "load": {
+          "inputFiles": "1",
+          "inputFileBytes": "122048",
+          "outputRows": "5448",
+          "outputBytes": "582321",
+          "badRecords": "0",
+          "timeline": [
+            {
+              "elapsedMs": "691",
+              "totalSlotMs": "348",
+              "pendingUnits": "0",
+              "completedUnits": "1",
+              "shuffleRamUsageRatio": 1.52587890625e-05,
+              "estimatedRunnableUnits": "0"
+            }
+          ]
+        },
+        "totalSlotMs": "348",
+        "reservation_id": "default-pipeline",
+        "finalExecutionDurationMs": "412"
+      }
+    },
+    {
+      "table": "gold_comparacao_uf_2024",
+      "job_id": "fase2_batch_20261026t183455z_ef5d3e21_gold_comparacao_uf_2024",
+      "file_sha256": "ef5e27d77fc1d55bb548b89de5680540595680be32ce40f90983a1da10cc1241",
+      "status": "DONE",
+      "rows": 27,
+      "logical_bytes": 2518,
+      "expiration_time": "1798224097945",
+      "statistics": {
+        "creationTime": "1793040096472",
+        "startTime": "1793040096696",
+        "endTime": "1793040098027",
+        "load": {
+          "inputFiles": "1",
+          "inputFileBytes": "3488",
+          "outputRows": "27",
+          "outputBytes": "2518",
+          "badRecords": "0",
+          "timeline": [
+            {
+              "elapsedMs": "769",
+              "totalSlotMs": "247",
+              "pendingUnits": "0",
+              "completedUnits": "1",
+              "shuffleRamUsageRatio": 1.52587890625e-05,
+              "estimatedRunnableUnits": "0"
+            }
+          ]
+        },
+        "totalSlotMs": "247",
+        "reservation_id": "default-pipeline",
+        "finalExecutionDurationMs": "486"
+      }
+    },
+    {
+      "table": "gold_conferencia_alunos",
+      "job_id": "fase2_batch_20261026t183455z_ef5d3e21_gold_conferencia_alunos",
+      "file_sha256": "2bf271dc372ef9544f9a3fd31d2fd745de745ee345415c0ad0c73d1a86a8e1e3",
+      "status": "DONE",
+      "rows": 10899,
+      "logical_bytes": 959751,
+      "expiration_time": "1798224102873",
+      "statistics": {
+        "creationTime": "1793040100387",
+        "startTime": "1793040101048",
+        "endTime": "1793040102949",
+        "completionRatio": 1,
+        "load": {
+          "inputFiles": "1",
+          "inputFileBytes": "348057",
+          "outputRows": "10899",
+          "outputBytes": "959751",
+          "badRecords": "0",
+          "timeline": [
+            {
+              "elapsedMs": "952",
+              "totalSlotMs": "1326",
+              "pendingUnits": "1",
+              "completedUnits": "0",
+              "activeUnits": "1",
+              "shuffleRamUsageRatio": 3.0517578125e-05,
+              "estimatedRunnableUnits": "0"
+            },
+            {
+              "elapsedMs": "1242",
+              "totalSlotMs": "1326",
+              "pendingUnits": "0",
+              "completedUnits": "1",
+              "shuffleRamUsageRatio": 1.52587890625e-05,
+              "estimatedRunnableUnits": "0"
+            }
+          ]
+        },
+        "totalSlotMs": "1326",
+        "reservation_id": "default-pipeline",
+        "finalExecutionDurationMs": "1110"
+      }
+    }
+  ],
+  "billing": {
+    "projectId": "postech-fase2-fulvius",
+    "billingEnabled": false
+  },
+  "batch_run_id": "20261026T183456Z_be0058e1",
+  "batch_audit": "/home/fulvius11/postech-fase2/data/audit/20261026T183456Z_be0058e1.json",
+  "parquet_bytes": 59573267,
+  "parquet_uncompressed_bytes": 142159919,
+  "dataset": "fase2_batch_20261026t183455z_ef5d3e21",
+  "finished_at": "2026-10-26T18:41:43.891777+00:00",
+  "duration_seconds": 408.049,
+  "logical_bytes": 279923160,
+  "console_url": "https://console.cloud.google.com/bigquery?project=postech-fase2-fulvius&p=postech-fase2-fulvius&d=fase2_batch_20261026t183455z_ef5d3e21&page=dataset",
+  "billing_after": {
+    "projectId": "postech-fase2-fulvius",
+    "billingEnabled": false
+  }
+}

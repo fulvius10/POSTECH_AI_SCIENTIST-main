@@ -240,7 +240,7 @@ do município sobre o estado ou sobre o país.
 - Cadastro territorial: DTB IBGE 2023/2024, conferida com 100% de correspondência.
 - Fonte principal, divulgação e contexto de metas: política registrada no documento 05.
 - Elegibilidade e pesos: definidos e investigados no [documento 06](06_elegibilidade_pesos_recalculo.md); há divergências de recálculo sem causa individual determinada.
-- Aprovar limites bloqueantes e informativos a partir das lacunas registradas.
+- Catálogo de qualidade: bloqueios, alertas e critérios contextuais definidos no [documento 07](07_catalogo_qualidade.md); mecanismos ainda não implementados.
 
 Depois dessas decisões, desenhar o fluxo de ingestão e a arquitetura de execução.
 Até lá, os artefatos produzidos são documentação e consultas de pesquisa.

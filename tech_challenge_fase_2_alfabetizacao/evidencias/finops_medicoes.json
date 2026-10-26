@@ -1,0 +1,281 @@
+{
+  "measured_at": "2026-10-26T19:25:24.392661+00:00",
+  "scope": "Successful batch and finite streaming publication; read-only metadata verification. Excludes exploratory SQL and development/failure reruns.",
+  "project": "postech-fase2-fulvius",
+  "billing_enabled": false,
+  "actual_cost_basis": "No billing account linked; Cloud Shell free, BigQuery sandbox and ntfy free. Not a Billing invoice export.",
+  "datasets": [
+    {
+      "dataset": "fase2_batch_20261026t183455z_ef5d3e21",
+      "location": "US",
+      "storageBillingModel": "LOGICAL",
+      "defaultTableExpirationMs": "5184000000"
+    },
+    {
+      "dataset": "fase2_stream_20261026t185721z_76d716b6",
+      "location": "US",
+      "storageBillingModel": "LOGICAL",
+      "defaultTableExpirationMs": "5184000000"
+    }
+  ],
+  "tables": [
+    {
+      "dataset": "fase2_batch_20261026t183455z_ef5d3e21",
+      "table": "silver_alunos",
+      "rows": 3867999,
+      "logical_bytes": 268545240,
+      "expiration_time": "1798224047467"
+    },
+    {
+      "dataset": "fase2_batch_20261026t183455z_ef5d3e21",
+      "table": "silver_dicionario",
+      "rows": 27,
+      "logical_bytes": 1174,
+      "expiration_time": "1798224051653"
+    },
+    {
+      "dataset": "fase2_batch_20261026t183455z_ef5d3e21",
+      "table": "silver_meta_alfabetizacao_brasil",
+      "rows": 3,
+      "logical_bytes": 270,
+      "expiration_time": "1798224057888"
+    },
+    {
+      "dataset": "fase2_batch_20261026t183455z_ef5d3e21",
+      "table": "silver_meta_alfabetizacao_municipio",
+      "rows": 10704,
+      "logical_bytes": 1151232,
+      "expiration_time": "1798224061931"
+    },
+    {
+      "dataset": "fase2_batch_20261026t183455z_ef5d3e21",
+      "table": "silver_meta_alfabetizacao_uf",
+      "rows": 81,
+      "logical_bytes": 7374,
+      "expiration_time": "1798224065962"
+    },
+    {
+      "dataset": "fase2_batch_20261026t183455z_ef5d3e21",
+      "table": "silver_metas_anuais",
+      "rows": 75516,
+      "logical_bytes": 4143724,
+      "expiration_time": "1798224070103"
+    },
+    {
+      "dataset": "fase2_batch_20261026t183455z_ef5d3e21",
+      "table": "silver_municipio",
+      "rows": 23995,
+      "logical_bytes": 1832061,
+      "expiration_time": "1798224074078"
+    },
+    {
+      "dataset": "fase2_batch_20261026t183455z_ef5d3e21",
+      "table": "silver_referencia_publicacao",
+      "rows": 37660,
+      "logical_bytes": 2115482,
+      "expiration_time": "1798224078241"
+    },
+    {
+      "dataset": "fase2_batch_20261026t183455z_ef5d3e21",
+      "table": "silver_territorio",
+      "rows": 11141,
+      "logical_bytes": 571596,
+      "expiration_time": "1798224082231"
+    },
+    {
+      "dataset": "fase2_batch_20261026t183455z_ef5d3e21",
+      "table": "silver_uf",
+      "rows": 145,
+      "logical_bytes": 10330,
+      "expiration_time": "1798224086117"
+    },
+    {
+      "dataset": "fase2_batch_20261026t183455z_ef5d3e21",
+      "table": "gold_comparacao_brasil_2024",
+      "rows": 1,
+      "logical_bytes": 87,
+      "expiration_time": "1798224090064"
+    },
+    {
+      "dataset": "fase2_batch_20261026t183455z_ef5d3e21",
+      "table": "gold_comparacao_municipal_2024",
+      "rows": 5448,
+      "logical_bytes": 582321,
+      "expiration_time": "1798224093998"
+    },
+    {
+      "dataset": "fase2_batch_20261026t183455z_ef5d3e21",
+      "table": "gold_comparacao_uf_2024",
+      "rows": 27,
+      "logical_bytes": 2518,
+      "expiration_time": "1798224097945"
+    },
+    {
+      "dataset": "fase2_batch_20261026t183455z_ef5d3e21",
+      "table": "gold_conferencia_alunos",
+      "rows": 10899,
+      "logical_bytes": 959751,
+      "expiration_time": "1798224102873"
+    },
+    {
+      "dataset": "fase2_stream_20261026t185721z_76d716b6",
+      "table": "bronze_recebimentos_c01",
+      "rows": 8,
+      "logical_bytes": 2896,
+      "expiration_time": "1798225046237"
+    },
+    {
+      "dataset": "fase2_stream_20261026t185721z_76d716b6",
+      "table": "silver_eventos_c01",
+      "rows": 2,
+      "logical_bytes": 466,
+      "expiration_time": "1798225051175"
+    },
+    {
+      "dataset": "fase2_stream_20261026t185721z_76d716b6",
+      "table": "silver_destinos_c01",
+      "rows": 8,
+      "logical_bytes": 1092,
+      "expiration_time": "1798225054605"
+    },
+    {
+      "dataset": "fase2_stream_20261026t185721z_76d716b6",
+      "table": "quarentena_c01",
+      "rows": 5,
+      "logical_bytes": 1816,
+      "expiration_time": "1798225058759"
+    },
+    {
+      "dataset": "fase2_stream_20261026t185721z_76d716b6",
+      "table": "metricas_microlotes_c01",
+      "rows": 1,
+      "logical_bytes": 116,
+      "expiration_time": "1798225062703"
+    },
+    {
+      "dataset": "fase2_stream_20261026t185721z_76d716b6",
+      "table": "gold_cenario_municipal_c01",
+      "rows": 2,
+      "logical_bytes": 446,
+      "expiration_time": "1798225067184"
+    },
+    {
+      "dataset": "fase2_stream_20261026t185721z_76d716b6",
+      "table": "bronze_recebimentos_c02",
+      "rows": 17,
+      "logical_bytes": 6492,
+      "expiration_time": "1798225072589"
+    },
+    {
+      "dataset": "fase2_stream_20261026t185721z_76d716b6",
+      "table": "silver_eventos_c02",
+      "rows": 6,
+      "logical_bytes": 1398,
+      "expiration_time": "1798225076628"
+    },
+    {
+      "dataset": "fase2_stream_20261026t185721z_76d716b6",
+      "table": "silver_destinos_c02",
+      "rows": 17,
+      "logical_bytes": 2485,
+      "expiration_time": "1798225080341"
+    },
+    {
+      "dataset": "fase2_stream_20261026t185721z_76d716b6",
+      "table": "quarentena_c02",
+      "rows": 9,
+      "logical_bytes": 3532,
+      "expiration_time": "1798225084277"
+    },
+    {
+      "dataset": "fase2_stream_20261026t185721z_76d716b6",
+      "table": "metricas_microlotes_c02",
+      "rows": 3,
+      "logical_bytes": 348,
+      "expiration_time": "1798225088489"
+    },
+    {
+      "dataset": "fase2_stream_20261026t185721z_76d716b6",
+      "table": "gold_cenario_municipal_c02",
+      "rows": 2,
+      "logical_bytes": 441,
+      "expiration_time": "1798225092851"
+    }
+  ],
+  "totals": {
+    "table_count": 26,
+    "load_job_count": 26,
+    "logical_bytes": 279944688,
+    "logical_gib": 0.26071880757808685,
+    "parquet_load_input_bytes": 59603355,
+    "successful_execution_seconds": 460.988,
+    "pipeline_query_jobs": 0,
+    "pipeline_sql_bytes_billed": 0,
+    "backup_payload_bytes": 129145526
+  },
+  "cloudshell": {
+    "measured_at": "2026-10-26T19:24:36.822468+00:00",
+    "method": "du -sb, disk_usage(/home), sysconf; host memory is not process RSS",
+    "data_bytes": 259862458,
+    "venv_bytes": 108382694,
+    "home_used_bytes": 419241984,
+    "home_total_bytes": 5138710528,
+    "host_vcpus": 2,
+    "host_memory_bytes": 8329314304
+  },
+  "backups": [
+    {
+      "name": "cloud_artifacts_20261026t183455z_ef5d3e21.zip",
+      "bytes": 128785036
+    },
+    {
+      "name": "streaming_artifacts_20261026t185721z_76d716b6.zip",
+      "bytes": 355248
+    },
+    {
+      "name": "alerts_artifacts_20261026.zip",
+      "bytes": 5242
+    }
+  ],
+  "monthly_projection": {
+    "frequency": "1 batch + 1 finite 17-delivery streaming demonstration/month; 2 notifications used only as an alert budget, not an assumed failure rate",
+    "retention": "60 days; approximate capacity of two monthly BigQuery versions",
+    "current_architecture_expected_usd": 0,
+    "counterfactual_only": true,
+    "production_assumptions": "Same periodic scripts on an e2-standard-2 in us-central1 (2 vCPU, 8 GiB), 10 GiB standard persistent boot/data disk retained all month; VM and ephemeral IPv4 active only during observed successful runtime. No always-on streaming.",
+    "quantity_units": {
+      "vm_hours": "0.1280522222222222222222222222",
+      "persistent_disk_gib_month": "10",
+      "ipv4_hours": "0.1280522222222222222222222222",
+      "bigquery_gib_month": "0.5214376151561737060546875",
+      "backup_egress_gib": "0.1202761437743902206420898438"
+    },
+    "usd_unit_prices": {
+      "vm_hours": "0.06701142",
+      "persistent_disk_gib_month": "0.04",
+      "ipv4_hours": "0.005",
+      "bigquery_gib_month": "0.023",
+      "backup_egress_gib": "0.19"
+    },
+    "usd_subtotals_before_discounts": {
+      "vm_hours": "0.008580961245266666666666666665",
+      "persistent_disk_gib_month": "0.40",
+      "ipv4_hours": "0.0006402611111111111111111111110",
+      "bigquery_gib_month": "0.0119930651485919952392578125",
+      "backup_egress_gib": "0.02285246731713414192199707032"
+    },
+    "usd_total_before_discounts": "0.4440667548221039149390326606",
+    "limitations": "Cloud Shell elapsed time used as a proxy, not a Compute Engine benchmark. Does not measure boot/setup/retries, TCP/TLS overhead, new regions, taxes, SLA or continuous events. Premium network backup traffic to Brazil priced by measured archive payload; network-meter bytes not measured. No production resource was provisioned."
+  },
+  "price_reference_date": "2026-10-26",
+  "price_sources": {
+    "cloudshell": "https://cloud.google.com/shell/pricing",
+    "bigquery": "https://cloud.google.com/bigquery/pricing",
+    "load_jobs": "https://docs.cloud.google.com/bigquery/docs/batch-loading-data",
+    "compute": "https://cloud.google.com/products/compute/pricing/general-purpose?hl=en",
+    "disk": "https://cloud.google.com/compute/disks-image-pricing",
+    "network": "https://cloud.google.com/vpc/pricing",
+    "ntfy": "https://ntfy.sh/",
+    "sandbox_limits": "https://docs.cloud.google.com/bigquery/docs/sandbox"
+  }
+}

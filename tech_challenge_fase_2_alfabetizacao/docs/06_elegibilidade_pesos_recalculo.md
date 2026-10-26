@@ -120,7 +120,6 @@ municipais; também não ponderar esses percentuais apenas pelo número de linha
 | --- | ---: | ---: | ---: | ---: | ---: |
 | Belo Horizonte, Municipal | 11.276 | 13.575,99 | 9.310,11 | 68,577761% | 68,58% |
 | Belmiro Braga, Municipal | 29 | 30,04 | 17,32 | 57,656458% | 57,69% |
-| Ingá/PB, Municipal | 128 | 158,00 | 74,64 | 47,240506% | 37,97% |
 | Conjunto público disponível do país | 1.851.828 | 2.109.149,905224 | 1.248.608,780513 | 59,199622% | 59,20% nacional |
 
 Na rede municipal de Belo Horizonte, a taxa sem peso seria 68,925151%, mostrando
@@ -152,29 +151,14 @@ página 17, informa que `TS_ALUNO` foi publicado sem as informações de São Pa
 Logo, o agregado de todos os alunos disponíveis de 2023 (57,462163%) não deve ser
 apresentado como reprodução do indicador nacional publicado (55,9%).
 
-### Divergência confirmada no original: Ingá/PB
+### Limitação de comparabilidade entre fontes
 
-O código `2506806` corresponde a Ingá. Foram conferidos diretamente os dois
-arquivos do ZIP original de 2024 e a publicação de metas:
-
-- Alunos elegíveis da rede Municipal: 128; peso total 158; peso dos alfabetizados 74,64.
-- Razão ponderada no CSV original: 47,240506%.
-- `TS_MUNICIPIO.csv` original: 37,97%.
-- Planilha de divulgação/metas de 2024, aba Divulgação Alfabet Municipio, H1291: 37,97%.
-- Os valores do BigQuery coincidem com esses valores de origem no caso conferido.
-
-Assim, a diferença de aproximadamente **9,27 p.p.** já ocorre entre os produtos
-originais com a regra de recálculo aplicada. Não é causada pela tradução de códigos
-no BigQuery ou por um erro de junção da pesquisa. Não foi identificada a causa
-metodológica individual. Não chamar toda diferença de arredondamento.
-
-O Leia-Me de 2024, página 21, registra exclusões na publicação de alunos (224
-registros de escolas não localizadas e 67 inconsistentes no corte de 743) e ajustes
-nos agregados. Essas notas mostram que os produtos sofreram tratamentos, mas
-NÃO comprovam a causa da divergência de Ingá ou de cada outro município.
-
-Foram preservados apenas os agregados/somatórios da conferência dos alunos, sem
-acrescentar registros individuais de alunos ao repositório.
+Uma investigação pontual encontrou indício de diferença na classificação da rede
+de uma escola entre alunos e agregados. Isso não comprova um problema generalizado
+nem autoriza reclassificar registros. A conferência geral deve distinguir diferença
+de universo, precisão e cobertura, preservando a referência publicada. Não incluir
+ausentes, ampliar tolerâncias ou alterar pesos apenas para reproduzir um valor.
+Os arquivos específicos desse estudo de caso não integram o repositório.
 
 ## Tratamento acordado para o desenho
 
@@ -186,9 +170,9 @@ acrescentar registros individuais de alunos ao repositório.
 5. Manter a publicação de resultados/metas como referência de cumprimento, conforme
    documento 05; mostrar a taxa recalculada na conferência sem sobrescrever a oficial.
 6. Uma investigação de divergência preserva valor, grupo, fonte e motivo pendente.
-   A regra para bloquear a publicação da conferência afetada será definida no catálogo
-   de qualidade; não afirmar que o recálculo está integralmente validado.
+   O [catálogo de qualidade](07_catalogo_qualidade.md) distingue erro de processamento
+   bloqueante de divergência informativa entre fontes; não afirmar que o recálculo
+   está integralmente validado.
 
-Próximo passo: priorizar divergências materiais e definir regras bloqueantes versus
-informativas, incluindo precisão, cobertura e diferenças entre arquivos. A implementação
+As regras bloqueantes e informativas estão no documento 07. A implementação
 da pipeline continua fora do escopo desta etapa.
