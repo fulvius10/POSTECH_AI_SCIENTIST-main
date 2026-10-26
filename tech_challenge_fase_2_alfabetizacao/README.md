@@ -6,8 +6,9 @@ confiável. A solução executa batch e streaming simulado no Google Cloud, com
 camadas Bronze, Silver e Gold, validações bloqueantes, métricas persistidas e
 alertas de falha. O ambiente acadêmico funciona com faturamento desativado.
 
-**Apresentação:** [PowerPoint com roteiro nas notas do apresentador](presentation/tech_challenge_alfabetizacao_fase_2.pptx).
-**Vídeo executivo:** gravação ainda não publicada.
+**Apresentação:** [PowerPoint](presentation/tech_challenge_alfabetizacao_fase_2.pptx).
+
+**Vídeo executivo:** 
 
 ## 1. Contexto e definição do problema
 
