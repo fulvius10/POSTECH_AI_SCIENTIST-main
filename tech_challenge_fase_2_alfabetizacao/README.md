@@ -349,12 +349,7 @@ Os backups preservam a Gold para a fase 3.
 
 ## Apresentação executiva
 
-O [PowerPoint](presentation/tech_challenge_alfabetizacao_fase_2.pptx) apresenta o
-problema, a investigação, os resultados, a arquitetura, a qualidade, o streaming,
-os alertas, os custos e a reprodução. O roteiro está nas **notas de cada slide**,
-visível no Modo do Apresentador. A leitura foi dimensionada para aproximadamente
-quatro a cinco minutos, com o integrante apresentando o projeto.
-
+O [PowerPoint](presentation/tech_challenge_alfabetizacao_fase_2.pptx) 
 O roteiro e os números usam as evidências do repositório. A publicação da gravação
 do vídeo executivo ainda não foi informada.
 
