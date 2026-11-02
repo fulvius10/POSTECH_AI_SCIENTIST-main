@@ -8,7 +8,7 @@ alertas de falha. O ambiente acadêmico funciona com faturamento desativado.
 
 **Apresentação:** [PowerPoint](presentation/tech_challenge_alfabetizacao_fase_2.pptx).
 
-**Vídeo executivo:** [Apresentação do projeto — 3 min 51 s (MP4)](https://github.com/fulvius10/POSTECH_AI_SCIENTIST/raw/refs/heads/main/tech_challenge_fase_2_alfabetizacao/presentation/Apresentacao%20Video%20Fase%202.mp4).
+**Vídeo executivo:** [Apresentação do projeto — 4 min 26 s (MP4)](https://github.com/fulvius10/POSTECH_AI_SCIENTIST/raw/refs/heads/main/tech_challenge_fase_2_alfabetizacao/presentation/Apresentacao%20Video%20Fase%202.mp4).
 
 **Repositório de entrega:** [fork do curso](https://github.com/fulvius10/POSTECH_AI_SCIENTIST/tree/main/tech_challenge_fase_2_alfabetizacao).
 **Repositório de desenvolvimento:** [histórico de trabalho](https://github.com/fulvius10/POSTECH_AI_SCIENTIST-main/tree/main/tech_challenge_fase_2_alfabetizacao).
@@ -354,11 +354,12 @@ Os backups preservam a Gold para a fase 3.
 ## Apresentação executiva
 
 O [vídeo executivo](https://github.com/fulvius10/POSTECH_AI_SCIENTIST/raw/refs/heads/main/tech_challenge_fase_2_alfabetizacao/presentation/Apresentacao%20Video%20Fase%202.mp4)
-tem duração de 3 minutos e 51 segundos e apresenta o problema educacional, as
+tem duração de 4 minutos e 26 segundos e apresenta o problema educacional, as
 fontes, a arquitetura e os resultados. A apresentação também aborda qualidade,
-streaming, alertas, custos e reprodutibilidade. Os números apresentados correspondem
-às evidências do projeto. A seção de aplicação em IA documenta o potencial da Gold
-para análises e modelos futuros, incluindo os cuidados com vazamento de alvo.
+streaming, alertas, custos e reprodutibilidade. O encerramento explica o potencial
+da Gold para análises e modelos futuros, os cuidados com vazamento de alvo e a
+limitação da série histórica. Os números apresentados correspondem às evidências
+do projeto. A seção de aplicação em IA detalha esses cuidados.
 
 O [PowerPoint](presentation/tech_challenge_alfabetizacao_fase_2.pptx) e o
 [arquivo MP4](presentation/Apresentacao%20Video%20Fase%202.mp4) acompanham a entrega.
